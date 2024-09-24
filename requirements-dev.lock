@@ -54,7 +54,6 @@ protobuf==5.28.2
     # via onnxruntime
 pyexecjs==1.5.1
     # via tju
-python-dotenv==1.0.1
 six==1.16.0
     # via pyexecjs
 sniffio==1.3.1

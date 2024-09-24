@@ -25,7 +25,6 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "python-dotenv>=1.0.1",
 ]
 
 [tool.hatch.metadata]

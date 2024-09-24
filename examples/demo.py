@@ -2,7 +2,6 @@ from tju import Session
 from tju.client import Client
 
 session = Session()
-session.login()
 
 client = Client(session=session)
 print(client.stu_id)

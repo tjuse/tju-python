@@ -72,3 +72,8 @@ class Client(BaseClient):
             self._session._cache["is_gs"] = "研究" in id_html
             self._session._cache["has_minor"] = "辅修" in id_html
         return self._session._cache["has_minor"]
+
+
+def create_client(*args, **kwargs) -> Client:
+    session = Session(*args, **kwargs)
+    return Client(session=session)

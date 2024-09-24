@@ -1,8 +1,12 @@
 import os
 import sys
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import BinaryIO, Union
 
 from fake_useragent import UserAgent
+
+FileTypes = Union[BinaryIO, str, Path]
 
 ua = UserAgent()
 

@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import os
 import re
+from typing import Optional
 
 import ddddocr
 import httpx
@@ -13,11 +14,12 @@ import httpx
 from .consts import (
     CAPTCHA_URL,
     DEFAULT_BASE_URL,
+    HOME_URL_PATH,
     LOGIN_URL,
 )
 from .encrypt import ctx
 from .exceptions import HtmlParseError, LoginError, SessionError
-from .utils import HiddenPrints, ua
+from .utils import FileTypes, HiddenPrints, ua
 
 
 class Session:
@@ -29,6 +31,7 @@ class Session:
     _username: str
     _password: str
     _cache: dict
+    _session_file: Optional[FileTypes]
 
     def __init__(
         self,
@@ -64,28 +67,82 @@ class Session:
     def __exit__(self, exc_type, exc_value, traceback):
         self._client.close()
 
-    def request(self, method: str, url: str, **kwargs):
+    def request(
+        self,
+        method: str,
+        url: str | httpx.URL,
+        *,
+        validate_session: bool = True,
+        auto_renew: bool = True,
+        **kwargs,
+    ):
         """
         Send a request.
         """
-        return self._client.request(method=method, url=url, **kwargs)
+        response = self._client.request(method=method, url=url, **kwargs)
+        if validate_session and b"/cas/login?service=" in response.url.raw_path:
+            if not auto_renew:
+                raise SessionError("Session expired")
+            self.get(LOGIN_URL, validate_session=False)
+            if (
+                b"/cas/login?service="
+                in self.get(HOME_URL_PATH, validate_session=False).url.raw_path
+            ):
+                self.login()
+            return self.request(
+                method=method,
+                url=url,
+                validate_session=validate_session,
+                auto_renew=False,
+                **kwargs,
+            )
+        else:
+            return response
 
-    def get(self, url: str, **kwargs):
+    def get(
+        self,
+        url: str,
+        *,
+        validate_session: bool = True,
+        auto_renew: bool = True,
+        **kwargs,
+    ):
         """
         Send a GET request.
         """
-        return self.request(method="GET", url=url, **kwargs)
+        return self.request(
+            method="GET",
+            url=url,
+            validate_session=validate_session,
+            auto_renew=auto_renew,
+            **kwargs,
+        )
 
-    def post(self, url: str, **kwargs):
+    def post(
+        self,
+        url: str,
+        *,
+        validate_session: bool = True,
+        auto_renew: bool = True,
+        **kwargs,
+    ):
         """
         Send a POST request.
         """
-        return self.request(method="POST", url=url, **kwargs)
+        return self.request(
+            method="POST",
+            url=url,
+            validate_session=validate_session,
+            auto_renew=auto_renew,
+            **kwargs,
+        )
 
     def login(self, username: str | None = None, password: str | None = None):
         """
         Session login
         """
+        self._cache = {}
+
         if username is None:
             username = self._username
 
