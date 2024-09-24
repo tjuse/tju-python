@@ -13,13 +13,11 @@ import httpx
 from .consts import (
     CAPTCHA_URL,
     DEFAULT_BASE_URL,
-    HOME_URL_PATH,
-    ID_URL_PATH,
     LOGIN_URL,
 )
 from .encrypt import ctx
 from .exceptions import HtmlParseError, LoginError, SessionError
-from .utils import HiddenPrints, get_current_semester, ua
+from .utils import HiddenPrints, ua
 
 
 class Session:
@@ -61,13 +59,10 @@ class Session:
             headers={"User-Agent": ua.random},
             **kwargs,
         )
-        self._cache = {
-            "stu_name": None,
-            "stu_id": None,
-            "semester": None,
-            "is_gs": None,
-            "has_minor": None,
-        }
+        self._cache = {}
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._client.close()
 
     def request(self, method: str, url: str, **kwargs):
         """
@@ -136,64 +131,18 @@ class Session:
         if re.findall(r"Please Login", login_response):
             raise LoginError("Login failed")
 
-        home_html = self.get(HOME_URL_PATH).text
-        home_info = re.findall(r'class="personal-name">\s(.*)\((\d+)\)', home_html)
-
-        if len(home_info) == 0:
-            raise HtmlParseError("HTML parse error")
-
-        self._cache["stu_name"] = home_info[0][0]
-        self._cache["stu_id"] = home_info[0][1]
-        self._cache["semester"] = get_current_semester()
-
-        id_html = self.post(ID_URL_PATH, params={"entityId": ""}).text
-        self._cache["is_gs"] = "研究" in id_html
-        self._cache["has_minor"] = "辅修" in id_html
-
         self._username = username
         self._password = password
 
-    @property
-    def stu_id(self) -> str:
+    def logout(self):
         """
-        student id
+        TODO: Session logout
         """
-        if "stu_id" not in self._cache or self._cache["stu_id"] is None:
-            raise LoginError("Not login")
-        return self._cache["stu_id"]
+        raise NotImplementedError("Not implemented")
 
     @property
-    def stu_name(self) -> str:
+    def _cookies(self) -> httpx.Cookies:
         """
-        student name
+        TODO: cookies
         """
-        if "stu_name" not in self._cache or self._cache["stu_name"] is None:
-            raise LoginError("Not login")
-        return self._cache["stu_name"]
-
-    @property
-    def semester(self) -> str:
-        """
-        semester
-        """
-        if "semester" not in self._cache or self._cache["semester"] is None:
-            raise LoginError("Not login")
-        return self._cache["semester"]
-
-    @property
-    def is_gs(self) -> bool:
-        """
-        is graduate student
-        """
-        if "is_gs" not in self._cache or self._cache["is_gs"] is None:
-            raise LoginError("Not login")
-        return self._cache["is_gs"]
-
-    @property
-    def has_minor(self) -> bool:
-        """
-        has minor (undergraduate)
-        """
-        if "has_minor" not in self._cache or self._cache["has_minor"] is None:
-            raise LoginError("Not login")
-        return self._cache["has_minor"]
+        return self._client.cookies

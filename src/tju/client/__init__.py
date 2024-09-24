@@ -2,7 +2,12 @@
 client
 """
 
+import re
+
 from tju import Session
+from tju.consts import HOME_URL_PATH, ID_URL_PATH
+from tju.exceptions import HtmlParseError
+from tju.utils import get_current_semester
 
 from .base import BaseClient
 
@@ -20,20 +25,50 @@ class Client(BaseClient):
 
     @property
     def stu_id(self) -> str:
-        return self._session.stu_id
+        """Get student id from current session"""
+        if "stu_id" not in self._session._cache:
+            home_html = self._session.get(HOME_URL_PATH).text
+            home_info = re.findall(r'class="personal-name">\s(.*)\((\d+)\)', home_html)
+
+            if len(home_info) == 0:
+                raise HtmlParseError("HTML parse error")
+
+            self._session._cache["stu_name"] = home_info[0][0]
+            self._session._cache["stu_id"] = home_info[0][1]
+        return self._session._cache["stu_id"]
 
     @property
     def stu_name(self) -> str:
-        return self._session.stu_name
+        """Get student name from current session"""
+        if "stu_name" not in self._session._cache:
+            home_html = self._session.get(HOME_URL_PATH).text
+            home_info = re.findall(r'class="personal-name">\s(.*)\((\d+)\)', home_html)
+
+            if len(home_info) == 0:
+                raise HtmlParseError("HTML parse error")
+
+            self._session._cache["stu_name"] = home_info[0][0]
+            self._session._cache["stu_id"] = home_info[0][1]
+        return self._session._cache["stu_name"]
 
     @property
     def semester(self) -> str:
-        return self._session.semester
+        if "semester" not in self._session._cache:
+            self._session._cache["semester"] = get_current_semester()
+        return self._session._cache["semester"]
 
     @property
     def stu_type(self) -> str:
-        return "研究生" if self._session.is_gs else "本科生"
+        if "is_gs" not in self._session._cache:
+            id_html = self._session.post(ID_URL_PATH, params={"entityId": ""}).text
+            self._session._cache["is_gs"] = "研究" in id_html
+            self._session._cache["has_minor"] = "辅修" in id_html
+        return "研究生" if self._session._cache["is_gs"] else "本科生"
 
     @property
     def has_minor(self) -> bool:
-        return self._session.has_minor
+        if "is_gs" not in self._session._cache:
+            id_html = self._session.post(ID_URL_PATH, params={"entityId": ""}).text
+            self._session._cache["is_gs"] = "研究" in id_html
+            self._session._cache["has_minor"] = "辅修" in id_html
+        return self._session._cache["has_minor"]
