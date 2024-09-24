@@ -2,7 +2,7 @@
 base client for client mixins
 """
 
-from .. import Session
+from tju import Session
 
 
 class BaseClient:

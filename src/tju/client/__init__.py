@@ -2,7 +2,8 @@
 client
 """
 
-from .. import Session
+from tju import Session
+
 from .base import BaseClient
 
 
