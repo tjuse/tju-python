@@ -8,3 +8,61 @@
 #   with-sources: false
 
 -e file:.
+anyio==4.6.0
+    # via httpx
+certifi==2024.8.30
+    # via httpcore
+    # via httpx
+coloredlogs==15.0.1
+    # via onnxruntime
+ddddocr==1.5.5
+    # via tju
+exceptiongroup==1.2.2
+    # via anyio
+fake-useragent==1.5.1
+    # via tju
+flatbuffers==24.3.25
+    # via onnxruntime
+h11==0.14.0
+    # via httpcore
+httpcore==1.0.5
+    # via httpx
+httpx==0.27.2
+    # via tju
+humanfriendly==10.0
+    # via coloredlogs
+idna==3.10
+    # via anyio
+    # via httpx
+importlib-resources==6.4.5
+    # via fake-useragent
+mpmath==1.3.0
+    # via sympy
+numpy==2.0.2
+    # via ddddocr
+    # via onnxruntime
+    # via opencv-python-headless
+onnxruntime==1.19.2
+    # via ddddocr
+opencv-python-headless==4.10.0.84
+    # via ddddocr
+packaging==24.1
+    # via onnxruntime
+pillow==10.4.0
+    # via ddddocr
+protobuf==5.28.2
+    # via onnxruntime
+pyexecjs==1.5.1
+    # via tju
+python-dotenv==1.0.1
+six==1.16.0
+    # via pyexecjs
+sniffio==1.3.1
+    # via anyio
+    # via httpx
+sympy==1.13.3
+    # via onnxruntime
+typing-extensions==4.12.2
+    # via anyio
+zipp==3.20.2
+    # via importlib-resources
