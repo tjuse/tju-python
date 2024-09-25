@@ -5,14 +5,16 @@ client
 import re
 
 from tju import Session
+from tju.client.api import ScheduleMixin
 from tju.consts import HOME_URL_PATH, ID_URL_PATH
 from tju.exceptions import HtmlParseError
+from tju.models.common import StuType
 from tju.utils import get_current_semester
 
 from .base import BaseClient
 
 
-class Client(BaseClient):
+class Client(ScheduleMixin, BaseClient):
     """
     client for tju
     """
@@ -58,12 +60,14 @@ class Client(BaseClient):
         return self._session._cache["semester"]
 
     @property
-    def stu_type(self) -> str:
+    def stu_type(self) -> StuType:
         if "is_gs" not in self._session._cache:
             id_html = self._session.post(ID_URL_PATH, params={"entityId": ""}).text
             self._session._cache["is_gs"] = "研究" in id_html
             self._session._cache["has_minor"] = "辅修" in id_html
-        return "研究生" if self._session._cache["is_gs"] else "本科生"
+        return (
+            StuType.GRADUATE if self._session._cache["is_gs"] else StuType.UNDERGRADUATE
+        )
 
     @property
     def has_minor(self) -> bool:
