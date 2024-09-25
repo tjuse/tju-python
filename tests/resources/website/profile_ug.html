@@ -1,0 +1,565 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="content-style-type" content="text/css" />
+  <meta http-equiv="content-script-type" content="text/javascript" />
+  <script type="text/javascript">
+      window.$BG_LANG='zh';
+  </script>
+  <script type="text/javascript" src="/eams/static/scripts/jquery/jquery,jquery.ui.core.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/plugins/jquery-form,jquery-history,jquery-colorbox,jquery-chosen.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/js/plugins/jquery.subscribe,/js/struts2/jquery.struts2,jquery.ui.struts2.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/beangle/beangle,beangle-ui.js?bg=3.4.3"></script>
+  <script type="text/javascript">var App = {contextPath:"/eams"};var funcInit = function () {jQuery.struts2_jquery.version="3.6.1";beangle.contextPath=App.contextPath;jQuery.scriptPath = App.contextPath+"/static/";jQuery.struts2_jquerySuffix = "";jQuery.ajaxSettings.traditional = true;jQuery.ajaxSetup ({cache: false});};</script>
+  <script type="text/javascript" src="/eams/static/scripts/my97/WdatePicker-4.72.js?compress=no"></script>
+  <link id="jquery_theme_link" rel="stylesheet" href="/eams/static/themes/smoothness/jquery-ui.css?s2j=3.6.1" type="text/css"/>
+  <link id="beangle_theme_link" href="/eams/static/themes/default/beangle-ui,colorbox,chosen.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/eams/static/css/foundation.css" type="text/css"/>
+  <script type="text/javascript" src="/eams/static/scripts/highcharts.js"></script>
+
+	<script src="/eams/static/scripts/require.config.js?v=3"></script>
+	<script>
+	require.baseUrl="/eams/static/scripts";
+	</script>
+	<script src="/eams/static/scripts/require.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/require.js"></script>
+
+	<!-- backbone & underscore -- fontend MVC framework -->
+	<script type="text/javascript" src="/eams/static/scripts/underscore.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/backbone.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/underscore.string.min.js"></script>
+	<script>
+	require(['underscore.string'], function(_s) {
+	        _.str = _s;
+	        _.mixin(_.str.exports());
+	});
+	funcInit();
+	//beangle.ajaxhistory = false;
+	</script>
+
+
+</head>
+<body>
+
+<div  class="navmenu" ><ul><li><a href="/eams/stdDetail!innerIndex.action"  onclick="return bg.Go(this,null)" >本科</a></li>
+<li><a href="/eams/stdDetail!stdDoubleDegree.action"  onclick="return bg.Go(this,null)" >双学位</a></li>
+</ul></div>
+<div id="indexDiv" class="ajax_container"><div id="toolbar16267797941"></div>
+<script type="text/javascript">
+  bar = bg.ui.toolbar("toolbar16267797941",'学籍信息');
+  	bar.addBlankItem();
+
+  bar.addHr();
+</script><div id="tabPane1"
+>
+<ul>
+</ul>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tab_tab_1469488815 = {};
+	options_tab_tab_1469488815.id = "tab_1469488815";
+	options_tab_tab_1469488815.href = "#tabPage1";
+	options_tab_tab_1469488815.label = "学籍信息";
+  	var tabs = jQuery('#tabPane1').data('taboptions');
+  	if(!tabs) {
+  		tabs = [];
+  	}
+  	tabs.push(options_tab_tab_1469488815);
+  	jQuery('#tabPane1').data('taboptions', tabs);
+ });
+</script>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tab_tab_1265573004 = {};
+	options_tab_tab_1265573004.id = "tab_1265573004";
+	options_tab_tab_1265573004.href = "#tabPage2";
+	options_tab_tab_1265573004.label = "资料申请修改";
+  	var tabs = jQuery('#tabPane1').data('taboptions');
+  	if(!tabs) {
+  		tabs = [];
+  	}
+  	tabs.push(options_tab_tab_1265573004);
+  	jQuery('#tabPane1').data('taboptions', tabs);
+ });
+</script>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tab_tab_1961128070 = {};
+	options_tab_tab_1961128070.id = "tab_1961128070";
+	options_tab_tab_1961128070.href = "#tabPage7";
+	options_tab_tab_1961128070.label = "联系信息";
+  	var tabs = jQuery('#tabPane1').data('taboptions');
+  	if(!tabs) {
+  		tabs = [];
+  	}
+  	tabs.push(options_tab_tab_1961128070);
+  	jQuery('#tabPane1').data('taboptions', tabs);
+ });
+</script>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tab_tab_428473245 = {};
+	options_tab_tab_428473245.id = "tab_428473245";
+	options_tab_tab_428473245.href = "#tabPage8";
+	options_tab_tab_428473245.label = "入学考试成绩";
+  	var tabs = jQuery('#tabPane1').data('taboptions');
+  	if(!tabs) {
+  		tabs = [];
+  	}
+  	tabs.push(options_tab_tab_428473245);
+  	jQuery('#tabPane1').data('taboptions', tabs);
+ });
+</script>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tab_tab_1289720673 = {};
+	options_tab_tab_1289720673.id = "tab_1289720673";
+	options_tab_tab_1289720673.href = "#tabPage9";
+	options_tab_tab_1289720673.label = "毕业信息";
+  	var tabs = jQuery('#tabPane1').data('taboptions');
+  	if(!tabs) {
+  		tabs = [];
+  	}
+  	tabs.push(options_tab_tab_1289720673);
+  	jQuery('#tabPane1').data('taboptions', tabs);
+ });
+</script>
+<div id="tabPage1" class="ajax_container"><br/>
+<form id="downloadForm" name="downloadForm" action="/eams/stdDetail.action" method="post"  >
+
+
+</form>
+<div id="toolbar16267797942"></div>
+<script type="text/javascript">
+  bar = bg.ui.toolbar("toolbar16267797942",'');
+      bar.addItem("下载培养合同书", "downloadContract()");
+
+    function downloadContract(){
+        var form = document.downloadForm;
+        bg.form.submit(form,"/eams/stdDetail!downloadContract.action","_self");
+    }
+
+  bar.addHr();
+</script><table style="width:95%" align="center" class="infoTable" id="studentInfoTb">
+    <tr>
+        <td colspan="5" style="font-weight:bold;text-align:center" class="darkColumn">学籍信息</td>
+    </tr>
+    <tr>
+        <td width="25%" class="title" style="width:18%">学号：</td>
+        <td width="25%">114514</td>
+        <td width="25%" class="title" style="width:18%">姓名：</td>
+        <td>田所浩二</td>
+        <td width="11%" rowspan="5" id='photoImg'>
+    		<img width="80px" height="110px" src="/eams/showAvatar.action?user.name=114514" alt="田所浩二" title="田所浩二"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">英文名：</td>
+        <td>Koji Tabosh</td>
+        <td class="title" style="width:18%">性别：</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">所在年级：</td>
+        <td>2024</td>
+        <td class="title" style="width:18%">学制：</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">项目：</td>
+        <td>本科</td>
+        <td class="title" style="width:18%">学历层次：</td>
+        <td>本科</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">学生类别：</td>
+        <td>本科生</td>
+        <td class="title" style="width:18%">院系：</td>
+        <td>智能与计算学部</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">专业：</td>
+        <td>人工智能</td>
+        <td class="title" style="width:18%">方向：</td>
+        <td></td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">入学日期：</td>
+        <td>2024-09-01</td>
+        <td class="title" style="width:18%">预毕业时间：</td>
+        <td>2028-08-31</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">行政管理院系：</td>
+        <td>智能与计算学部</td>
+        <td class="title" style="width:18%">学习形式：</td>
+        <td>全日制</td>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">是否在籍：</td>
+        <td>否</td>
+        <td class="title" style="width:18%">是否在校：</td>
+        <td>否</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">所属校区：</td>
+        <td>北洋园校区</td>
+        <td class="title" style="width:18%">行政班：</td>
+        <td>2024人工智能1班</td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">培养类型：</td>
+        <td></td>
+        <td class="title" style="width:18%">学生标签：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">是否民族班：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">学籍生效日期：</td>
+        <td>2024-09-01</td>
+        <td class="title" style="width:18%">是否有学籍：</td>
+        <td>是</td>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">培养方案：</td>
+        <td>2024 人工智能</td>
+        <td class="title" style="width:18%">学生分类：</td>
+        <td></td>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">联合办学单位：</td>
+    	<td>本校学生</td>
+    	<td class="title" style="width:18%">原班级：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">教学班：</td>
+        <td>2024人工智能1班</td>
+    	<td class="title" style="width:18%">备注：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">导师：</td>
+        <td></td>
+        <td class="title" style="width:18%"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">合作导师：</td>
+        <td></td>
+    	<td class="title" style="width:18%">总学费：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">助学金导师：</td>
+        <td></td>
+    	<td class="title" style="width:18%">学位类别：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">学籍状态：</td>
+        <td>在校</td>
+    	<td class="title" style="width:18%">合作单位：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">定向单位：</td>
+        <td></td>
+    	<td class="title" style="width:18%">在校生类别：</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="title" style="width:18%">是否校外生：</td>
+        <td>否</td>
+    	<td class="title" style="width:18%">培养模式：</td>
+        <td></td>
+    </tr>
+</table>
+
+<table style="width:95%" align="center" class="infoTable" id="studentInfoTb">
+	<tr>
+		<td colspan="10" style="font-weight:bold;text-align:center" class="darkColumn">学籍异动</td>
+	</tr>
+	<tr>
+		<td class="title" style="text-align:center">异动生效时间</td>
+		<td class="title" style="text-align:center">截止日期</td>
+		<td class="title" style="text-align:center">异动类别</td>
+		<td class="title" style="text-align:center">异动原因</td>
+		<td class="title" style="text-align:center">异动前院系</td>
+		<td class="title" style="text-align:center">异动前专业</td>
+		<td class="title" style="text-align:center">异动后院系</td>
+        <td class="title" style="text-align:center">异动后专业</td>
+		<td class="title" style="text-align:center">异动前学籍状态</td>
+		<td class="title" style="text-align:center">异动后学籍状态</td>
+		<td class="title" style="text-align:center">备注</td>
+	</tr>
+            <tr>
+                <td style="text-align:center">2024-12-23</td>
+                <td style="text-align:center"></td>
+                <td style="text-align:center">大类分专业</td>
+                <td style="text-align:center"></td>
+
+                <td style="text-align:center">
+                </td>
+                <td style="text-align:center">
+                        工科试验班(智能与计算类)
+                </td>
+                <td style="text-align:center">
+                </td>
+                <td style="text-align:center">
+                        人工智能
+                </td>
+                <td style="text-align:center">
+                </td>
+                <td style="text-align:center">
+                </td>
+
+                <td style="text-align:center"></td>
+            </tr>
+</table>
+</div>
+
+<div id="tabPage2" class="ajax_container">				<center><b>资料正在审核中...<br/></b></center>
+</div>
+
+<div id="tabPage7" class="ajax_container">
+<style>
+table.infoContactTable {
+	vertical-align: middle;
+	width:100%;
+	border-collapse: collapse;
+	background-color: #EEEEEE;
+}
+
+table.infoContactTable td {
+	border: 1px solid #FFFFFF;
+}
+table.infoContactTable th {
+	background-color: #E1ECFF;
+	height: 22px;
+}
+
+.infoContactTable .title{
+	height: 22px;
+	width: 12%;
+	background-color:#F5EDDB;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align:center;
+}
+.infoContactTable .content{
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+</style>
+<table style="width:95%" align="center" class="infoTable">
+    <tr>
+        <td colspan="4" style="font-weight:bold;text-align:center" class="darkColumn">联系信息</td>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">电子邮件：</td>
+        <td  style="width:20%"></td>
+   		<td class="title" style="width:18%">联系电话：</td>
+        <td  style="width:34%">1145141919810</td>
+    </tr>
+    <tr>
+    	<td class="title" style="width:18%">移动电话：</td>
+        <td  style="width:20%"></td>
+   		<td class="title" style="width:18%">联系地址：</td>
+        <td  style="width:34%">日本东京下北泽</td>
+    </tr>
+    <tr  class="darkColumn">
+          <td colspan="4" style="font-weight:bold;text-align:center" class="darkColumn">家庭联系信息</td>
+       </tr>
+         <tr>
+        	<td class="title" style="width:18%">家庭电话：</td>
+           	<td  style="width:20%"></td>
+            <td class="title" style="width:18%">家庭地址：</td>
+            <td  style="width:34%"></td>
+        </tr>
+         <tr>
+        	<td class="title" style="width:18%">家庭地址邮编：</td>
+            <td  style="width:20%"></td>
+            <td class="title">火车站：</td>
+            <td  style="width:34%"></td>
+        </tr>
+</table>
+<table style="width:95%" align="center" class="infoContactTable">
+    	<tr>
+    		<td class="title">家庭成员</td>
+    		<td class="title">与本人关系</td>
+    		<td class="title">联系电话</td>
+    		<td class="title">工作单位</td>
+    		<td class="title">工作邮编</td>
+    		<td class="title">工作地址</td>
+    		<td class="title">证件类型</td>
+    		<td class="title">证件号码</td>
+    	</tr>
+</table>
+</div>
+
+<div id="tabPage8" class="ajax_container"><table style="width:95%" align="center" class="infoTable" id="studentInfoTb">
+    <tr>
+        <td colspan="3" style="font-weight:bold;text-align:center" class="darkColumn">入学考试成绩</td>
+    </tr>
+    <tr>
+        <td class="title" style="text-align:center">科目</td>
+        <td class="title" style="text-align:center">成绩</td>
+        <td class="title" style="text-align:center">备注</td>
+    </tr>
+		<tr>
+        <td style="text-align:center">数学</td>
+        <td style="text-align:center">0</td>
+        <td style="text-align:center"></td>
+    </tr>
+	<tr>
+        <td style="text-align:center">英语</td>
+        <td style="text-align:center">0</td>
+        <td style="text-align:center"></td>
+    </tr>
+</table>
+</div>
+
+<div id="tabPage9" class="ajax_container"><form method="post" action="" name="actionFormGraduate" >
+	<table style="width:100%" align="center" class="infoTable">
+	        <input type="hidden" name="student.id" value="3146090"/>
+        <input type="hidden" name="studentId" value="3146090"/>
+        <input type="hidden" name="graduation.id" value="215796"/>
+	    <tr>
+	        <td class="title" id="f_graduateState">毕结业情况：</td>
+	        <td>
+	        	结业
+	        </td>
+	    	<td class="title" id="f_certificateNo">毕业证书编号：</td>
+	    	<td>
+	    		1145141919810114514
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td class="title" id="f_degree">学位：</td>
+	        <td>
+
+	        </td>
+	        <td class="title">学位授予日期 ：</td>
+	        <td>
+	        		26-6月 -28
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="title" id="f_diplomaNo">学位证书号：</td>
+	        <td>
+                11451419198101919810
+	        </td>
+	    </tr>
+    	<tr>
+            <td colspan="4" align="center">
+            </td>
+		</tr>
+	</table>
+</form>
+<script>
+	jQuery(document).ready(function(){
+		jQuery("#graduateState\\.id",document.actionFormGraduate).prop("title","毕结业情况");
+	});
+	function saveStudentGraduate() {
+    	var form = document.actionFormGraduate;
+		bg.ui.load("validity");
+		var res = null;
+		jQuery.validity.start();
+		jQuery("select[name=graduation\\.graduateState\\.id]",form).require();//毕结业情况
+		jQuery(":text[name=graduation\\.diplomaNo]",form).match(/^[A-Za-z0-9]+$/g,'只允许输入数字和字母').maxLength(20,'允许最大长度20!');//学位证书号
+		jQuery(":text[name=graduation\\.certificateNo]",form).match(/^[A-Za-z0-9]+$/g,'只允许输入数字和字母').maxLength(20,'允许最大长度20!');//毕业证书编号
+		res = jQuery.validity.end().valid;
+		if(false == res) {
+		    return;
+		}
+        form.action = "student!saveGraduation.action";
+        form.submit();
+    }
+</script>	  </div>
+
+</div>
+<script type='text/javascript'>
+jQuery(document).ready(function () {
+	var options_tabPane1 = {};
+	options_tabPane1.jqueryaction = "tabbedpanel";
+	options_tabPane1.id = "tabPane1";
+
+jQuery.struts2_jquery_ui.bind(jQuery('#tabPane1'),options_tabPane1);
+
+ });
+</script>
+</div>
+
+<script>
+	function validateData() {
+		var mail = jQuery("#mail").val();
+		var phone = jQuery("#phone").val();
+		var mobile = jQuery("#mobile").val();
+		var address = jQuery("#address").val();
+		var company = jQuery("#company").val();
+		var workzip = jQuery("#workzip").val();
+		if (mail=="" && phone==""
+			&& mobile=="" && address==""
+			&& company=="" && workzip=="") {
+				alert("请修改资料后再进行提交!");
+				return false;
+		}
+        var mobileReg = /^1[0-9]{10}$/;
+        var phoneReg =/^([0-9]{3,4}-)?[0-9]{7,8}$/;
+        if(!(phoneReg.test(phone) || mobileReg.test(phone))){
+            alert("请输入正确的联系电话");
+            return false;
+        }
+        if(!mobileReg.test(mobile)){
+            alert("请输入正确的移动电话");
+            return false;
+        }
+		return true;
+	}
+</script>
+
+  <script type="text/javascript">
+  	$(function() {
+  	  if(bg.Go != undefined) {
+  	    var originalGo = bg.Go;
+  	    bg.Go = function (obj, target, historyMode, historyData) {
+  	      if(target == "main") {
+  	        target = "_self";
+  	      }
+
+  	      return originalGo(obj, target, historyMode, historyData);
+  	    }
+  	  }
+
+	  $(".toolbar").each(function() {
+        if($(this).prev().length==0 && $(this).find(".toolbar-item").length==0) {
+          $(this).css("display", "none");
+        }
+	  });
+      $(".search-widget").css("margin-left", "auto");
+
+      var $chosenObj = $("select[class='chosen-simple']");
+      if($chosenObj.length > 0) {
+ 		$chosenObj.chosen({search_contains: true, placeholder_text: '...'});
+		$chosenObj.val('-1');
+		$chosenObj.trigger('chosen:updated');
+      }
+    });
+  </script>
+</body>
+</html>
+

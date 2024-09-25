@@ -1,10 +1,23 @@
 import json
 from pathlib import Path
 
-from tju.parser.schedule import parse_schedule
+from tju.parser import parse_profile, parse_schedule
 
 
-def test_parse_schedule():
+def test_parse_profile():
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/profile_ug.html").read_text()
+    )
+    result = parse_profile(raw_html)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/response/parsed_profile_ug.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_schedule_ug_std():
     raw_html = (
         Path(__file__)
         .parent.joinpath("resources/website/schedule_ug_std.html")
@@ -14,6 +27,21 @@ def test_parse_schedule():
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/response/parsed_schedule_ug_std.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_schedule_ug_class():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/schedule_ug_class.html")
+        .read_text()
+    )
+    result = parse_schedule(raw_html)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/response/parsed_schedule_ug_class.json")
         .read_text()
     )
     assert result == parsed_list
