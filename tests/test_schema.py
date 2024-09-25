@@ -17,7 +17,13 @@ def test_schedule_schema():
     for raw_dict, schedule_course in zip(raw_list, schedule_courses):
         if "credit" in raw_dict:
             raw_dict["credit"] = float(raw_dict["credit"])
-        assert all(getattr(schedule_course, k) == v for k, v in raw_dict.items())
+        for k, v in raw_dict.items():
+            if k == "arrange":
+                for i, arrange in enumerate(v):
+                    for k, v in arrange.items():
+                        assert getattr(schedule_course.arrange[i], k) == v
+            else:
+                assert getattr(schedule_course, k) == v
 
 
 def test_profile_schema():
