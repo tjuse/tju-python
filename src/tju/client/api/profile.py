@@ -16,4 +16,6 @@ class ProfileMixin(BaseClient):
         if "profile" not in self._session._cache:
             profile_html = self._session.get(PROFILE_URL_PATH).text
             self._session._cache["profile"] = parse_profile(profile_html)
-        return Profile(**self._session._cache["profile"])
+        profile = Profile()
+        profile.Schema().load(self._session._cache["profile"])
+        return profile

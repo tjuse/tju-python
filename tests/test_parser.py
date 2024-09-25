@@ -18,7 +18,7 @@ def test_parse_profile():
             result[k] = str(v)
     parsed_list = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/response/parsed_profile_ug.json")
+        .parent.joinpath("resources/parsed/parsed_profile_ug.json")
         .read_text()
     )
     assert result == parsed_list
@@ -33,7 +33,7 @@ def test_parse_schedule_ug_std():
     result = parse_schedule(raw_html)
     parsed_list = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/response/parsed_schedule_ug_std.json")
+        .parent.joinpath("resources/parsed/parsed_schedule_ug_std.json")
         .read_text()
     )
     assert result == parsed_list
@@ -48,7 +48,7 @@ def test_parse_schedule_ug_class():
     result = parse_schedule(raw_html)
     parsed_list = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/response/parsed_schedule_ug_class.json")
+        .parent.joinpath("resources/parsed/parsed_schedule_ug_class.json")
         .read_text()
     )
     assert result == parsed_list
@@ -59,10 +59,9 @@ def test_parse_course():
         Path(__file__).parent.joinpath("resources/website/course_ug.html").read_text()
     )
     result = parse_course(raw_html)
-    print(result)
     parsed_list = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/response/parsed_course.json")
+        .parent.joinpath("resources/parsed/parsed_course_ug.json")
         .read_text()
     )
     assert result == parsed_list
