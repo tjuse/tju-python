@@ -1,31 +1,32 @@
-from dataclasses import field
 from typing import Optional
 
 from marshmallow_dataclass import dataclass
 
-from tju.models.base import Result, Results
+from tju.schema import mfield
+
+from .base import Result, Results
 
 
 @dataclass(frozen=True)
 class CourseArrange(Result):
-    teacher: Optional[list] = field(default=None)
-    week: Optional[list] = field(default=None)
-    unit: Optional[list] = field(default=None)
-    weekday: Optional[int] = field(default=None)
-    location: Optional[str] = field(default=None)
+    teacher: Optional[list] = mfield(default=None)
+    week: Optional[list] = mfield(default=None)
+    unit: Optional[list] = mfield(default=None)
+    weekday: Optional[int] = mfield(default=None)
+    location: Optional[str] = mfield(default=None)
 
 
 @dataclass(frozen=True)
-class ScheduleCourse(Result):
-    class_id: Optional[str] = field(default=None)
-    course_id: Optional[str] = field(default=None)
-    name: Optional[str] = field(default=None)
-    credit: Optional[float] = field(default=None)
-    campus: Optional[str] = field(default=None)
-    weeks: Optional[str] = field(default=None)
-    arrange: Optional[list[CourseArrange]] = field(default=None)
-    teacher: Optional[list] = field(default=None)
+class Course(Result):
+    class_id: Optional[str] = mfield(default=None)
+    course_id: Optional[str] = mfield(default=None)
+    name: Optional[str] = mfield(default=None)
+    credit: Optional[float] = mfield(default=None)
+    campus: Optional[str] = mfield(default=None)
+    weeks: Optional[str] = mfield(default=None)
+    arrange: Optional[list[CourseArrange]] = mfield(default=None)
+    teacher: Optional[list] = mfield(default=None)
 
 
-class Schedule(Results[ScheduleCourse]):
-    _item = ScheduleCourse
+class Schedule(Results[Course]):
+    _item = Course

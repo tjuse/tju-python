@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from tju.models.profile import Profile
-from tju.models.schedule import ScheduleCourse
+from tju.models.schedule import Course
 
 
 def test_schedule_schema():
@@ -11,7 +11,7 @@ def test_schedule_schema():
         .parent.joinpath("resources/response/parsed_schedule_ug_std.json")
         .read_text()
     )
-    schema = ScheduleCourse.Schema(many=True)
+    schema = Course.Schema(many=True)
     schedule_courses = schema.load(raw_list)
     assert schedule_courses is not None
     for raw_dict, schedule_course in zip(raw_list, schedule_courses):
