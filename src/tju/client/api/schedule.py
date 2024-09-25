@@ -17,7 +17,7 @@ from tju.consts import (
 from tju.exceptions import CourseError, HtmlParseError, SemesterError
 from tju.models.base import Results
 from tju.models.common import StuType
-from tju.models.schedule import Schedule, ScheduleCourse
+from tju.models.schedule import Course, Schedule
 from tju.parser import parse_schedule
 
 
@@ -35,7 +35,7 @@ class ScheduleMixin(BaseClient):
         query_minor: bool = False,
         query_class: bool = False,
         **kwargs,
-    ) -> Results[ScheduleCourse]:
+    ) -> Results[Course]:
         """
         self course table
         """
