@@ -8,15 +8,39 @@ CAPTCHA_URL = "https://sso.tju.edu.cn/cas/code"
 DEFAULT_BASE_URL = "http://classes.tju.edu.cn"
 HOME_URL_PATH = "/eams/homeExt.action"
 ID_URL_PATH = "/eams/dataQuery.action"
+
+# profile
 PROFILE_URL_PATH = "/eams/stdDetail.action"
+
+# schedule
 COURSETABLE_INDEX_URL_PATH = "/eams/courseTableForStd!index.action"
 COURSETABLE_GET_URL_PATH = "/eams/courseTableForStd!innerIndex.action"
 COURSETABLE_URL_PATH = "/eams/courseTableForStd!courseTable.action"
-COURSELIB_URL_PATH = "/eams/stdSyllabus!search.action"
-COURSEINFO_URL_PATH = "/eams/stdSyllabus!syllabusInfo.action"
+
+# score
+SCORE_HISTORY_URL_PATH = "/eams/teach/grade/course/person!historyCourseGrade.action"
+SCORE_SEARCH_URL_PATH = "/eams/teach/grade/course/person!search.action"
+SCORE_EXP_URL_PATH = "/eams/exp/person.action"
+
+# exam
 EXAM_POST_URL_PATH = "/eams/stdExamTable.action"
 EXAM_URL_PATH = "/eams/stdExamTable!examTable.action"
-SCORE_URL_PATH = "/eams/teach/grade/course/person!historyCourseGrade.action"
+
+# plan
+PLAN_URL_PATH = "/eams/myPlan.action"
+PLAN_COMPL_URL_PATH = "/eams/myPlanCompl.action"
+
+# course
+COURSELIB_URL_PATH = "/eams/stdSyllabus!search.action"
+COURSEINFO_URL_PATH = "/eams/stdSyllabus!syllabusInfo.action"
+
+# classify
+COURSETABLE_CLASSIFY_URL_PATH = "/eams/classifyCourseTableForStd!search.action"
+
+# spare
+FREE_SELECTION_URL_PATH = "/eams/classroom/apply/free.action"
+FREE_SEARCH_URL_PATH = "/eams/classroom/apply/free!search.action"
+
 
 SEMESTER = {
     "03041": "24",
@@ -72,3 +96,5 @@ SEMESTER = {
     "28291": "138",
     "28292": "139",
 }
+
+CHINESE_WEEKDAY = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "日": 7}
