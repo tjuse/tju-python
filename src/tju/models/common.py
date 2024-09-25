@@ -9,3 +9,19 @@ class StuType(Enum):
 
     def __str__(self):
         return self.value
+
+    def __repr__(self):
+        return self.value
+
+
+class Gender(Enum):
+    """Gender"""
+
+    MALE = "男"
+    FEMALE = "女"
+
+    def __str__(self):
+        return self.value
+
+    def __repr__(self):
+        return self.value

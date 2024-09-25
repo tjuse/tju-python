@@ -6,9 +6,9 @@ LOGIN_URL = "https://sso.tju.edu.cn/cas/login"
 CAPTCHA_URL = "https://sso.tju.edu.cn/cas/code"
 
 DEFAULT_BASE_URL = "http://classes.tju.edu.cn"
-
 HOME_URL_PATH = "/eams/homeExt.action"
 ID_URL_PATH = "/eams/dataQuery.action"
+PROFILE_URL_PATH = "/eams/stdDetail.action"
 COURSETABLE_INDEX_URL_PATH = "/eams/courseTableForStd!index.action"
 COURSETABLE_GET_URL_PATH = "/eams/courseTableForStd!innerIndex.action"
 COURSETABLE_URL_PATH = "/eams/courseTableForStd!courseTable.action"

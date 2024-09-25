@@ -5,16 +5,16 @@ client
 import re
 
 from tju import Session
-from tju.client.api import ScheduleMixin
 from tju.consts import HOME_URL_PATH, ID_URL_PATH
 from tju.exceptions import HtmlParseError
-from tju.models.common import StuType
+from tju.models import StuType
 from tju.utils import get_current_semester
 
+from .api import ProfileMixin, ScheduleMixin
 from .base import BaseClient
 
 
-class Client(ScheduleMixin, BaseClient):
+class Client(ScheduleMixin, ProfileMixin, BaseClient):
     """
     client for tju
     """

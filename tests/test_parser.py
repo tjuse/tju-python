@@ -1,4 +1,6 @@
 import json
+from datetime import date
+from enum import Enum
 from pathlib import Path
 
 from tju.parser import parse_profile, parse_schedule
@@ -9,6 +11,11 @@ def test_parse_profile():
         Path(__file__).parent.joinpath("resources/website/profile_ug.html").read_text()
     )
     result = parse_profile(raw_html)
+    for k, v in result.items():
+        if isinstance(v, date):
+            result[k] = v.strftime("%Y-%m-%d")
+        elif isinstance(v, Enum):
+            result[k] = str(v)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/response/parsed_profile_ug.json")

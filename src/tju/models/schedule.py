@@ -6,7 +6,7 @@ from marshmallow_dataclass import dataclass
 from tju.models.base import Result, Results
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScheduleCourse(Result):
     class_id: Optional[str] = field(default=None)
     course_id: Optional[str] = field(default=None)
