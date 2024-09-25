@@ -45,6 +45,8 @@ class ScheduleMixin(BaseClient):
         if not has_minor and query_minor:
             raise CourseError("No minor classes")
 
+        if semester is None:
+            semester = self.semester
         if semester not in SEMESTER:
             raise SemesterError(f"Semester {semester} not found")
         semester_id = SEMESTER[semester]
