@@ -47,20 +47,32 @@ def test_profile_schema():
     profile = schema.load(raw_dict)
     assert profile is not None
     for k, v in serialized_dict.items():
-        assert getattr(profile, k) == v
+        serialized_v = getattr(profile, k)
+        if v is None:
+            assert serialized_v is None
+        elif isinstance(serialized_v, bool):
+            assert serialized_v == (v == "是")
+        else:
+            assert str(serialized_v) == v
 
 
 def test_course_schema():
-    raw_list = json.loads(
+    raw_dict = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_course_ug.json")
         .read_text()
     )
-    serialized_list = json.loads(
+    serialized_dict = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/serialized/serialized_course.json")
+        .parent.joinpath("resources/serialized/serialized_course_ug.json")
         .read_text()
     )
+    for k, v in serialized_dict.items():
+        if k == "list":
+            continue
+        assert raw_dict[k] == v
+    raw_list = raw_dict["list"]
+    serialized_list = serialized_dict["list"]
     schema = LibCourse.Schema(many=True)
     courses = schema.load(raw_list)
     assert courses is not None

@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from tju.consts import COURSELIB_URL_PATH, SEMESTER
 from tju.exceptions import SemesterError, StuTypeError
-from tju.models import StuType
+from tju.models import CourseLib, StuType
+from tju.parser import parse_course
 
 from ..base import BaseClient
 
@@ -53,4 +54,10 @@ class CourseMixin(BaseClient):
             },
             **kwargs,
         ).text
-        return course_html
+
+        course_dict = parse_course(course_html)
+        course = CourseLib()
+        if "list" in course_dict:
+            course.load(data=course_dict["list"])
+            course_dict["list"] = course
+        return course_dict

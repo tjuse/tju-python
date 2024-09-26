@@ -71,14 +71,10 @@ def parse_course(html):
                 c = c.split(",")
             elif key == "课程类别":
                 c = [_.strip() for _ in c.split(",")]
-            elif key == "是否开放计划外":
-                c = c == "是"
             elif key == "学时/周":
                 item["总学时"] = c.split("/")[0]
                 item["周学时"] = c.split("/")[1]
                 continue
-            elif key == "课程大纲":
-                c = c == "有"
             item[key] = c
         if item["lession_id"] not in lession_id_to_arrange:
             raise HtmlParseError("HTML parse error")

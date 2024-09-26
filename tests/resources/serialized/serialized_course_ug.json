@@ -1,0 +1,1382 @@
+{
+    "list": [
+        {
+            "class_id": "00002",
+            "course_id": "2110379",
+            "name": "毕业实习",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [],
+            "teacher": [
+                "董粤章"
+            ],
+            "course_type": [
+                "实习"
+            ],
+            "teaching_class": [
+                "2017英语1班",
+                "2017英语2班"
+            ],
+            "selected": 57,
+            "limit": 70,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 0,
+            "week_hours": 0,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00003",
+            "course_id": "2120016",
+            "name": "软件工程",
+            "credit": 3.0,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [
+                {
+                    "teacher": [
+                        "孙秀钰"
+                    ],
+                    "week": [
+                        1,
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        15
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 1,
+                    "location": "33楼192"
+                },
+                {
+                    "teacher": [
+                        "孙秀钰"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 3,
+                    "location": "33楼181"
+                }
+            ],
+            "teacher": [
+                "孙秀钰"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018计算机科学与技术(职)1班"
+            ],
+            "selected": 13,
+            "limit": 15,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 48,
+            "week_hours": 3,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00004",
+            "course_id": "2140066",
+            "name": "环境微生物学（双语）",
+            "credit": 2.5,
+            "campus": "北洋园校区",
+            "weeks": "1-12",
+            "arrange": [
+                {
+                    "teacher": [
+                        "郎铁柱"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "weekday": 2,
+                    "location": "43楼A406"
+                }
+            ],
+            "teacher": [
+                "郎铁柱"
+            ],
+            "course_type": [
+                "学科基础"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 31,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 48,
+            "week_hours": 4,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00005",
+            "course_id": "2140085",
+            "name": "生物化学实验",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-12",
+            "arrange": [
+                {
+                    "teacher": [
+                        "刘宪华"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A406"
+                }
+            ],
+            "teacher": [
+                "刘宪华"
+            ],
+            "course_type": [
+                "学科基础"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 30,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 48,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00006",
+            "course_id": "2140089",
+            "name": "环境化学",
+            "credit": 3.5,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [
+                {
+                    "teacher": [
+                        "童银栋"
+                    ],
+                    "week": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A406"
+                },
+                {
+                    "teacher": [
+                        "迟杰"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "unit": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A406"
+                }
+            ],
+            "teacher": [
+                "迟杰",
+                "童银栋"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 30,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 64,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00007",
+            "course_id": "2140091",
+            "name": "环境监测实验",
+            "credit": 1.0,
+            "campus": "北洋园校区",
+            "weeks": "3-10",
+            "arrange": [
+                {
+                    "teacher": [
+                        "迟杰"
+                    ],
+                    "week": [
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "unit": [
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "weekday": 4,
+                    "location": ""
+                }
+            ],
+            "teacher": [
+                "迟杰"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 30,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 32,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00008",
+            "course_id": "2140097",
+            "name": "非线性科学概论",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [
+                {
+                    "teacher": [
+                        "柴立和"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        7,
+                        8
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A406"
+                }
+            ],
+            "teacher": [
+                "柴立和"
+            ],
+            "course_type": [
+                "研究与创新"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 13,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 32,
+            "week_hours": 2,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00009",
+            "course_id": "2140100",
+            "name": "环境地质学",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [
+                {
+                    "teacher": [
+                        "赵林"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 4,
+                    "location": "43楼A403"
+                }
+            ],
+            "teacher": [
+                "赵林"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018环境科学2班",
+                "2018环境科学1班"
+            ],
+            "selected": 30,
+            "limit": 40,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 32,
+            "week_hours": 2,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00011",
+            "course_id": "2180110",
+            "name": "软件工程实训",
+            "credit": 8.0,
+            "campus": "北洋园校区",
+            "weeks": "9-16",
+            "arrange": [],
+            "teacher": [
+                "陶文源"
+            ],
+            "course_type": [
+                "实习"
+            ],
+            "teaching_class": [
+                "2018软件工程2班",
+                "2018软件工程3班",
+                "2018软件工程4班",
+                "2018软件工程1班",
+                "2018软件工程6班",
+                "2018软件工程5班"
+            ],
+            "selected": 172,
+            "limit": 180,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 0,
+            "week_hours": 0,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00012",
+            "course_id": "2050436",
+            "name": "砌体结构",
+            "credit": 1.5,
+            "campus": "北洋园校区",
+            "weeks": "1-6",
+            "arrange": [
+                {
+                    "teacher": [
+                        "王秀芬"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 1,
+                    "location": "45楼B302"
+                },
+                {
+                    "teacher": [
+                        "王秀芬"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 3,
+                    "location": "45楼B302"
+                }
+            ],
+            "teacher": [
+                "王秀芬"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018土木工程1班",
+                "2018土木工程2班",
+                "2018土木工程3班",
+                "2018土木工程4班",
+                "2018土木工程5班",
+                "2018建筑工程(教学专业)1班"
+            ],
+            "selected": 93,
+            "limit": 165,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 24,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00014",
+            "course_id": "2050797",
+            "name": "海岸与海洋灾害",
+            "credit": 3.0,
+            "campus": "北洋园校区",
+            "weeks": "1-8",
+            "arrange": [
+                {
+                    "teacher": [
+                        "张金凤"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "unit": [
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "weekday": 2,
+                    "location": "45楼B118"
+                },
+                {
+                    "teacher": [
+                        "张金凤"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 6,
+                    "location": "45楼B118"
+                }
+            ],
+            "teacher": [
+                "张金凤"
+            ],
+            "course_type": [
+                "跨学科选修或PSIP",
+                "专业选修"
+            ],
+            "teaching_class": [
+                "2018土木工程1班",
+                "2018土木工程2班",
+                "2018土木工程3班",
+                "2018土木工程4班",
+                "2018土木工程5班",
+                "2018港口航道与海岸工程1班",
+                "2018港口航道与海岸工程2班",
+                "2018港口航道与海岸工程3班",
+                "2018船舶与海洋工程1班",
+                "2018船舶与海洋工程2班",
+                "2018船舶与海洋工程3班",
+                "2018船舶与海洋工程4班",
+                "2018船舶与海洋工程5班"
+            ],
+            "selected": 266,
+            "limit": 311,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 48,
+            "week_hours": 6,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00015",
+            "course_id": "2050651",
+            "name": "水资源概论",
+            "credit": 1.5,
+            "campus": "北洋园校区",
+            "weeks": "10-15",
+            "arrange": [
+                {
+                    "teacher": [
+                        "冯平"
+                    ],
+                    "week": [
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                    ],
+                    "unit": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "weekday": 2,
+                    "location": "46楼A110"
+                },
+                {
+                    "teacher": [
+                        "冯平"
+                    ],
+                    "week": [
+                        11
+                    ],
+                    "unit": [
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "weekday": 6,
+                    "location": "45楼B110"
+                }
+            ],
+            "teacher": [
+                "冯平"
+            ],
+            "course_type": [
+                "跨学科选修或PSIP",
+                "专业选修"
+            ],
+            "teaching_class": [
+                "2018土木工程1班",
+                "2018土木工程2班",
+                "2018土木工程3班",
+                "2018土木工程4班",
+                "2018土木工程5班",
+                "2018水利水电工程1班",
+                "2018水利水电工程2班",
+                "2018水利水电工程3班",
+                "2018水利水电工程4班"
+            ],
+            "selected": 148,
+            "limit": 256,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 24,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00016",
+            "course_id": "2050349",
+            "name": "水电站(含水力机械)",
+            "credit": 4.0,
+            "campus": "北洋园校区",
+            "weeks": "2-12",
+            "arrange": [
+                {
+                    "teacher": [
+                        "徐国宾"
+                    ],
+                    "week": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "马超"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "徐国宾"
+                    ],
+                    "week": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "马超"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "徐国宾"
+                    ],
+                    "week": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "马超"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A306"
+                }
+            ],
+            "teacher": [
+                "徐国宾",
+                "马超"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018水利水电工程1班",
+                "2018水利水电工程2班"
+            ],
+            "selected": 51,
+            "limit": 100,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 66,
+            "week_hours": 6,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00017",
+            "course_id": "2050644",
+            "name": "水工建筑物",
+            "credit": 4.5,
+            "campus": "北洋园校区",
+            "weeks": "2-13",
+            "arrange": [
+                {
+                    "teacher": [
+                        "崔溦"
+                    ],
+                    "week": [
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "unit": [
+                        5,
+                        6
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A408"
+                },
+                {
+                    "teacher": [
+                        "张社荣"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "unit": [
+                        5,
+                        6
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A408"
+                },
+                {
+                    "teacher": [
+                        "崔溦"
+                    ],
+                    "week": [
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "unit": [
+                        7,
+                        8
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A408"
+                },
+                {
+                    "teacher": [
+                        "张社荣"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "unit": [
+                        7,
+                        8
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A408"
+                },
+                {
+                    "teacher": [
+                        "崔溦"
+                    ],
+                    "week": [
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 4,
+                    "location": "43楼A408"
+                },
+                {
+                    "teacher": [
+                        "张社荣"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 4,
+                    "location": "43楼A408"
+                }
+            ],
+            "teacher": [
+                "崔溦",
+                "张社荣"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018水利水电工程1班",
+                "2018水利水电工程2班",
+                "2018水利水电工程3班",
+                "2018水利水电工程4班"
+            ],
+            "selected": 107,
+            "limit": 120,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 72,
+            "week_hours": 6,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00018",
+            "course_id": "2050190",
+            "name": "水利水能规划",
+            "credit": 2.5,
+            "campus": "北洋园校区",
+            "weeks": "1-10",
+            "arrange": [
+                {
+                    "teacher": [
+                        "孙冬梅"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "unit": [
+                        5,
+                        6
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A306"
+                },
+                {
+                    "teacher": [
+                        "孙冬梅"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A306"
+                }
+            ],
+            "teacher": [
+                "孙冬梅"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018水利水电工程1班",
+                "2018水利水电工程2班"
+            ],
+            "selected": 51,
+            "limit": 100,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 40,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00019",
+            "course_id": "2050573",
+            "name": "钢筋混凝土课程设计",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-16",
+            "arrange": [],
+            "teacher": [
+                "王超"
+            ],
+            "course_type": [
+                "课程设计"
+            ],
+            "teaching_class": [
+                "2018水利水电工程1班",
+                "2018水利水电工程2班"
+            ],
+            "selected": 52,
+            "limit": 100,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 0,
+            "week_hours": 0,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00020",
+            "course_id": "2050345",
+            "name": "水力学B",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "1-8",
+            "arrange": [
+                {
+                    "teacher": [
+                        "张庆河"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "unit": [
+                        7,
+                        8
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A412"
+                },
+                {
+                    "teacher": [
+                        "张庆河"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A403"
+                }
+            ],
+            "teacher": [
+                "张庆河"
+            ],
+            "course_type": [
+                "学科基础"
+            ],
+            "teaching_class": [
+                "2018港口航道与海岸工程1班",
+                "2018港口航道与海岸工程2班",
+                "2018港口航道与海岸工程3班"
+            ],
+            "selected": 78,
+            "limit": 99,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 32,
+            "week_hours": 4,
+            "has_syllabus": false
+        },
+        {
+            "class_id": "00021",
+            "course_id": "2050659",
+            "name": "海岸动力学",
+            "credit": 2.0,
+            "campus": "北洋园校区",
+            "weeks": "9-16",
+            "arrange": [
+                {
+                    "teacher": [
+                        "张庆河"
+                    ],
+                    "week": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        7,
+                        8
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A308"
+                },
+                {
+                    "teacher": [
+                        "张庆河"
+                    ],
+                    "week": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A308"
+                }
+            ],
+            "teacher": [
+                "张庆河"
+            ],
+            "course_type": [
+                "学科基础"
+            ],
+            "teaching_class": [
+                "2018港口航道与海岸工程1班",
+                "2018港口航道与海岸工程2班",
+                "2018港口航道与海岸工程3班"
+            ],
+            "selected": 77,
+            "limit": 99,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 32,
+            "week_hours": 4,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00022",
+            "course_id": "2050660",
+            "name": "渠化工程",
+            "credit": 2.5,
+            "campus": "北洋园校区",
+            "weeks": "2-11",
+            "arrange": [
+                {
+                    "teacher": [
+                        "张伟"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11
+                    ],
+                    "unit": [
+                        5,
+                        6
+                    ],
+                    "weekday": 1,
+                    "location": "43楼A214"
+                },
+                {
+                    "teacher": [
+                        "张伟"
+                    ],
+                    "week": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11
+                    ],
+                    "unit": [
+                        5,
+                        6
+                    ],
+                    "weekday": 3,
+                    "location": "43楼A214"
+                }
+            ],
+            "teacher": [
+                "张伟"
+            ],
+            "course_type": [
+                "专业核心"
+            ],
+            "teaching_class": [
+                "2018港口航道与海岸工程1班",
+                "2018港口航道与海岸工程2班",
+                "2018港口航道与海岸工程3班"
+            ],
+            "selected": 75,
+            "limit": 99,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 40,
+            "week_hours": 4,
+            "has_syllabus": true
+        },
+        {
+            "class_id": "00024",
+            "course_id": "2050661",
+            "name": "道路与桥梁工程总论",
+            "credit": 3.0,
+            "campus": "北洋园校区",
+            "weeks": "1-12",
+            "arrange": [
+                {
+                    "teacher": [
+                        "柳国环"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        1,
+                        2
+                    ],
+                    "weekday": 2,
+                    "location": "43楼A308"
+                },
+                {
+                    "teacher": [
+                        "柳国环"
+                    ],
+                    "week": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12
+                    ],
+                    "unit": [
+                        3,
+                        4
+                    ],
+                    "weekday": 5,
+                    "location": "43楼A308"
+                }
+            ],
+            "teacher": [
+                "柳国环"
+            ],
+            "course_type": [
+                "跨学科选修或PSIP",
+                "跨学科选修"
+            ],
+            "teaching_class": [
+                "2018港口航道与海岸工程1班",
+                "2018港口航道与海岸工程2班",
+                "2018港口航道与海岸工程3班",
+                "2018建筑工程(教学专业)3班"
+            ],
+            "selected": 68,
+            "limit": 100,
+            "extra_limit": 0,
+            "is_extra_open": false,
+            "hours": 48,
+            "week_hours": 4,
+            "has_syllabus": true
+        }
+    ],
+    "page_no": 1,
+    "page_size": 20,
+    "total": 2896
+}

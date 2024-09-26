@@ -1,15 +1,17 @@
-from typing import Optional
+from typing import Annotated, Optional
 
 from marshmallow_dataclass import dataclass
 
-from tju.schema import mfield
+from tju.fields import ChineseBool, ChineseHasBool
+from tju.schema import LoadDumpSchema, mfield
 
+from .base import Results
 from .schedule import Course, CourseArrange
 
 
-@dataclass(frozen=True)
+# fmt: off
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
 class LibCourse(Course):
-    # TODO: bind keys
     # key in Course
     class_id: Optional[str] = mfield(default=None, data_key="课程序号")
     course_id: Optional[str] = mfield(default=None, data_key="课程代码")
@@ -25,7 +27,11 @@ class LibCourse(Course):
     selected: Optional[int] = mfield(default=None, data_key="实际")
     limit: Optional[int] = mfield(default=None, data_key="总上限")
     extra_limit: Optional[int] = mfield(default=None, data_key="计划外人数上限")
-    is_extra_open: Optional[bool] = mfield(default=None, data_key="是否开放计划外")
+    is_extra_open: Annotated[Optional[bool], ChineseBool] = mfield(default=None, data_key="是否开放计划外")
     hours: Optional[int] = mfield(default=None, data_key="总学时")
     week_hours: Optional[int] = mfield(default=None, data_key="周学时")
-    has_syllabus: Optional[bool] = mfield(default=None, data_key="课程大纲")
+    has_syllabus: Annotated[Optional[bool], ChineseHasBool] = mfield(default=None, data_key="课程大纲")
+
+
+class CourseLib(Results[LibCourse]):
+    _item = LibCourse
