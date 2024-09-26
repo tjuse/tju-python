@@ -3,7 +3,13 @@ from datetime import date
 from enum import Enum
 from pathlib import Path
 
-from tju.parser import parse_course, parse_profile, parse_schedule
+from tju.parser import (
+    parse_course,
+    parse_exam,
+    parse_exam_batch_id,
+    parse_profile,
+    parse_schedule,
+)
 
 
 def test_parse_profile():
@@ -63,5 +69,22 @@ def test_parse_course():
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_course_ug.json")
         .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_exam_batch_id():
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/exam_post.html").read_text()
+    )
+    result = parse_exam_batch_id(raw_html)
+    assert result == "322"
+
+
+def test_parse_exam():
+    raw_html = Path(__file__).parent.joinpath("resources/website/exam.html").read_text()
+    result = parse_exam(raw_html)
+    parsed_list = json.loads(
+        Path(__file__).parent.joinpath("resources/parsed/parsed_exam.json").read_text()
     )
     assert result == parsed_list

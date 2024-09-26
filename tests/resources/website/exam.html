@@ -1,0 +1,66 @@
+
+
+<div class="grid">
+
+
+    <table id="grid17213119481" class="gridtable">
+    <thead class="gridhead">
+
+
+    <tr>
+    <th  width="10%" >课程序号</th>
+    <th  width="15%" >课程名称</th>
+    <th  width="8%" >考试类别</th>
+    <th  width="11%" >考试日期</th>
+    <th  width="11%" >批次</th>
+    <th  width="13%" >考试安排</th>
+    <th  width="8%" >考试地点</th>
+    <th  width="8%" >考场座位号</th>
+    <th  width="8%" >考试情况</th>
+    <th  width="8%" >其它说明</th>
+    </tr>
+
+    </thead>
+
+    <tbody id="grid17213119481_data"><tr><td>03585</td><td>大学英语4</td><td>期末考试</td>		<td>2021-06-21</td>
+    <td>公共课期末考试</td>		<td>14:00~16:00</td>
+                <td>45楼B118</td>
+            <td>154</td>
+    <td>正常</td><td>
+    </td></tr><tr><td>00609</td><td>数字逻辑与数字系统</td><td>期末考试</td>		<td>2021-06-24</td>
+    <td>专业课期末考试</td>		<td>09:00~11:00</td>
+                <td>46楼A204</td>
+            <td>22</td>
+    <td>正常</td><td>
+    </td></tr><tr><td>00610</td><td>数据库原理</td><td>期末考试</td>		<td>2021-06-28</td>
+    <td>专业课期末考试</td>		<td>14:00~16:00</td>
+                <td>46楼A205</td>
+            <td>26</td>
+    <td>正常</td><td>
+    </td></tr><tr><td>00618</td><td>计算机网络</td><td>期末考试</td>		<td>2021-06-30</td>
+    <td>专业课期末考试</td>		<td>09:00~11:00</td>
+                <td>45楼B109</td>
+            <td>20</td>
+    <td>正常</td><td>
+    </td></tr></tbody>
+    </table>
+    </div>
+    <script type="text/javascript">
+      var clearCheckbox_grid17213119481 = function() {
+        jQuery("#grid17213119481").find(".box:checkbox").removeProp("checked");
+        jQuery("#grid17213119481").find(".gridselect-top :checkbox").removeProp("checked");
+        return true;
+      }
+
+      page_grid17213119481 = bg.page("/eams/stdExamTable!examTable.action","");
+      {
+        var _paramstring = 'examBatch.id=262&_=1727255518417';
+        var _params = _paramstring.split('&');
+        for (var i = 0; i < _params.length; i++) {
+          _params[i] = decodeURIComponent(_params[i]);
+        }
+        _paramstring = _params.join('&');
+        page_grid17213119481.target("",'grid17213119481').action("/eams/stdExamTable!examTable.action").addParams(_paramstring).orderBy("null");
+      }
+      bg.ui.grid.init('grid17213119481',page_grid17213119481);
+    </script>

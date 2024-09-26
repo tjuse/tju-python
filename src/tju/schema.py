@@ -26,7 +26,7 @@ class LoadDumpSchema(Schema):
         return data
 
 
-def mfield(default, *, data_key: str | None = None, **kwargs):
+def mfield(default=None, *, data_key: str | None = None, **kwargs):
     """field with metadata"""
     for k in ["data_key"]:
         if locals().get(k) is not None:

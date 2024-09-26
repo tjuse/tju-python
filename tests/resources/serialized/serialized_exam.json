@@ -1,0 +1,62 @@
+[
+    {
+        "class_id": "03585",
+        "name": "大学英语4",
+        "exam_type": "期末考试",
+        "exam_date": "2021-06-21",
+        "exam_category": "公共课期末考试",
+        "exam_time": [
+            "14:00",
+            "16:00"
+        ],
+        "location": "45楼B118",
+        "seat": "154",
+        "status": "正常",
+        "notice": ""
+    },
+    {
+        "class_id": "00609",
+        "name": "数字逻辑与数字系统",
+        "exam_type": "期末考试",
+        "exam_date": "2021-06-24",
+        "exam_category": "专业课期末考试",
+        "exam_time": [
+            "09:00",
+            "11:00"
+        ],
+        "location": "46楼A204",
+        "seat": "22",
+        "status": "正常",
+        "notice": ""
+    },
+    {
+        "class_id": "00610",
+        "name": "数据库原理",
+        "exam_type": "期末考试",
+        "exam_date": "2021-06-28",
+        "exam_category": "专业课期末考试",
+        "exam_time": [
+            "14:00",
+            "16:00"
+        ],
+        "location": "46楼A205",
+        "seat": "26",
+        "status": "正常",
+        "notice": ""
+    },
+    {
+        "class_id": "00618",
+        "name": "计算机网络",
+        "exam_type": "期末考试",
+        "exam_date": "2021-06-30",
+        "exam_category": "专业课期末考试",
+        "exam_time": [
+            "09:00",
+            "11:00"
+        ],
+        "location": "45楼B109",
+        "seat": "20",
+        "status": "正常",
+        "notice": ""
+    }
+]
