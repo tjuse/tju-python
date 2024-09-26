@@ -3,6 +3,7 @@ base client for client mixins
 """
 
 from tju import Session
+from tju.models import StuType
 
 
 class BaseClient:
@@ -34,7 +35,7 @@ class BaseClient:
         ...
 
     @property
-    def stu_type(self) -> str:
+    def stu_type(self) -> StuType:
         """
         student type
         """

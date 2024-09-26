@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from tju.consts import COURSELIB_URL_PATH, SEMESTER
-from tju.exceptions import SemesterError, StuTypeError
+from tju.exceptions import HtmlParseError, SemesterError, StuTypeError
 from tju.models import CourseLib, StuType
 from tju.parser import parse_course
 
@@ -14,7 +14,7 @@ class CourseMixin(BaseClient):
 
     def query_courses(
         self,
-        stu_type: StuType | int,
+        stu_type: StuType | int | None = None,
         semester: str | None = None,
         page_no: int | None = None,
         page_size: int | None = None,
@@ -23,6 +23,8 @@ class CourseMixin(BaseClient):
         """
         public course lib
         """
+        if stu_type is None:
+            stu_type = self.stu_type
         if stu_type == StuType.UNDERGRADUATE or stu_type == 1:
             project_id = 1
         elif stu_type == StuType.GRADUATE or stu_type == 2:
@@ -55,7 +57,10 @@ class CourseMixin(BaseClient):
             **kwargs,
         ).text
 
-        course_dict = parse_course(course_html)
+        try:
+            course_dict = parse_course(course_html)
+        except IndexError:
+            raise HtmlParseError from None
         course = CourseLib()
         if "list" in course_dict:
             course.load(data=course_dict["list"])

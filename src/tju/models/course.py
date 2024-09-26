@@ -28,8 +28,8 @@ class LibCourse(Course):
     limit: Optional[int] = mfield(default=None, data_key="总上限")
     extra_limit: Optional[int] = mfield(default=None, data_key="计划外人数上限")
     is_extra_open: Annotated[Optional[bool], ChineseBool] = mfield(default=None, data_key="是否开放计划外")
-    hours: Optional[int] = mfield(default=None, data_key="总学时")
-    week_hours: Optional[int] = mfield(default=None, data_key="周学时")
+    hours: Optional[float] = mfield(default=None, data_key="总学时")
+    week_hours: Optional[float] = mfield(default=None, data_key="周学时")
     has_syllabus: Annotated[Optional[bool], ChineseHasBool] = mfield(default=None, data_key="课程大纲")
 
 

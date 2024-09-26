@@ -1,9 +1,9 @@
 import json
 from pathlib import Path
 
-from tju.models.course import LibCourse
+from tju.models.course import CourseLib
 from tju.models.profile import Profile
-from tju.models.schedule import Course
+from tju.models.schedule import Schedule
 
 
 def test_schedule_schema():
@@ -17,14 +17,15 @@ def test_schedule_schema():
         .parent.joinpath("resources/serialized/serialized_schedule_ug_std.json")
         .read_text()
     )
-    schema = Course.Schema(many=True)
-    courses = schema.load(raw_list)
-    assert courses is not None
-    for serialized_dict, course in zip(serialized_list, courses):
+    schedule = Schedule()
+    schedule.load(data=raw_list)
+    assert schedule is not None
+    for serialized_dict, course in zip(serialized_list, schedule):
         if "credit" in serialized_dict:
             serialized_dict["credit"] = float(serialized_dict["credit"])
         for k, v in serialized_dict.items():
             if k == "arrange":
+                assert course.arrange is not None
                 for i, arrange in enumerate(v):
                     for k, v in arrange.items():
                         assert getattr(course.arrange[i], k) == v
@@ -43,8 +44,7 @@ def test_profile_schema():
         .parent.joinpath("resources/serialized/serialized_profile_ug.json")
         .read_text()
     )
-    schema = Profile.Schema()
-    profile = schema.load(raw_dict)
+    profile = Profile.Schema().load(raw_dict)
     assert profile is not None
     for k, v in serialized_dict.items():
         serialized_v = getattr(profile, k)
@@ -73,14 +73,15 @@ def test_course_schema():
         assert raw_dict[k] == v
     raw_list = raw_dict["list"]
     serialized_list = serialized_dict["list"]
-    schema = LibCourse.Schema(many=True)
-    courses = schema.load(raw_list)
+    courses = CourseLib()
+    courses.load(data=raw_list)
     assert courses is not None
     for serialized_dict, course in zip(serialized_list, courses):
         if "credit" in serialized_dict:
             serialized_dict["credit"] = float(serialized_dict["credit"])
         for k, v in serialized_dict.items():
             if k == "arrange":
+                assert course.arrange is not None
                 for i, arrange in enumerate(v):
                     for k, v in arrange.items():
                         assert getattr(course.arrange[i], k) == v

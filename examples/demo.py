@@ -13,4 +13,6 @@ client = Client(session=session)
 
 # print(client.schedule(semester="19201"))
 
-print(client.profile)
+# print(client.profile)
+
+print(client.query_courses())
