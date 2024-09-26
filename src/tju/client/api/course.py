@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from tju.consts import COURSELIB_URL_PATH, SEMESTER
-from tju.exceptions import HtmlParseError, SemesterError, StuTypeError
+from tju.exceptions import DataError, HtmlParseError, StuTypeError
 from tju.models import CourseLib, StuType
 from tju.parser import parse_course
 
@@ -35,7 +35,7 @@ class CourseMixin(BaseClient):
         if semester is None:
             semester = self.semester
         if semester not in SEMESTER:
-            raise SemesterError(f"Semester {semester} not found")
+            raise DataError(f"Semester {semester} not found")
         semester_id = SEMESTER[semester]
 
         if page_no is None:

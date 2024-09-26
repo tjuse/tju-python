@@ -14,7 +14,7 @@ from tju.consts import (
     COURSETABLE_URL_PATH,
     SEMESTER,
 )
-from tju.exceptions import CourseError, HtmlParseError, SemesterError
+from tju.exceptions import DataError, HtmlParseError
 from tju.models.base import Results
 from tju.models.common import StuType
 from tju.models.schedule import Course, Schedule
@@ -43,12 +43,12 @@ class ScheduleMixin(BaseClient):
         has_minor = self.has_minor
 
         if not has_minor and query_minor:
-            raise CourseError("No minor classes")
+            raise DataError("No minor classes")
 
         if semester is None:
             semester = self.semester
         if semester not in SEMESTER:
-            raise SemesterError(f"Semester {semester} not found")
+            raise DataError(f"Semester {semester} not found")
         semester_id = SEMESTER[semester]
 
         if is_gs:
