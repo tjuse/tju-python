@@ -1,5 +1,6 @@
 from typing import Annotated, Optional
 
+from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
 from tju.fields import ChineseBool, ChineseHasBool
@@ -31,6 +32,9 @@ class LibCourse(Course):
     hours: Optional[float] = mfield(default=None, data_key="总学时")
     week_hours: Optional[float] = mfield(default=None, data_key="周学时")
     has_syllabus: Annotated[Optional[bool], ChineseHasBool] = mfield(default=None, data_key="课程大纲")
+
+    class Meta:
+        unknown = EXCLUDE
 
 
 class CourseLib(Results[LibCourse]):

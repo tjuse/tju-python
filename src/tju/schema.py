@@ -20,9 +20,9 @@ class LoadDumpSchema(Schema):
 
     @post_dump
     def restore_keys(self, data, **kwargs):
-        for field_name, field in self.fields.items():
-            if field.data_key:
-                data[field_name] = data.pop(field.data_key)
+        for field_name, _field in self.fields.items():
+            if _field.data_key:
+                data[field_name] = data.pop(_field.data_key)
         return data
 
 

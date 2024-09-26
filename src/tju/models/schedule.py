@@ -1,5 +1,6 @@
 from typing import Optional
 
+from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
 from tju.schema import mfield
@@ -26,6 +27,9 @@ class Course(Result):
     weeks: Optional[str] = mfield(default=None)
     arrange: Optional[list[CourseArrange]] = mfield(default=None)
     teacher: Optional[list] = mfield(default=None)
+
+    class Meta:
+        unknown = EXCLUDE
 
 
 class Schedule(Results[Course]):

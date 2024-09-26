@@ -1,6 +1,7 @@
 from datetime import date
 from typing import Annotated, Optional
 
+from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
 from tju.fields import DatetimeField, ExamTimeField
@@ -22,6 +23,9 @@ class Exam(Result):
     seat: Optional[str] = mfield(default=None, data_key="考场座位号")
     status: Optional[str] = mfield(default=None, data_key="考试情况")
     notice: Optional[str] = mfield(default=None, data_key="其它说明")
+
+    class Meta:
+        unknown = EXCLUDE
 
 
 class Exams(Results[Exam]):
