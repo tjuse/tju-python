@@ -9,6 +9,7 @@ from tju.parser import (
     parse_exam_batch_id,
     parse_profile,
     parse_schedule,
+    parse_score,
 )
 
 
@@ -86,5 +87,69 @@ def test_parse_exam():
     result = parse_exam(raw_html)
     parsed_list = json.loads(
         Path(__file__).parent.joinpath("resources/parsed/parsed_exam.json").read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_score_1():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/score_search_ug.html")
+        .read_text()
+    )
+    result = parse_score(raw_html, True)
+    print(result)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_search_ug.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_score_2():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/score_history_ug.html")
+        .read_text()
+    )
+    result = parse_score(raw_html, True)
+    print(result)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_history_ug.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_score_3():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/score_search_gs.html")
+        .read_text()
+    )
+    result = parse_score(raw_html, True)
+    print(result)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_search_gs.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_score_4():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/score_history_gs.html")
+        .read_text()
+    )
+    result = parse_score(raw_html, True)
+    print(result)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_history_gs.json")
+        .read_text()
     )
     assert result == parsed_list
