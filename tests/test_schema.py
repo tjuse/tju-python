@@ -5,6 +5,7 @@ from tju.models.course import CourseLib, LibCourse
 from tju.models.exam import Exam, Exams
 from tju.models.profile import Profile
 from tju.models.schedule import Course, Schedule
+from tju.models.score import Score, Scores, ScoreSummary, ScoreSummarys
 
 
 def test_schedule_schema():
@@ -85,3 +86,112 @@ def test_exam_schema():
     for serialized_dict, exam in zip(serialized_list, exams):
         exam_dict = Exam.Schema().dump(exam)
         assert exam_dict == serialized_dict
+
+
+def test_score_schema_1():
+    raw_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_search_ug.json")
+        .read_text()
+    )
+    serialized_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_score_search_ug.json")
+        .read_text()
+    )
+    raw_list = raw_dict["list"]
+    serialized_list = serialized_dict["list"]
+    scores = Scores()
+    scores.load(data=raw_list)
+    assert scores is not None
+    for serialized_dict, score in zip(serialized_list, scores):
+        score_dict = Score.Schema().dump(score)
+        assert score_dict == serialized_dict
+
+
+def test_score_schema_2():
+    raw_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_history_ug.json")
+        .read_text()
+    )
+    serialized_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_score_history_ug.json")
+        .read_text()
+    )
+
+    raw_score_list = raw_dict["list"]
+    serialized_score_list = serialized_dict["list"]
+    scores = Scores()
+    scores.load(data=raw_score_list)
+    assert scores is not None
+    scores_list = Score.Schema(many=True).dump(scores)
+    assert scores_list == serialized_score_list
+
+    raw_summary_list = raw_dict["summary"]
+    serialized_summary_list = serialized_dict["summary"]
+    summarys = ScoreSummarys()
+    summarys.load(data=raw_summary_list)
+    assert summarys is not None
+    summarys_list = ScoreSummary.Schema(many=True).dump(summarys)
+    assert summarys_list == serialized_summary_list
+
+
+def test_score_schema_3():
+    raw_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_search_gs.json")
+        .read_text()
+    )
+    serialized_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_score_search_gs.json")
+        .read_text()
+    )
+
+    raw_score_list = raw_dict["list"]
+    serialized_score_list = serialized_dict["list"]
+    scores = Scores()
+    scores.load(data=raw_score_list)
+    assert scores is not None
+    scores_list = Score.Schema(many=True).dump(scores)
+    assert scores_list == serialized_score_list
+
+    raw_summary_list = raw_dict["summary"]
+    serialized_summary_list = serialized_dict["summary"]
+    summarys = ScoreSummarys()
+    summarys.load(data=raw_summary_list)
+    assert summarys is not None
+    summarys_list = ScoreSummary.Schema(many=True).dump(summarys)
+    assert summarys_list == serialized_summary_list
+
+
+def test_score_schema_4():
+    raw_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_history_gs.json")
+        .read_text()
+    )
+    serialized_dict = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_score_history_gs.json")
+        .read_text()
+    )
+
+    raw_score_list = raw_dict["list"]
+    serialized_score_list = serialized_dict["list"]
+    scores = Scores()
+    scores.load(data=raw_score_list)
+    assert scores is not None
+    scores_list = Score.Schema(many=True).dump(scores)
+    assert scores_list == serialized_score_list
+
+    raw_summary_list = raw_dict["summary"]
+    serialized_summary_list = serialized_dict["summary"]
+    summarys = ScoreSummarys()
+    summarys.load(data=raw_summary_list)
+    assert summarys is not None
+    summarys_list = ScoreSummary.Schema(many=True).dump(summarys)
+    print(summarys_list)
+    assert summarys_list == serialized_summary_list

@@ -1,0 +1,162 @@
+{
+    "summary": [
+        {
+            "school_year": "2024-2025",
+            "term": 1,
+            "courses_count": 8,
+            "total_credit": 17.0
+        },
+        {
+            "school_year": "2024-2025",
+            "term": 2,
+            "courses_count": 4,
+            "total_credit": 7.0
+        }
+    ],
+    "list": [
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S131A035",
+            "name": "工程数学基础",
+            "course_type": "必修课",
+            "credit": 4.0,
+            "score": "100",
+            "class_id": "06086",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S131G003",
+            "name": "自然辩证法概论",
+            "course_type": "选修课",
+            "credit": 1.0,
+            "score": "100",
+            "class_id": "05935",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S131G006",
+            "name": "新时代中国特色社会主义理论与实践",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "05912",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S2113001",
+            "name": "工程应用英语",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "免修",
+            "class_id": "07251",
+            "exam_status": "免修",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S216E603",
+            "name": "高级人工智能",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "07609",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S216E616",
+            "name": "自然语言处理",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "07643",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S216E617",
+            "name": "图像合成技术",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "07675",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "S2185018",
+            "name": "软件体系结构",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "07615",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S2168001",
+            "name": "社会计算导论",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "05428",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S216G606",
+            "name": "现代计算机体系结构",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "06324",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S2213003",
+            "name": "工程伦理",
+            "course_type": "必修课",
+            "credit": 1.0,
+            "score": "100",
+            "class_id": "05398",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S4028001",
+            "name": "信息检索与分析",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "05249",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        }
+    ]
+}

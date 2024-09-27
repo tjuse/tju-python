@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from datetime import date, datetime
 
 from marshmallow.fields import Field
@@ -72,3 +73,28 @@ class ExamTimeField(Field):
         if value is None:
             return None
         return [datetime.strptime(_, "%H:%M").time() for _ in value.split("~")]
+
+
+class ScoreSemesterField(Field):
+    d_pattern = re.compile(r"20(\d{2})-20(\d{2}) (\d)")
+    s_pattern = re.compile(r"(\d{2})(\d{2})(\d)")
+
+    def _serialize(self, value: str, attr: str, obj: object, **kwargs) -> str:
+        if self.s_pattern.findall(value):
+            return re.sub(self.s_pattern, r"20\1-20\2 \3", value)
+        return value
+
+    def _deserialize(self, value: str, attr: str, data: dict, **kwargs) -> str | None:
+        if self.d_pattern.findall(value):
+            return re.sub(self.d_pattern, r"\1\2\3", value)
+        return value
+
+
+class GPAField(Field):
+    def _serialize(self, value: float | None, attr: str, obj: object, **kwargs) -> str:
+        return str(value) if value else ""
+
+    def _deserialize(
+        self, value: float, attr: str, data: dict, **kwargs
+    ) -> float | None:
+        return float(value) if value else None

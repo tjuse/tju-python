@@ -1,0 +1,53 @@
+{
+    "summary": [],
+    "list": [
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S2168001",
+            "name": "社会计算导论",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "05428",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S216G606",
+            "name": "现代计算机体系结构",
+            "course_type": "必修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "06324",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S2213003",
+            "name": "工程伦理",
+            "course_type": "必修课",
+            "credit": 1.0,
+            "score": "100",
+            "class_id": "05398",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "S4028001",
+            "name": "信息检索与分析",
+            "course_type": "选修课",
+            "credit": 2.0,
+            "score": "100",
+            "class_id": "05249",
+            "exam_status": "正常",
+            "is_in_plan": false,
+            "is_credited": true
+        }
+    ]
+}

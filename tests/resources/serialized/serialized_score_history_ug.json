@@ -1,0 +1,792 @@
+{
+    "summary": [
+        {
+            "courses_count": 78,
+            "total_credit": 165.0,
+            "gpa": 4.0,
+            "score": 100.0
+        }
+    ],
+    "list": [
+        {
+            "semester": "2024-2025 1",
+            "course_id": "1140001",
+            "name": "法制安全教育",
+            "course_type": "文化素质教育必修",
+            "course_props": "必修",
+            "credit": 0.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2100004",
+            "name": "高等数学2A",
+            "course_type": "数学",
+            "course_props": "必修",
+            "credit": 6.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2100558",
+            "name": "线性代数及其应用",
+            "course_type": "数学",
+            "course_props": "必修",
+            "credit": 3.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2111292",
+            "name": "大学英语1",
+            "course_type": "外语",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2111361",
+            "name": "中国传统文化撷英（翻转）",
+            "course_type": "文化素质选修-艺术与美学",
+            "course_props": "选修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2160279",
+            "name": "大学计算机基础1",
+            "course_type": "计算机",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2180277",
+            "name": "离散数学",
+            "course_type": "数学",
+            "course_props": "必修",
+            "credit": 4.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2180278",
+            "name": "计算机系统导论",
+            "course_type": "学科基础",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2180279",
+            "name": "程序设计原理",
+            "course_type": "学科基础",
+            "course_props": "必修",
+            "credit": 4.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2310001",
+            "name": "体育A 台球",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "2310033",
+            "name": "纳米地球与全球气候变化",
+            "course_type": "文化素质选修-自然科学",
+            "course_props": "选修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "4010005",
+            "name": "体育锻炼 1",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "A",
+            "gpa": ""
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "4080001",
+            "name": "健康教育",
+            "course_type": "健康教育",
+            "course_props": "必修",
+            "credit": 0.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "5100055",
+            "name": "思想道德修养与法律基础",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 1",
+            "course_id": "5100075",
+            "name": "大学生心理健康（上）",
+            "course_type": "文化素质教育必修",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2090719",
+            "name": "中西文化简论1",
+            "course_type": "文化素质选修-社会与哲学",
+            "course_props": "选修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2100005",
+            "name": "高等数学2B",
+            "course_type": "数学",
+            "course_props": "必修",
+            "credit": 5.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2100097",
+            "name": "大学物理2A",
+            "course_type": "物理",
+            "course_props": "必修",
+            "credit": 4.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2100546",
+            "name": "数学方法选讲",
+            "course_type": "文化素质选修-自然科学",
+            "course_props": "",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2111293",
+            "name": "大学英语2",
+            "course_type": "外语",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2210015",
+            "name": "中国近现代史纲要",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2310002",
+            "name": "体育B 篮球",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2440046",
+            "name": "数据结构",
+            "course_type": "学科基础",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2440049",
+            "name": "程序设计综合实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2440050",
+            "name": "计算机系统基础",
+            "course_type": "学科基础",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "4010006",
+            "name": "体育锻炼2",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "A",
+            "gpa": ""
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "5100057",
+            "name": "军事理论1",
+            "course_type": "军事",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "5100076",
+            "name": "大学生心理健康（下）",
+            "course_type": "文化素质教育必修",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2070665",
+            "name": "简单造就神奇--富勒烯、碳纳米管和石墨烯",
+            "course_type": "研究与创新",
+            "course_props": "选修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2100075",
+            "name": "概率论与数理统计1",
+            "course_type": "数学",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2100098",
+            "name": "大学物理2B",
+            "course_type": "物理",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2100346",
+            "name": "物理实验A",
+            "course_type": "物理",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2111140",
+            "name": "马克思主义基本原理",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2111294",
+            "name": "大学英语3",
+            "course_type": "外语",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2310003",
+            "name": "体育C 网球",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2440031",
+            "name": "算法设计与分析",
+            "course_type": "大类基础课",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2440072",
+            "name": "计算机系统综合实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2440078",
+            "name": "操作系统原理",
+            "course_type": "大类基础课",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "2440094",
+            "name": "计算机产业前沿与创新创业",
+            "course_type": "创新创业与跨学科选修",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "4010007",
+            "name": "体育锻炼3",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "A",
+            "gpa": ""
+        },
+        {
+            "semester": "2025-2026 1",
+            "course_id": "5100078",
+            "name": "集中军事训练",
+            "course_type": "军事",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2100047",
+            "name": "数学模型",
+            "course_type": "数学",
+            "course_props": "选修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2100347",
+            "name": "物理实验B",
+            "course_type": "物理",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2111295",
+            "name": "大学英语4",
+            "course_type": "外语",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2111391",
+            "name": "商务英语实用写作",
+            "course_type": "文化素质选修-思维培养与沟通表达",
+            "course_props": "选修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2160083",
+            "name": "面向对象程序设计",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2180267",
+            "name": "形式化方法（双语）",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2310004",
+            "name": "体育D 体适能",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 1.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2440041",
+            "name": "程序设计初级实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2440125",
+            "name": "数字逻辑与数字系统",
+            "course_type": "大类基础课",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2440126",
+            "name": "数据库原理",
+            "course_type": "大类基础课",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "2440130",
+            "name": "计算机网络",
+            "course_type": "大类基础课",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2025-2026 2",
+            "course_id": "4010008",
+            "name": "体育锻炼4",
+            "course_type": "体育",
+            "course_props": "",
+            "credit": 0.0,
+            "score": "A",
+            "gpa": ""
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2180042",
+            "name": "人工智能（双语）",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2180265",
+            "name": "软件工程1（双语）",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2180266",
+            "name": "软件工程2（双语）",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440033",
+            "name": "设计模式",
+            "course_type": "专业选修",
+            "course_props": "选修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440042",
+            "name": "程序设计中级实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440057",
+            "name": "人工智能应用基础",
+            "course_type": "文化素质选修-新工科创新",
+            "course_props": "选修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440075",
+            "name": "编译原理与技术",
+            "course_type": "专业核心",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100.0",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440081",
+            "name": "软件体系结构",
+            "course_type": "软件工程方向",
+            "course_props": "选修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "2440091",
+            "name": "软件工程综合实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 3.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "4010009",
+            "name": "体育锻炼5",
+            "course_type": "体育",
+            "course_props": "",
+            "credit": 0.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2026-2027 1",
+            "course_id": "5100077",
+            "name": "择业指导",
+            "course_type": "文化素质教育必修",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2180250",
+            "name": "自然语言处理导论",
+            "course_type": "专业选修",
+            "course_props": "选修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2210016",
+            "name": "毛泽东思想和中国特色社会主义理论体系概论",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 5.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2440043",
+            "name": "程序设计高级实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2440063",
+            "name": "软件测试技术",
+            "course_type": "软件工程方向",
+            "course_props": "选修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2440079",
+            "name": "深度强化学习",
+            "course_type": "专业选修",
+            "course_props": "选修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "2440123",
+            "name": "综合实训（软件工程）",
+            "course_type": "实习",
+            "course_props": "必修",
+            "credit": 8.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2026-2027 2",
+            "course_id": "4010010",
+            "name": "体育锻炼6",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2027-2028 1",
+            "course_id": "2440098",
+            "name": "程序设计写作实践",
+            "course_type": "课程设计",
+            "course_props": "必修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2027-2028 1",
+            "course_id": "2440115",
+            "name": "知识图谱",
+            "course_type": "数据科学方向",
+            "course_props": "选修",
+            "credit": 1.5,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2027-2028 1",
+            "course_id": "4010011",
+            "name": "体育锻炼7",
+            "course_type": "体育",
+            "course_props": "必修",
+            "credit": 0.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2027-2028 2",
+            "course_id": "2180111",
+            "name": "毕业设计（论文）",
+            "course_type": "毕业设计(论文)",
+            "course_props": "必修",
+            "credit": 12.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2027-2028 2",
+            "course_id": "5100054",
+            "name": "形势与政策",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2027-2028 2",
+            "course_id": "5240100",
+            "name": "诚信教育",
+            "course_type": "文化素质教育必修",
+            "course_props": "",
+            "credit": 1.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2027-2028 2",
+            "course_id": "5240108",
+            "name": "创新实践计划",
+            "course_type": "学生创新实践计划(PSIP)",
+            "course_props": "",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        }
+    ]
+}

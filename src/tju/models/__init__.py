@@ -5,3 +5,4 @@ from .exam import Exam as Exam
 from .exam import Exams as Exams
 from .profile import Profile as Profile
 from .schedule import Schedule as Schedule
+from .score import Scores as Scores

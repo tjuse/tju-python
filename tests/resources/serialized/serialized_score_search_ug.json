@@ -1,0 +1,45 @@
+{
+    "summary": [],
+    "list": [
+        {
+            "semester": "2024-2025 2",
+            "course_id": "2180111",
+            "name": "毕业设计（论文）",
+            "course_type": "毕业设计(论文)",
+            "course_props": "必修",
+            "credit": 12.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "5100054",
+            "name": "形势与政策",
+            "course_type": "思想政治理论",
+            "course_props": "必修",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "5240100",
+            "name": "诚信教育",
+            "course_type": "文化素质教育必修",
+            "course_props": "",
+            "credit": 1.0,
+            "score": "P",
+            "gpa": ""
+        },
+        {
+            "semester": "2024-2025 2",
+            "course_id": "5240108",
+            "name": "创新实践计划",
+            "course_type": "学生创新实践计划(PSIP)",
+            "course_props": "",
+            "credit": 2.0,
+            "score": "100",
+            "gpa": "4.0"
+        }
+    ]
+}
