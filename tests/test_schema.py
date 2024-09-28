@@ -6,6 +6,8 @@ from tju.models.exam import Exam, Exams
 from tju.models.profile import Profile
 from tju.models.schedule import Course, Schedule
 from tju.models.score import (
+    ExpScore,
+    ExpScores,
     GSScore,
     GSScores,
     GSScoreSummary,
@@ -212,3 +214,21 @@ def test_score_schema_4():
     assert summarys is not None
     summarys_list = GSScoreSummary.Schema(many=True).dump(summarys)
     assert summarys_list == serialized_summary_list
+
+
+def test_score_exp_schema():
+    raw_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_exp.json")
+        .read_text(encoding="utf-8")
+    )
+    serialized_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_score_exp.json")
+        .read_text(encoding="utf-8")
+    )
+    scores = ExpScores()
+    scores.load(data=raw_list)
+    assert scores is not None
+    scores_list = ExpScore.Schema(many=True).dump(scores)
+    assert scores_list == serialized_list

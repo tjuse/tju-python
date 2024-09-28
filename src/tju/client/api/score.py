@@ -2,13 +2,21 @@ from __future__ import annotations
 
 from tju.consts import (
     COURSETABLE_INDEX_URL_PATH,
+    SCORE_EXP_URL_PATH,
     SCORE_HISTORY_URL_PATH,
     SCORE_SEARCH_URL_PATH,
     SEMESTER,
 )
 from tju.exceptions import DataError, HtmlParseError
-from tju.models import GSScores, GSScoreSummarys, StuType, UGScores, UGScoreSummarys
-from tju.parser import parse_score
+from tju.models import (
+    ExpScores,
+    GSScores,
+    GSScoreSummarys,
+    StuType,
+    UGScores,
+    UGScoreSummarys,
+)
+from tju.parser import parse_score, parse_score_exp
 
 from ..base import BaseClient
 
@@ -53,7 +61,7 @@ class ScoreMixin(BaseClient):
                 },
             ).text
         try:
-            score_dict = parse_score(html=score_html, is_gs=is_gs)
+            score_dict = parse_score(html=score_html)
         except IndexError:
             raise HtmlParseError from None
 
@@ -67,3 +75,30 @@ class ScoreMixin(BaseClient):
             score.load(data=score_dict["list"])
             score_dict["list"] = score
         return score_dict
+
+    def exp_score(self, semester: str | None = None):
+        """
+        experiments score
+        """
+
+        if semester is None:
+            semester = self.semester
+        if semester not in SEMESTER:
+            raise DataError(f"Semester {semester} not found")
+        semester_id = SEMESTER[semester]
+
+        score_html = self._session.post(
+            SCORE_EXP_URL_PATH,
+            params={
+                "semester.id": semester_id,
+            },
+        ).text
+
+        try:
+            score_list = parse_score_exp(html=score_html)
+        except IndexError:
+            raise HtmlParseError from None
+
+        score = ExpScores()
+        score.load(data=score_list)
+        return score

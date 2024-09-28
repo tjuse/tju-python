@@ -3,7 +3,7 @@ from typing import Annotated, Optional
 from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
-from tju.fields import ChineseBool, GPAField, ScoreSemesterField
+from tju.fields import ChineseBool, ExpScoreSemesterField, GPAField, ScoreSemesterField
 from tju.schema import LoadDumpSchema, mfield
 
 from .base import Result, Results
@@ -58,12 +58,31 @@ class GSScore(Score):
         unknown = EXCLUDE
 
 
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
+class ExpScore(Result):
+    semester: Annotated[Optional[str], ExpScoreSemesterField] = mfield(default=None, data_key="学年学期")
+    course_id: Optional[str] = mfield(default=None, data_key="课程代码")
+    class_id: Optional[str] = mfield(default=None, data_key="课程序号")
+    course_name: Optional[str] = mfield(default=None, data_key="课程名称")
+    project_id: Optional[str] = mfield(default=None, data_key="项目代码")
+    project_name: Optional[str] = mfield(default=None, data_key="项目名称")
+    sub_score: Optional[str] = mfield(default=None, data_key="分项成绩")
+    score: Optional[float] = mfield(default=None, data_key="项目成绩")
+
+    class Meta:
+        unknown = EXCLUDE
+
+
 class UGScores(Results[UGScore]):
     _item = UGScore
 
 
 class GSScores(Results[GSScore]):
     _item = GSScore
+
+
+class ExpScores(Results[ExpScore]):
+    _item = ExpScore
 
 
 class UGScoreSummarys(Results[UGScoreSummary]):

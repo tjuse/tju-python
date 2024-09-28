@@ -10,6 +10,7 @@ from tju.parser import (
     parse_profile,
     parse_schedule,
     parse_score,
+    parse_score_exp,
 )
 
 
@@ -97,8 +98,7 @@ def test_parse_score_1():
         .parent.joinpath("resources/website/score_search_ug.html")
         .read_text()
     )
-    result = parse_score(raw_html, True)
-    print(result)
+    result = parse_score(raw_html)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_score_search_ug.json")
@@ -113,8 +113,7 @@ def test_parse_score_2():
         .parent.joinpath("resources/website/score_history_ug.html")
         .read_text()
     )
-    result = parse_score(raw_html, True)
-    print(result)
+    result = parse_score(raw_html)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_score_history_ug.json")
@@ -129,8 +128,7 @@ def test_parse_score_3():
         .parent.joinpath("resources/website/score_search_gs.html")
         .read_text()
     )
-    result = parse_score(raw_html, True)
-    print(result)
+    result = parse_score(raw_html)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_score_search_gs.json")
@@ -145,11 +143,23 @@ def test_parse_score_4():
         .parent.joinpath("resources/website/score_history_gs.html")
         .read_text()
     )
-    result = parse_score(raw_html, True)
-    print(result)
+    result = parse_score(raw_html)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_score_history_gs.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_score_exp():
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/score_exp.html").read_text()
+    )
+    result = parse_score_exp(raw_html)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_score_exp.json")
         .read_text()
     )
     assert result == parsed_list

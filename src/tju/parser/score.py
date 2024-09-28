@@ -3,7 +3,7 @@ import re
 from tju.exceptions import HtmlParseError
 
 
-def parse_score(html, is_gs):
+def parse_score(html):
     """
     parse score
     """
@@ -41,3 +41,21 @@ def parse_score(html, is_gs):
             continue
         courses.append(dict(zip(courses_keys, values)))
     return {"summary": summary, "list": courses}
+
+
+def parse_score_exp(html):
+    keys_and_values_html = re.findall(
+        r"<table.*class=\"gridtable\">([\s\S]*)</table>", html
+    )[0]
+    keys_html = re.findall(
+        r"<thead class=\"gridhead\">([\s\S]*)</thead>", keys_and_values_html
+    )[0]
+    result = []
+    keys = re.findall(r"<th.*>(.+?)</th>", keys_html)
+    values_html = keys_and_values_html.split("</thead>")[1].split("</tr>")
+    for value_html in values_html:
+        values = re.findall(r"<td.*?>\s*(.*?)\s*</td>", value_html)
+        if len(values) != len(keys):
+            continue
+        result.append(dict(zip(keys, values)))
+    return result

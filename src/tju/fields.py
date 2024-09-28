@@ -98,3 +98,18 @@ class GPAField(Field):
         self, value: float, attr: str, data: dict, **kwargs
     ) -> float | None:
         return float(value) if value else None
+
+
+class ExpScoreSemesterField(Field):
+    d_pattern = re.compile(r"20(\d{2})-20(\d{2})学年(\d)学期")
+    s_pattern = re.compile(r"(\d{2})(\d{2})(\d)")
+
+    def _serialize(self, value: str, attr: str, obj: object, **kwargs) -> str:
+        if self.s_pattern.findall(value):
+            return re.sub(self.s_pattern, r"20\1-20\2学年\3学期", value)
+        return value
+
+    def _deserialize(self, value: str, attr: str, data: dict, **kwargs) -> str | None:
+        if self.d_pattern.findall(value):
+            return re.sub(self.d_pattern, r"\1\2\3", value)
+        return value

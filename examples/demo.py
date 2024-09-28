@@ -19,4 +19,6 @@ client = Client(session=session)
 
 # print(client.exam(semester="21222"))
 
-print(client.score())
+# print(client.score())
+
+print(client.exp_score(semester="20211"))
