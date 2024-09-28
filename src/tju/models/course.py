@@ -23,6 +23,8 @@ class LibCourse(Course):
     arrange: Optional[list[CourseArrange]] = mfield(default=None)
     teacher: Optional[list] = mfield(default=None, data_key="教师")
     # key in LibCourse
+    semester: Optional[str] = mfield(default=None)
+    lession_id: Optional[str] = mfield(default=None)
     course_type: Optional[list] = mfield(default=None, data_key="课程类别")
     teaching_class: Optional[list] = mfield(default=None, data_key="教学班")
     selected: Optional[int] = mfield(default=None, data_key="实际")

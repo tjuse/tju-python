@@ -11,6 +11,8 @@
             "teacher": [
                 "董粤章"
             ],
+            "semester": "24251",
+            "lession_id": "395730",
             "course_type": [
                 "实习"
             ],
@@ -22,8 +24,8 @@
             "limit": 70,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 0,
-            "week_hours": 0,
+            "hours": 0.0,
+            "week_hours": 0.0,
             "has_syllabus": false
         },
         {
@@ -88,6 +90,8 @@
             "teacher": [
                 "孙秀钰"
             ],
+            "semester": "24251",
+            "lession_id": "395731",
             "course_type": [
                 "专业核心"
             ],
@@ -98,8 +102,8 @@
             "limit": 15,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 48,
-            "week_hours": 3,
+            "hours": 48.0,
+            "week_hours": 3.0,
             "has_syllabus": false
         },
         {
@@ -141,6 +145,8 @@
             "teacher": [
                 "郎铁柱"
             ],
+            "semester": "24251",
+            "lession_id": "395732",
             "course_type": [
                 "学科基础"
             ],
@@ -152,8 +158,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 48,
-            "week_hours": 4,
+            "hours": 48.0,
+            "week_hours": 4.0,
             "has_syllabus": true
         },
         {
@@ -195,6 +201,8 @@
             "teacher": [
                 "刘宪华"
             ],
+            "semester": "24251",
+            "lession_id": "395733",
             "course_type": [
                 "学科基础"
             ],
@@ -206,8 +214,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 48,
-            "week_hours": 4,
+            "hours": 48.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -269,6 +277,8 @@
                 "迟杰",
                 "童银栋"
             ],
+            "semester": "24251",
+            "lession_id": "395734",
             "course_type": [
                 "专业核心"
             ],
@@ -280,8 +290,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 64,
-            "week_hours": 4,
+            "hours": 64.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -319,6 +329,8 @@
             "teacher": [
                 "迟杰"
             ],
+            "semester": "24251",
+            "lession_id": "395735",
             "course_type": [
                 "专业核心"
             ],
@@ -330,8 +342,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 32,
-            "week_hours": 4,
+            "hours": 32.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -375,6 +387,8 @@
             "teacher": [
                 "柴立和"
             ],
+            "semester": "24251",
+            "lession_id": "395736",
             "course_type": [
                 "研究与创新"
             ],
@@ -386,8 +400,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 32,
-            "week_hours": 2,
+            "hours": 32.0,
+            "week_hours": 2.0,
             "has_syllabus": true
         },
         {
@@ -431,6 +445,8 @@
             "teacher": [
                 "赵林"
             ],
+            "semester": "24251",
+            "lession_id": "395737",
             "course_type": [
                 "专业核心"
             ],
@@ -442,8 +458,8 @@
             "limit": 40,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 32,
-            "week_hours": 2,
+            "hours": 32.0,
+            "week_hours": 2.0,
             "has_syllabus": false
         },
         {
@@ -457,6 +473,8 @@
             "teacher": [
                 "陶文源"
             ],
+            "semester": "24251",
+            "lession_id": "395739",
             "course_type": [
                 "实习"
             ],
@@ -472,8 +490,8 @@
             "limit": 180,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 0,
-            "week_hours": 0,
+            "hours": 0.0,
+            "week_hours": 0.0,
             "has_syllabus": true
         },
         {
@@ -526,6 +544,8 @@
             "teacher": [
                 "王秀芬"
             ],
+            "semester": "24251",
+            "lession_id": "395740",
             "course_type": [
                 "专业核心"
             ],
@@ -541,8 +561,8 @@
             "limit": 165,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 24,
-            "week_hours": 4,
+            "hours": 24.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -601,6 +621,8 @@
             "teacher": [
                 "张金凤"
             ],
+            "semester": "24251",
+            "lession_id": "395742",
             "course_type": [
                 "跨学科选修或PSIP",
                 "专业选修"
@@ -624,8 +646,8 @@
             "limit": 311,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 48,
-            "week_hours": 6,
+            "hours": 48.0,
+            "week_hours": 6.0,
             "has_syllabus": false
         },
         {
@@ -676,6 +698,8 @@
             "teacher": [
                 "冯平"
             ],
+            "semester": "24251",
+            "lession_id": "395743",
             "course_type": [
                 "跨学科选修或PSIP",
                 "专业选修"
@@ -695,8 +719,8 @@
             "limit": 256,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 24,
-            "week_hours": 4,
+            "hours": 24.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -823,6 +847,8 @@
                 "徐国宾",
                 "马超"
             ],
+            "semester": "24251",
+            "lession_id": "395744",
             "course_type": [
                 "专业核心"
             ],
@@ -834,8 +860,8 @@
             "limit": 100,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 66,
-            "week_hours": 6,
+            "hours": 66.0,
+            "week_hours": 6.0,
             "has_syllabus": true
         },
         {
@@ -965,6 +991,8 @@
                 "崔溦",
                 "张社荣"
             ],
+            "semester": "24251",
+            "lession_id": "395745",
             "course_type": [
                 "专业核心"
             ],
@@ -978,8 +1006,8 @@
             "limit": 120,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 72,
-            "week_hours": 6,
+            "hours": 72.0,
+            "week_hours": 6.0,
             "has_syllabus": true
         },
         {
@@ -1040,6 +1068,8 @@
             "teacher": [
                 "孙冬梅"
             ],
+            "semester": "24251",
+            "lession_id": "395746",
             "course_type": [
                 "专业核心"
             ],
@@ -1051,8 +1081,8 @@
             "limit": 100,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 40,
-            "week_hours": 4,
+            "hours": 40.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -1066,6 +1096,8 @@
             "teacher": [
                 "王超"
             ],
+            "semester": "24251",
+            "lession_id": "395747",
             "course_type": [
                 "课程设计"
             ],
@@ -1077,8 +1109,8 @@
             "limit": 100,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 0,
-            "week_hours": 0,
+            "hours": 0.0,
+            "week_hours": 0.0,
             "has_syllabus": true
         },
         {
@@ -1135,6 +1167,8 @@
             "teacher": [
                 "张庆河"
             ],
+            "semester": "24251",
+            "lession_id": "395748",
             "course_type": [
                 "学科基础"
             ],
@@ -1147,8 +1181,8 @@
             "limit": 99,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 32,
-            "week_hours": 4,
+            "hours": 32.0,
+            "week_hours": 4.0,
             "has_syllabus": false
         },
         {
@@ -1205,6 +1239,8 @@
             "teacher": [
                 "张庆河"
             ],
+            "semester": "24251",
+            "lession_id": "395749",
             "course_type": [
                 "学科基础"
             ],
@@ -1217,8 +1253,8 @@
             "limit": 99,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 32,
-            "week_hours": 4,
+            "hours": 32.0,
+            "week_hours": 4.0,
             "has_syllabus": true
         },
         {
@@ -1279,6 +1315,8 @@
             "teacher": [
                 "张伟"
             ],
+            "semester": "24251",
+            "lession_id": "395750",
             "course_type": [
                 "专业核心"
             ],
@@ -1291,8 +1329,8 @@
             "limit": 99,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 40,
-            "week_hours": 4,
+            "hours": 40.0,
+            "week_hours": 4.0,
             "has_syllabus": true
         },
         {
@@ -1357,6 +1395,8 @@
             "teacher": [
                 "柳国环"
             ],
+            "semester": "24251",
+            "lession_id": "395752",
             "course_type": [
                 "跨学科选修或PSIP",
                 "跨学科选修"
@@ -1371,8 +1411,8 @@
             "limit": 100,
             "extra_limit": 0,
             "is_extra_open": false,
-            "hours": 48,
-            "week_hours": 4,
+            "hours": 48.0,
+            "week_hours": 4.0,
             "has_syllabus": true
         }
     ],

@@ -58,7 +58,7 @@ class CourseMixin(BaseClient):
         ).text
 
         try:
-            course_dict = parse_course(course_html)
+            course_dict = parse_course(html=course_html, semester=semester)
         except IndexError:
             raise HtmlParseError from None
         course = CourseLib()

@@ -77,9 +77,8 @@ def test_course_schema():
     courses = CourseLib()
     courses.load(data=raw_list)
     assert courses is not None
-    for serialized_dict, course in zip(serialized_list, courses):
-        course_dict = LibCourse.Schema().dump(course)
-        assert course_dict == serialized_dict
+    course_list = LibCourse.Schema(many=True).dump(courses)
+    assert course_list == serialized_list
 
 
 def test_exam_schema():

@@ -44,7 +44,7 @@ def _parse_arrange(html):
     return result
 
 
-def parse_course(html):
+def parse_course(html, semester: str):
     lession_id_and_arrange = re.findall(r"contents\['(.*)'\]='(.*)'", html)
     lession_id_to_arrange = dict(lession_id_and_arrange)
     keys_and_content = html.split('<th  class="gridselect-top" >')[1].split("</thead>")
@@ -60,6 +60,7 @@ def parse_course(html):
     result = []
     for lession in content:
         item = {}
+        item["semester"] = semester
         for i, key in enumerate(keys):
             c = lession[i].strip()
             if key == "教学班":
@@ -79,7 +80,6 @@ def parse_course(html):
         if item["lession_id"] not in lession_id_to_arrange:
             raise HtmlParseError("HTML parse error")
         item["arrange"] = _parse_arrange(lession_id_to_arrange[item["lession_id"]])
-        del item["lession_id"]
         result.append(item)
 
     numbers = re.findall(r"pageInfo\((\d+),(\d+),(\d+)\)", content_and_tail[1])[0]
