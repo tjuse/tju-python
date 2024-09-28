@@ -5,4 +5,7 @@ from .exam import Exam as Exam
 from .exam import Exams as Exams
 from .profile import Profile as Profile
 from .schedule import Schedule as Schedule
-from .score import Scores as Scores
+from .score import GSScores as GSScores
+from .score import GSScoreSummarys as GSScoreSummarys
+from .score import UGScores as UGScores
+from .score import UGScoreSummarys as UGScoreSummarys

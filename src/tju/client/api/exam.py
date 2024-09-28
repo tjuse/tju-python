@@ -52,9 +52,6 @@ class ExamMixin(BaseClient):
             },
         ).text
 
-        with open("exam.html", "w", encoding="utf-8") as f:
-            f.write(exam_html)
-
         try:
             exam_list = parse_exam(exam_html)
         except IndexError:

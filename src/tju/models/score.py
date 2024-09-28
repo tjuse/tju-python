@@ -11,13 +11,18 @@ from .base import Result, Results
 
 @dataclass(frozen=True, base_schema=LoadDumpSchema)
 class ScoreSummary(Result):
-    # common
     courses_count: Optional[int] = mfield(default=None, data_key="门数")
     total_credit: Optional[float] = mfield(default=None, data_key="总学分")
-    # undergraduate
+
+
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
+class UGScoreSummary(ScoreSummary):
     gpa: Optional[float] = mfield(default=None, data_key="平均绩点")
     score: Optional[float] = mfield(default=None, data_key="加权平均成绩")
-    # graduate
+
+
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
+class GSScoreSummary(ScoreSummary):
     school_year: Optional[str] = mfield(default=None, data_key="学年度")
     term: Optional[int] = mfield(default=None, data_key="学期")
 
@@ -25,20 +30,24 @@ class ScoreSummary(Result):
 # fmt: off
 @dataclass(frozen=True, base_schema=LoadDumpSchema)
 class Score(Result):
-    # common
     semester: Annotated[Optional[str], ScoreSemesterField] = mfield(default=None, data_key="学年学期")
     course_id: Optional[str] = mfield(default=None, data_key="课程代码")
     name: Optional[str] = mfield(default=None, data_key="课程名称")
     course_type: Optional[str] = mfield(default=None, data_key="课程类别")
     credit: Optional[float] = mfield(default=None, data_key="学分")
 
-    # undergraduate
+
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
+class UGScore(Score):
     course_props: Optional[str] = mfield(default=None, data_key="课程性质")
     score: Optional[str] = mfield(default=None, data_key="总评成绩")
     gpa: Annotated[Optional[float], GPAField] = mfield(default=None, data_key="绩点")
 
-    # TODO: exclude this when undergraduate
-    # graduate
+    class Meta:
+        unknown = EXCLUDE
+
+@dataclass(frozen=True, base_schema=LoadDumpSchema)
+class GSScore(Score):
     class_id: Optional[str] = mfield(default=None, data_key="课程序号")
     exam_status: Optional[str] = mfield(default=None, data_key="考试情况")
     score: Optional[str] = mfield(default=None, data_key="最终")
@@ -49,9 +58,17 @@ class Score(Result):
         unknown = EXCLUDE
 
 
-class Scores(Results[Score]):
-    _item = Score
+class UGScores(Results[UGScore]):
+    _item = UGScore
 
 
-class ScoreSummarys(Results[ScoreSummary]):
-    _item = ScoreSummary
+class GSScores(Results[GSScore]):
+    _item = GSScore
+
+
+class UGScoreSummarys(Results[UGScoreSummary]):
+    _item = UGScoreSummary
+
+
+class GSScoreSummarys(Results[GSScoreSummary]):
+    _item = GSScoreSummary
