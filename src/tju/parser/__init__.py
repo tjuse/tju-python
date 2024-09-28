@@ -1,4 +1,5 @@
 from .course import parse_course as parse_course
+from .course import parse_course_info as parse_course_info
 from .exam import parse_exam as parse_exam
 from .exam import parse_exam_batch_id as parse_exam_batch_id
 from .profile import parse_profile as parse_profile

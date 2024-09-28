@@ -17,8 +17,10 @@ client = Client(session=session)
 
 # print(client.query_courses())
 
+print(client.query_course_info(lession_id="387248"))
+
 # print(client.exam(semester="21222"))
 
 # print(client.score())
 
-print(client.exp_score(semester="20211"))
+# print(client.exp_score(semester="20211"))

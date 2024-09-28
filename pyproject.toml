@@ -12,6 +12,7 @@ dependencies = [
     "pyexecjs>=1.5.1",
     "marshmallow>=3.22.0",
     "marshmallow-dataclass>=8.7.1",
+    "markdownify>=0.13.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

@@ -1,6 +1,8 @@
 import itertools
 import re
 
+from markdownify import markdownify as md
+
 from tju.consts import CHINESE_WEEKDAY
 from tju.exceptions import HtmlParseError
 
@@ -94,3 +96,7 @@ def parse_course(html, semester: str):
         "page_size": page_size,
         "total": total,
     }
+
+
+def parse_course_info(html):
+    return md(html).replace("\n\n\n", "\n\n").strip()

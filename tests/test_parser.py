@@ -5,6 +5,7 @@ from pathlib import Path
 
 from tju.parser import (
     parse_course,
+    parse_course_info,
     parse_exam,
     parse_exam_batch_id,
     parse_profile,
@@ -73,6 +74,21 @@ def test_parse_course():
         .read_text()
     )
     assert result == parsed_list
+
+
+def test_parse_course_info():
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/course_info.html").read_text()
+    )
+    result = parse_course_info(raw_html)
+
+    parsed = (
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_course_info.md")
+        .read_text()
+    )
+
+    assert result == parsed
 
 
 def test_parse_exam_batch_id():

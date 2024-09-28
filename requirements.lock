@@ -11,6 +11,7 @@
 
 -e file:.
 anyio==4.6.0
+beautifulsoup4==4.12.3
 certifi==2024.8.30
 coloredlogs==15.0.1
 ddddocr==1.5.5
@@ -24,6 +25,7 @@ humanfriendly==10.0
 idna==3.10
 importlib-metadata==8.5.0
 importlib-resources==6.4.5
+markdownify==0.13.1
 marshmallow==3.22.0
 marshmallow-dataclass==8.7.1
 mpmath==1.3.0
@@ -37,6 +39,7 @@ protobuf==5.28.2
 pyexecjs==1.5.1
 six==1.16.0
 sniffio==1.3.1
+soupsieve==2.6
 sympy==1.13.3
 typeguard==4.3.0
 typing-extensions==4.12.2
