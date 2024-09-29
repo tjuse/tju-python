@@ -1,0 +1,243 @@
+
+<link rel="stylesheet" type="text/css" href="/eams/static/css/lesson.css" />
+
+
+<div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+<script language="JavaScript" type="text/JavaScript" src="/eams/static/scripts/prompt.js"></script>
+<script>
+	var contents = new Object();
+	contents['451349']='';
+	contents['451338']='杨志斌 星期一 7-8 [4-19]  26楼A207  ';
+	contents['451342']='朱险峰 星期二 5-6 [4-19]  12楼301  ';
+	contents['451333']='陈文亮 星期三 9-12 [13-16]  26楼A205  ';
+	contents['451331']='李吉宁 星期三 1-2 [4-19]  26楼A409  ';
+	contents['451330']='';
+	contents['451336']='江俊峰 星期二 1-2 [4-15]  23楼512  <br>江俊峰 星期五 3-4 [4-15]  23楼512  ';
+	contents['451348']='李洪 星期一 3-4 [8-11]  50楼A122  <br>刘丽艳 星期一 3-4 [4-7]  50楼A122  <br>李洪 星期三 1-2 [8-11]  50楼A122  <br>刘丽艳 星期三 1-2 [4-7]  50楼A122  ';
+	contents['451335']='龚彩荣 星期五 3-4 [6-19]  33楼109  <br>凌涛 星期五 3-4 [4-5]  33楼109  ';
+	contents['451334']='张亦文 星期二 3-4 [15-19]单  44楼A区104  <br>蔡舒 星期二 3-4 [5-13]单  44楼A区104  <br>张亦文 星期四 3-4 [14-19]  44楼A区104  <br>蔡舒 星期四 3-4 [4-13]  44楼A区104  ';
+	contents['451321']='李吉宁 星期四 1-4 [4-19]    ';
+	contents['451322']='郝卫国 星期一 1-3 [4-17]    <br>郝卫国 星期四 1-3 [4-17]    ';
+	contents['451325']='赵莉妍 星期三 3-4 [4-19]  33楼189  ';
+	contents['451340']='綦宏志 星期二 7-8 [4-11]  26楼A415  <br>綦宏志 星期四 1-2 [4-11]  23楼212  ';
+	contents['451326']='';
+	contents['451323']='凌志强 星期五 3-4 [4-19]  33楼191  ';
+	contents['451324']='刘玉芹 星期三 3-4 [4-19]  33楼191  ';
+	contents['451329']='';
+	contents['451327']='';
+	contents['451328']='李英 星期一 5-6 [4-9]  43楼A308  <br>李英 星期三 3-4 [4-9]  43楼A308  ';
+	function displayArrangeResult(taskId){
+  		var msg = "没有安排";
+  		if(null != contents[taskId] && contents[taskId].replace(/\s/g, '') != '') {
+	 		msg = contents[taskId];
+ 		}
+		toolTip(msg,'#000000', '#FFFF00',250);
+	}
+	initToolTips();
+</script><form id="taskListForm" name="taskListForm" action="/eams/stdSyllabus!search.action" method="post"  >
+
+<div class="grid">
+
+<div id="grid665029811_bar1" class="gridbar"></div>
+<table id="grid665029811" class="gridtable">
+<thead class="gridhead">
+
+<tr>
+  <th class="gridselect-top"  width="25px"><input type="submit" id="grid665029811_filter_submit" value="" onclick="bg.form.submit('taskListForm',null,null,clearCheckbox_grid665029811);return false;" class="grid-filter-submit"/>
+</th>
+<th title="课程序号" width="4%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.no"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程代码" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.code"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程名称" width="15%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程类别" width="10%" style="padding-left:3px">	  		<input name="multiOrCourseType.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="开课校区" width="7%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.campus.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教学班" width="23%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教师" width="7%" style="padding-left:3px">	  		<input name="teacher.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="实际" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.stdCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="总上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.limitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="计划外人数上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.unplanLimitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="是否开放计划外" width="5%" style="padding-left:3px">            <select name="isUnplan" style="width:95%">
+                <option value="">...</option>
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+  </th>
+<th title="学分" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.credits"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="学时/周" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.coursePeriod"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th width="5%"></th><th title="课程大纲" width="4%" style="padding-left:3px">	    	<select name="syllabus" style="width:95%">
+	            <option value="">...</option>
+	            <option value="1">有</option>
+	            <option value="0">无</option>
+	        </select>
+  </th>
+</tr>
+
+<tr>
+<th  class="gridselect-top" ><input type="checkbox" name="lesson.idbox" onclick="bg.ui.grid.toggleAll(event)" title="选择全部"/> </th>
+<th  class="gridhead-sortable" id="lesson.no">课程序号</th>
+<th  class="gridhead-sortable" id="lesson.course.code">课程代码</th>
+<th  class="gridhead-sortable" id="lesson.course.name">课程名称</th>
+<th  class="gridhead-sortable" id="lesson.courseType.name">课程类别</th>
+<th  class="gridhead-sortable" id="lesson.campus.name">开课校区</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.name">教学班</th>
+<th  >教师</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.stdCount">实际</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.limitCount">总上限</th>
+<th  class="gridhead-sortable" id="lesson.unplanLimitCount">计划外人数上限</th>
+<th  class="gridhead-sortable" id="lesson.isUnplan">是否开放计划外</th>
+<th  class="gridhead-sortable" id="lesson.course.credits">学分</th>
+<th  class="gridhead-sortable" id="lesson.coursePeriod">学时/周</th>
+<th  class="gridhead-sortable" id="lesson.courseSchedule.weekState">起止周</th>
+<th  >课程大纲</th>
+</tr>
+
+</thead>
+
+<tbody id="grid665029811_data"><tr><td class="gridselect"><input class="box" name="lesson.id" value="451321" type="checkbox"/></td><td>00343</td><td>2020489</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451321" onclick="return bg.Go(this,null)" title="查看任务详细信息">光电子激光实验1</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程(天南大合办)1班 2021光电信息科学与工程(天南大合办)2班</td><td>李吉宁</td><td>28</td><td>64</td><td>10</td><td>          是
+</td><td>4</td>      <td>64/4</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451322" type="checkbox"/></td><td>00344</td><td>2060461</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451322" onclick="return bg.Go(this,null)" title="查看任务详细信息">景观设计B</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2021环境设计1班</td><td>郝卫国</td><td>40</td><td>45</td><td>0</td><td>          否
+</td><td>6</td>      <td>84/6</td>
+      <td>4-17</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451323" type="checkbox"/></td><td>00345</td><td>2110029</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451323" onclick="return bg.Go(this,null)" title="查看任务详细信息">汉译英A</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021英语2班</td><td>凌志强</td><td>20</td><td>30</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451324" type="checkbox"/></td><td>00346</td><td>2111247</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451324" onclick="return bg.Go(this,null)" title="查看任务详细信息">日语二外D</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021英语1班 2021英语2班</td><td>刘玉芹</td><td>2</td><td>30</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451325" type="checkbox"/></td><td>00347</td><td>2111249</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451325" onclick="return bg.Go(this,null)" title="查看任务详细信息">德语二外D</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021英语1班 2021英语2班</td><td>赵莉妍</td><td>3</td><td>30</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451326" type="checkbox"/></td><td>00348</td><td>2110038</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451326" onclick="return bg.Go(this,null)" title="查看任务详细信息">社会实践（2）</a></td><td>      	实习
+</td><td>北洋园校区</td><td>班级:2021英语1班 2021英语2班</td><td>董粤章</td><td>40</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451327" type="checkbox"/></td><td>00349</td><td>2111229</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451327" onclick="return bg.Go(this,null)" title="查看任务详细信息">论文研讨</a></td><td>      	创新创业与跨学科选修
+</td><td>北洋园校区</td><td>班级:2021英语1班 2021英语2班</td><td>冯卉</td><td>37</td><td>60</td><td>0</td><td>          否
+</td><td>1</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451328" type="checkbox"/></td><td>00350</td><td>2050878</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451328" onclick="return bg.Go(this,null)" title="查看任务详细信息">深海立管设计技术（双语）</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021船舶与海洋工程3班 2021船舶与海洋工程4班</td><td>李英</td><td>37</td><td>65</td><td>5</td><td>          是
+</td><td>1.5</td>      <td>24/4</td>
+      <td>4-9</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451329" type="checkbox"/></td><td>00351</td><td>2050768</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451329" onclick="return bg.Go(this,null)" title="查看任务详细信息">运输业务课程设计</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021船舶与海洋工程1班 2021船舶与海洋工程2班 2021船舶与海洋工程3班 2021船舶与海洋工程4班 2021船舶与海洋工程5班</td><td>包海鹰</td><td>21</td><td>150</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451330" type="checkbox"/></td><td>00352</td><td>2050769</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451330" onclick="return bg.Go(this,null)" title="查看任务详细信息">国际航运管理课程设计</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021船舶与海洋工程1班 2021船舶与海洋工程2班 2021船舶与海洋工程3班 2021船舶与海洋工程4班 2021船舶与海洋工程5班</td><td>徐万海,周丽丹</td><td>21</td><td>150</td><td>0</td><td>          否
+</td><td>1</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451331" type="checkbox"/></td><td>00353</td><td>2020355</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451331" onclick="return bg.Go(this,null)" title="查看任务详细信息">光电子发光与显示技术</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021电子科学与技术(光电子技术)1班 2021电子科学与技术(光电子技术)2班 2022工程科学实验班3班</td><td>李吉宁</td><td>45</td><td>99</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451333" type="checkbox"/></td><td>00355</td><td>2020454</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451333" onclick="return bg.Go(this,null)" title="查看任务详细信息">21世纪的光学测量</a></td><td>      	创新创业与跨学科选修,
+      	专业选修,
+      	跨学科选修
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程(天南大合办)1班 2021光电信息科学与工程(天南大合办)2班 2021测控技术与仪器1班 2021测控技术与仪器2班 2021测控技术与仪器3班 2021测控技术与仪器4班 2021智能感知工程1班 2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班 2021电子科学与技术(光电子技术)1班 2021电子科学与技术(光电子技术)2班</td><td>陈文亮</td><td>37</td><td>130</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/4</td>
+      <td>13-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451334" type="checkbox"/></td><td>00356</td><td>2080349</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451334" onclick="return bg.Go(this,null)" title="查看任务详细信息">先进结构陶瓷</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021材料科学与工程5班 2021材料科学与工程6班</td><td>张亦文,蔡舒</td><td>5</td><td>30</td><td>2</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451335" type="checkbox"/></td><td>00357</td><td>2080345</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451335" onclick="return bg.Go(this,null)" title="查看任务详细信息">光电材料与器件</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021材料科学与工程1班 2021材料科学与工程2班 2021材料科学与工程3班 2021材料科学与工程4班 2021材料科学与工程5班 2021材料科学与工程6班 2021功能材料1班</td><td>凌涛,龚彩荣</td><td>21</td><td>50</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451336" type="checkbox"/></td><td>00358</td><td>2020517</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451336" onclick="return bg.Go(this,null)" title="查看任务详细信息">光电检测技术及系统</a></td><td>      	专业核心,
+      	专业选修
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程(天南大合办)1班 2021光电信息科学与工程(天南大合办)2班 2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班 2022工程科学实验班2班</td><td>江俊峰</td><td>112</td><td>165</td><td>15</td><td>          是
+</td><td>3</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451338" type="checkbox"/></td><td>00360</td><td>2020523</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451338" onclick="return bg.Go(this,null)" title="查看任务详细信息">能源光学</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班</td><td>杨志斌</td><td>1</td><td>100</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451340" type="checkbox"/></td><td>00362</td><td>2020479</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451340" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>綦宏志</td><td>71</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451342" type="checkbox"/></td><td>00364</td><td>2020535</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451342" onclick="return bg.Go(this,null)" title="查看任务详细信息">医学仪器工程设计</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>朱险峰</td><td>15</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451348" type="checkbox"/></td><td>00370</td><td>2070548</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451348" onclick="return bg.Go(this,null)" title="查看任务详细信息">现代精馏技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021过程装备与控制工程1班 2021过程装备与控制工程2班</td><td>刘丽艳,李洪</td><td>28</td><td>60</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="451349" type="checkbox"/></td><td>00371</td><td>2010729</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451349" onclick="return bg.Go(this,null)" title="查看任务详细信息">机械设计基础课程设计1</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021过程装备与控制工程2班</td><td>王世宇</td><td>22</td><td>30</td><td>5</td><td>          是
+</td><td>3</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr></tbody>
+</table>
+<div id="grid665029811_bar2"  class="gridbar"></div>
+</div>
+<script type="text/javascript">
+  var clearCheckbox_grid665029811 = function() {
+    jQuery("#grid665029811").find(".box:checkbox").removeProp("checked");
+    jQuery("#grid665029811").find(".gridselect-top :checkbox").removeProp("checked");
+    return true;
+  }
+
+  page_grid665029811 = bg.page("/eams/stdSyllabus!search.action","");
+  {
+    var _paramstring = 'lesson.project.id=1&lesson.semester.id=114&_=1727631565829&pageNo=14';
+    var _params = _paramstring.split('&');
+    for (var i = 0; i < _params.length; i++) {
+      _params[i] = decodeURIComponent(_params[i]);
+    }
+    _paramstring = _params.join('&');
+    page_grid665029811.target("",'grid665029811').action("/eams/stdSyllabus!search.action").addParams(_paramstring).orderBy("null");
+  }
+  bg.ui.grid.init('grid665029811',page_grid665029811);
+  bar=new bg.ui.gridbar(['grid665029811_bar1','grid665029811_bar2'],'');
+  bar.pageId('grid665029811')
+  page_grid665029811.pageInfo(14,20,4019);
+  bar.addPage(page_grid665029811,null,{first:'«首页',previous:'‹前页',next:'后页›',last:'末页»',no:'页码:',size:'每页',change:'点击改变每页数据量',pagesize:'每页数据量'});
+
+  action=bar.addEntityAction('lesson',page_grid665029811);
+  			bar.addItem("查看",action.info());
+			bar.addItem("查看课程大纲",action.single("syllabusInfo"));
+
+</script>
+
+</form>
+<script>
+	jQuery(function(){
+		bg.form.addHiddens(document.taskListForm, "&lesson.project.id=1&lesson.semester.id=114&_=1727631565829&pageNo=14");
+		jQuery("#taskListForm .griddata-even,#taskListForm .griddata-odd").mouseover(function(){
+			displayArrangeResult(jQuery(".box",this).val());
+		}).mouseout(function(){
+			toolTip();
+		});
+	});
+</script>

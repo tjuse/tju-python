@@ -90,6 +90,19 @@ def test_parse_course_2():
     assert result == parsed_list
 
 
+def test_parse_course_3():
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/course_ug_3.html").read_text()
+    )
+    result = parse_course(html=raw_html, semester="24251")
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_course_ug_3.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
 def test_parse_course_info():
     raw_html = (
         Path(__file__).parent.joinpath("resources/website/course_info.html").read_text()

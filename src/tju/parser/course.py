@@ -66,10 +66,12 @@ def parse_course(html, semester: str):
     content_and_tail = keys_and_content[1].split("</table>")
     content = re.findall(
         r'<tr><td.*value="(.*)"\s*type.*><\/td><td>(.*)<\/td><td>(.*)<\/td><td><a.*>(.*)<\/a><\/td><td>(.*\s?.*)\s?<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)\s?<\/td><td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>',
-        content_and_tail[0],
+        content_and_tail[0].replace(",\n", ","),
     )
     if len(content) != len(lession_id_to_arrange):
-        raise HtmlParseError("HTML parse error")
+        raise HtmlParseError(
+            f"Courses count not match: courses({len(content)}) != ids({len(lession_id_to_arrange)})"
+        )
     result = []
     for lession in content:
         item = {}
