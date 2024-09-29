@@ -64,14 +64,23 @@ def parse_course(html, semester: str):
     keys = re.findall(r"<th\s*[class]*.*>(.*)<\/th>", keys_and_content[0])
     keys = ["lession_id"] + keys
     content_and_tail = keys_and_content[1].split("</table>")
+
+    # fix ,\n
+    content_and_tail[0] = content_and_tail[0].replace(",\n", ",")
+    # fix <sup> tag
+    sup_pattern = re.compile(r">(\S+)<\/a>\s*<sup.*>(\S+)<\/sup>\s")
+    if sup_pattern.findall(content_and_tail[0]):
+        content_and_tail[0] = re.sub(sup_pattern, r">\1 \2</a>", content_and_tail[0])
     content = re.findall(
         r'<tr><td.*value="(.*)"\s*type.*><\/td><td>(.*)<\/td><td>(.*)<\/td><td><a.*>(.*)<\/a><\/td><td>(.*\s?.*)\s?<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)\s?<\/td><td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>',
-        content_and_tail[0].replace(",\n", ","),
+        content_and_tail[0],
     )
+
     if len(content) != len(lession_id_to_arrange):
         raise HtmlParseError(
             f"Courses count not match: courses({len(content)}) != ids({len(lession_id_to_arrange)})"
         )
+
     result = []
     for lession in content:
         item = {}

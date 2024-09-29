@@ -1,0 +1,133 @@
+
+<link rel="stylesheet" type="text/css" href="/eams/static/css/lesson.css" />
+
+
+<div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+<script language="JavaScript" type="text/JavaScript" src="/eams/static/scripts/prompt.js"></script>
+<script>
+	var contents = new Object();
+	contents['451321']='';
+	contents['453011']='';
+	function displayArrangeResult(taskId){
+  		var msg = "没有安排";
+  		if(null != contents[taskId] && contents[taskId].replace(/\s/g, '') != '') {
+	 		msg = contents[taskId];
+ 		}
+		toolTip(msg,'#000000', '#FFFF00',250);
+	}
+	initToolTips();
+</script><form id="taskListForm" name="taskListForm" action="/eams/stdSyllabus!search.action" method="post"  >
+
+<div class="grid">
+
+<div id="grid665029811_bar1" class="gridbar"></div>
+<table id="grid665029811" class="gridtable">
+<thead class="gridhead">
+
+<tr>
+  <th class="gridselect-top"  width="25px"><input type="submit" id="grid665029811_filter_submit" value="" onclick="bg.form.submit('taskListForm',null,null,clearCheckbox_grid665029811);return false;" class="grid-filter-submit"/>
+</th>
+<th title="课程序号" width="4%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.no"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程代码" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.code"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程名称" width="15%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程类别" width="10%" style="padding-left:3px">	  		<input name="multiOrCourseType.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="开课校区" width="7%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.campus.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教学班" width="23%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教师" width="7%" style="padding-left:3px">	  		<input name="teacher.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="实际" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.stdCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="总上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.limitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="计划外人数上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.unplanLimitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="是否开放计划外" width="5%" style="padding-left:3px">            <select name="isUnplan" style="width:95%">
+                <option value="">...</option>
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+  </th>
+<th title="学分" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.credits"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="学时/周" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.coursePeriod"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th width="5%"></th><th title="课程大纲" width="4%" style="padding-left:3px">	    	<select name="syllabus" style="width:95%">
+	            <option value="">...</option>
+	            <option value="1">有</option>
+	            <option value="0">无</option>
+	        </select>
+  </th>
+</tr>
+
+<tr>
+<th  class="gridselect-top" ><input type="checkbox" name="lesson.idbox" onclick="bg.ui.grid.toggleAll(event)" title="选择全部"/> </th>
+<th  class="gridhead-sortable" id="lesson.no">课程序号</th>
+<th  class="gridhead-sortable" id="lesson.course.code">课程代码</th>
+<th  class="gridhead-sortable" id="lesson.course.name">课程名称</th>
+<th  class="gridhead-sortable" id="lesson.courseType.name">课程类别</th>
+<th  class="gridhead-sortable" id="lesson.campus.name">开课校区</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.name">教学班</th>
+<th  >教师</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.stdCount">实际</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.limitCount">总上限</th>
+<th  class="gridhead-sortable" id="lesson.unplanLimitCount">计划外人数上限</th>
+<th  class="gridhead-sortable" id="lesson.isUnplan">是否开放计划外</th>
+<th  class="gridhead-sortable" id="lesson.course.credits">学分</th>
+<th  class="gridhead-sortable" id="lesson.coursePeriod">学时/周</th>
+<th  class="gridhead-sortable" id="lesson.courseSchedule.weekState">起止周</th>
+<th  >课程大纲</th>
+</tr>
+
+</thead>
+
+<tbody id="grid665029811_data"><tr><td class="gridselect"><input class="box" name="lesson.id" value="451321" type="checkbox"/></td><td>00343</td><td>2020489</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=451321" onclick="return bg.Go(this,null)" title="查看任务详细信息">光电子激光实验1</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程(天南大合办)1班 2021光电信息科学与工程(天南大合办)2班</td><td>李吉宁</td><td>28</td><td>64</td><td>10</td><td>          是
+</td><td>4</td>      <td>64/4</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="453011" type="checkbox"/></td><td>02033</td><td>2310003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=453011" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育C</a>        <sup style="color:#333fff;">游泳</sup>
+</td><td>      	通识教育
+</td><td>北洋园校区</td><td>班级:2023数学类（教学）1班 2023数学类（教学）2班 2023数学与应用数学（强基计划）1班 2023求是数学班（教学）1班 2023工科试验班（机械、智能制造、航空与能源动力类）1班 2023工科试验班（机械、智能制造、航空与能源动力类）2班 2023工科试验班（机械、智能制造、航空与能源动力类）3班 2023工科试验班（机械、智能制造、航空与能源动力类）4班</td><td>高源</td><td>24</td><td>24</td><td>1</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr></tbody>
+</table>
+<div id="grid665029811_bar2"  class="gridbar"></div>
+</div>
+<script type="text/javascript">
+  var clearCheckbox_grid665029811 = function() {
+    jQuery("#grid665029811").find(".box:checkbox").removeProp("checked");
+    jQuery("#grid665029811").find(".gridselect-top :checkbox").removeProp("checked");
+    return true;
+  }
+
+  page_grid665029811 = bg.page("/eams/stdSyllabus!search.action","");
+  {
+    var _paramstring = 'lesson.project.id=1&lesson.semester.id=114&_=1727631565829&pageNo=14';
+    var _params = _paramstring.split('&');
+    for (var i = 0; i < _params.length; i++) {
+      _params[i] = decodeURIComponent(_params[i]);
+    }
+    _paramstring = _params.join('&');
+    page_grid665029811.target("",'grid665029811').action("/eams/stdSyllabus!search.action").addParams(_paramstring).orderBy("null");
+  }
+  bg.ui.grid.init('grid665029811',page_grid665029811);
+  bar=new bg.ui.gridbar(['grid665029811_bar1','grid665029811_bar2'],'');
+  bar.pageId('grid665029811')
+  page_grid665029811.pageInfo(14,20,4019);
+  bar.addPage(page_grid665029811,null,{first:'«首页',previous:'‹前页',next:'后页›',last:'末页»',no:'页码:',size:'每页',change:'点击改变每页数据量',pagesize:'每页数据量'});
+
+  action=bar.addEntityAction('lesson',page_grid665029811);
+  			bar.addItem("查看",action.info());
+			bar.addItem("查看课程大纲",action.single("syllabusInfo"));
+
+</script>
+
+</form>
+<script>
+	jQuery(function(){
+		bg.form.addHiddens(document.taskListForm, "&lesson.project.id=1&lesson.semester.id=114&_=1727631565829&pageNo=14");
+		jQuery("#taskListForm .griddata-even,#taskListForm .griddata-odd").mouseover(function(){
+			displayArrangeResult(jQuery(".box",this).val());
+		}).mouseout(function(){
+			toolTip();
+		});
+	});
+</script>
