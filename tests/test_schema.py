@@ -73,8 +73,6 @@ def test_course_schema():
             continue
         assert raw_dict[k] == v
     raw_list = raw_dict["list"]
-    for course in raw_list:
-        course.update({"semester": "24251", "faculty": "计算机科学与技术学院"})
     serialized_list = serialized_dict["list"]
     courses = CourseLib()
     courses.load(data=raw_list)

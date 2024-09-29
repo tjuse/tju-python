@@ -63,24 +63,28 @@ class CourseMixin(BaseClient):
         ).text
 
         try:
-            course_dict = parse_course(html=course_html)
+            course_dict = parse_course(html=course_html, semester=semester)
         except IndexError:
             raise HtmlParseError from None
-
-        for course in course_dict["list"]:
-            lession_id = course["lession_id"]
-            info_html = self._session.get(
-                COURSE_INFO_URL_PATH,
-                params={"lesson.id": lession_id},
-            ).text
-            info_dict = parse_course_info(info_html)
-            course.update(info_dict)
 
         course = CourseLib()
         if "list" in course_dict:
             course.load(data=course_dict["list"])
             course_dict["list"] = course
         return course_dict
+
+    def query_course_info(self, lession_id: str):
+        info_html = self._session.get(
+            COURSE_INFO_URL_PATH,
+            params={"lesson.id": lession_id},
+        ).text
+
+        try:
+            info_dict = parse_course_info(info_html)
+        except IndexError:
+            raise HtmlParseError from None
+
+        return info_dict
 
     def query_syllabus(self, lession_id: str, format: str = "md"):
         """

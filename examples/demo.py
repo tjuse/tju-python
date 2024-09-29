@@ -15,9 +15,9 @@ client = Client(session=session)
 
 # print(client.profile)
 
-# print(client.query_courses())
+print(client.query_courses())
 
-print(client.query_course_info(lession_id="387248"))
+# print(client.query_syllabus(lession_id="387248"))
 
 # print(client.exam(semester="21222"))
 

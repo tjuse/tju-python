@@ -3,7 +3,7 @@ from typing import Annotated, Optional
 from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
-from tju.fields import ChineseBool, ChineseHasBool, CourseInfoSemesterField
+from tju.fields import ChineseBool, ChineseHasBool
 from tju.schema import LoadDumpSchema, mfield
 
 from .base import Results
@@ -23,8 +23,7 @@ class LibCourse(Course):
     arrange: Optional[list[CourseArrange]] = mfield(default=None)
     teacher: Optional[list] = mfield(default=None, data_key="教师")
     # key in LibCourse
-    semester: Annotated[Optional[str], CourseInfoSemesterField] = mfield(default=None)
-    faculty: Optional[str] = mfield(default=None)
+    semester: Optional[str] = mfield(default=None)
     lession_id: Optional[str] = mfield(default=None)
     course_type: Optional[list] = mfield(default=None, data_key="课程类别")
     teaching_class: Optional[list] = mfield(default=None, data_key="教学班")

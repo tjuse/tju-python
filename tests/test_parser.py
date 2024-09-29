@@ -68,7 +68,7 @@ def test_parse_course():
     raw_html = (
         Path(__file__).parent.joinpath("resources/website/course_ug.html").read_text()
     )
-    result = parse_course(raw_html)
+    result = parse_course(html=raw_html, semester="24251")
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_course_ug.json")
