@@ -82,18 +82,23 @@ class CourseMixin(BaseClient):
             course_dict["list"] = course
         return course_dict
 
-    def query_syllabus(self, lession_id: str):
+    def query_syllabus(self, lession_id: str, format: str = "md"):
         """
         public course syllabus
         """
-        course_info_html = self._session.post(
+        syllabus_html = self._session.post(
             COURSE_SYLLABUS_URL_PATH,
             params={"lesson.id": lession_id},
         ).text
 
-        try:
-            course_info = parse_syllabus(course_info_html)
-        except IndexError:
-            raise HtmlParseError from None
+        if format == "md":
+            try:
+                syllabus = parse_syllabus(syllabus_html)
+            except IndexError:
+                raise HtmlParseError from None
+        elif format == "html":
+            syllabus = syllabus_html
+        else:
+            raise DataError(f"Invalid format: {format}, only support 'md' or 'html'")
 
-        return course_info
+        return syllabus
