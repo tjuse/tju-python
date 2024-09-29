@@ -12,6 +12,7 @@ from tju.parser import (
     parse_schedule,
     parse_score,
     parse_score_exp,
+    parse_syllabus,
 )
 
 
@@ -67,7 +68,7 @@ def test_parse_course():
     raw_html = (
         Path(__file__).parent.joinpath("resources/website/course_ug.html").read_text()
     )
-    result = parse_course(raw_html, semester="24251")
+    result = parse_course(raw_html)
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_course_ug.json")
@@ -81,10 +82,24 @@ def test_parse_course_info():
         Path(__file__).parent.joinpath("resources/website/course_info.html").read_text()
     )
     result = parse_course_info(raw_html)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_course_info.json")
+        .read_text()
+    )
+    assert result == parsed_list
 
+
+def test_parse_course_syllabus():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/course_syllabus.html")
+        .read_text()
+    )
+    result = parse_syllabus(raw_html)
     parsed = (
         Path(__file__)
-        .parent.joinpath("resources/parsed/parsed_course_info.md")
+        .parent.joinpath("resources/parsed/parsed_course_syllabus.md")
         .read_text()
     )
 

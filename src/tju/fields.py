@@ -113,3 +113,12 @@ class ExpScoreSemesterField(Field):
         if self.d_pattern.findall(value):
             return re.sub(self.d_pattern, r"\1\2\3", value)
         return value
+
+
+class CourseInfoSemesterField(Field):
+    d_pattern = re.compile(r"20(\d{2})-20(\d{2})学年(\d)学期")
+
+    def _deserialize(self, value: str, attr: str, data: dict, **kwargs) -> str | None:
+        if self.d_pattern.findall(value):
+            return re.sub(self.d_pattern, r"\1\2\3", value)
+        return value

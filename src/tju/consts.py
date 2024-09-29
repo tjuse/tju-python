@@ -2,6 +2,7 @@
 TJU consts
 """
 
+# fmt: off
 LOGIN_URL = "https://sso.tju.edu.cn/cas/login"
 CAPTCHA_URL = "https://sso.tju.edu.cn/cas/code"
 
@@ -32,10 +33,13 @@ PLAN_COMPL_URL_PATH = "/eams/myPlanCompl.action"
 
 # course
 COURSELIB_URL_PATH = "/eams/stdSyllabus!search.action"
-COURSEINFO_URL_PATH = "/eams/stdSyllabus!syllabusInfo.action"
+COURSE_SYLLABUS_URL_PATH = "/eams/stdSyllabus!syllabusInfo.action"
+COURSE_INFO_URL_PATH = "/eams/stdSyllabus!info.action"
 
 # classify
-COURSETABLE_CLASSIFY_URL_PATH = "/eams/classifyCourseTableForStd!search.action"
+COURSETABLE_CLASSIFY_SELECTION_URL_PATH = "/eams/classifyCourseTableForStd.action"
+COURSETABLE_CLASSIFY_SEARCH_URL_PATH = "/eams/classifyCourseTableForStd!search.action"
+PROJECT_SELECTION_URL_PATH="/eams/classifyCourseTableForStd!projectDepartMajorSelect.action"
 
 # spare
 FREE_SELECTION_URL_PATH = "/eams/classroom/apply/free.action"

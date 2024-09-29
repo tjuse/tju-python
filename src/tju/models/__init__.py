@@ -1,9 +1,11 @@
+from .base import Results as Results
 from .common import Gender as Gender
 from .common import StuType as StuType
 from .course import CourseLib as CourseLib
 from .exam import Exam as Exam
 from .exam import Exams as Exams
 from .profile import Profile as Profile
+from .schedule import Course as Course
 from .schedule import Schedule as Schedule
 from .score import ExpScores as ExpScores
 from .score import GSScores as GSScores

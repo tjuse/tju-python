@@ -46,7 +46,7 @@ def _parse_arrange(html):
     return result
 
 
-def parse_course(html, semester: str):
+def parse_course(html):
     lession_id_and_arrange = re.findall(r"contents\['(.*)'\]='(.*)'", html)
     lession_id_to_arrange = dict(lession_id_and_arrange)
     keys_and_content = html.split('<th  class="gridselect-top" >')[1].split("</thead>")
@@ -62,7 +62,6 @@ def parse_course(html, semester: str):
     result = []
     for lession in content:
         item = {}
-        item["semester"] = semester
         for i, key in enumerate(keys):
             c = lession[i].strip()
             if key == "教学班":
@@ -99,4 +98,14 @@ def parse_course(html, semester: str):
 
 
 def parse_course_info(html):
+    semester = re.findall(r"学期:</td>\s+<td.*>(.*)</td.*>", html)[0]
+    faculty = re.findall(r"开课院系:</td>\s+<td.*>(.*)</td.*>", html)[0]
+    result = {
+        "semester": semester,
+        "faculty": faculty,
+    }
+    return result
+
+
+def parse_syllabus(html):
     return md(html).replace("\n\n\n", "\n\n").strip()

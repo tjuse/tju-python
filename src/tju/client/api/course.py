@@ -1,9 +1,14 @@
 from __future__ import annotations
 
-from tju.consts import COURSEINFO_URL_PATH, COURSELIB_URL_PATH, SEMESTER
+from tju.consts import (
+    COURSE_INFO_URL_PATH,
+    COURSE_SYLLABUS_URL_PATH,
+    COURSELIB_URL_PATH,
+    SEMESTER,
+)
 from tju.exceptions import DataError, HtmlParseError, StuTypeError
 from tju.models import CourseLib, StuType
-from tju.parser import parse_course, parse_course_info
+from tju.parser import parse_course, parse_course_info, parse_syllabus
 
 from ..base import BaseClient
 
@@ -58,26 +63,36 @@ class CourseMixin(BaseClient):
         ).text
 
         try:
-            course_dict = parse_course(html=course_html, semester=semester)
+            course_dict = parse_course(html=course_html)
         except IndexError:
             raise HtmlParseError from None
+
+        for course in course_dict["list"]:
+            lession_id = course["lession_id"]
+            info_html = self._session.get(
+                COURSE_INFO_URL_PATH,
+                params={"lesson.id": lession_id},
+            ).text
+            info_dict = parse_course_info(info_html)
+            course.update(info_dict)
+
         course = CourseLib()
         if "list" in course_dict:
             course.load(data=course_dict["list"])
             course_dict["list"] = course
         return course_dict
 
-    def query_course_info(self, lession_id: str):
+    def query_syllabus(self, lession_id: str):
         """
-        public course lib
+        public course syllabus
         """
         course_info_html = self._session.post(
-            COURSEINFO_URL_PATH,
+            COURSE_SYLLABUS_URL_PATH,
             params={"lesson.id": lession_id},
         ).text
 
         try:
-            course_info = parse_course_info(course_info_html)
+            course_info = parse_syllabus(course_info_html)
         except IndexError:
             raise HtmlParseError from None
 

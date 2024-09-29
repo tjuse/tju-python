@@ -1,8 +1,10 @@
 from .course import parse_course as parse_course
 from .course import parse_course_info as parse_course_info
+from .course import parse_syllabus as parse_syllabus
 from .exam import parse_exam as parse_exam
 from .exam import parse_exam_batch_id as parse_exam_batch_id
 from .profile import parse_profile as parse_profile
 from .schedule import parse_schedule as parse_schedule
+from .schedule import parse_schedule_selection as parse_schedule_selection
 from .score import parse_score as parse_score
 from .score import parse_score_exp as parse_score_exp
