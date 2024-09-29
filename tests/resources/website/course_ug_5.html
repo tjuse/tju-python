@@ -1,0 +1,1422 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="content-style-type" content="text/css" />
+  <meta http-equiv="content-script-type" content="text/javascript" />
+  <script type="text/javascript">
+      window.$BG_LANG='zh';
+  </script>
+  <script type="text/javascript" src="/eams/static/scripts/jquery/jquery,jquery.ui.core.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/plugins/jquery-form,jquery-history,jquery-colorbox,jquery-chosen.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/js/plugins/jquery.subscribe,/js/struts2/jquery.struts2,jquery.ui.struts2.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/beangle/beangle,beangle-ui.js?bg=3.4.3"></script>
+  <script type="text/javascript">var App = {contextPath:"/eams"};var funcInit = function () {jQuery.struts2_jquery.version="3.6.1";beangle.contextPath=App.contextPath;jQuery.scriptPath = App.contextPath+"/static/";jQuery.struts2_jquerySuffix = "";jQuery.ajaxSettings.traditional = true;jQuery.ajaxSetup ({cache: false});};</script>
+  <script type="text/javascript" src="/eams/static/scripts/my97/WdatePicker-4.72.js?compress=no"></script>
+  <link id="jquery_theme_link" rel="stylesheet" href="/eams/static/themes/smoothness/jquery-ui.css?s2j=3.6.1" type="text/css"/>
+  <link id="beangle_theme_link" href="/eams/static/themes/default/beangle-ui,colorbox,chosen.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/eams/static/css/foundation.css" type="text/css"/>
+  <script type="text/javascript" src="/eams/static/scripts/highcharts.js"></script>
+
+	<script src="/eams/static/scripts/require.config.js?v=3"></script>
+	<script>
+	require.baseUrl="/eams/static/scripts";
+	</script>
+	<script src="/eams/static/scripts/require.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/require.js"></script>
+
+	<!-- backbone & underscore -- fontend MVC framework -->
+	<script type="text/javascript" src="/eams/static/scripts/underscore.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/backbone.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/underscore.string.min.js"></script>
+	<script>
+	require(['underscore.string'], function(_s) {
+	        _.str = _s;
+	        _.mixin(_.str.exports());
+	});
+	funcInit();
+	//beangle.ajaxhistory = false;
+	</script>
+
+
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="/eams/static/css/lesson.css" />
+
+
+<div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+<script language="JavaScript" type="text/JavaScript" src="/eams/static/scripts/prompt.js"></script>
+<script>
+	var contents = new Object();
+	contents['454298']='倪旸 星期六 5-6 [4-19]  26楼A203  ';
+	contents['454531']='田颖 星期三 7-8 [3-18]  33楼205  <br>田颖 星期五 1-2 [4-18]双  33楼205  ';
+	contents['454299']='高维东 星期一 3-4 [4-19]  23楼102  <br>高维东 星期三 3-4 [4-19]  23楼102  <br>高维东 星期四 3-4 [4-19]  23楼102  ';
+	contents['454532']='赵冶 星期一 7-8 [4-19]  46楼A108  <br>赵冶 星期三 1-2 [5-19]单  46楼A108  ';
+	contents['454534']='王恒 星期二 1-2 20  33楼105  <br>王恒 星期二 5-6 [4-19]  33楼201  <br>王恒 星期四 7-8 [6-18]双  33楼105  ';
+	contents['454294']='';
+	contents['454536']='李伟 星期三 7-8 [4-19]  46楼A204  <br>李伟 星期五 1-2 [4-18]双  46楼A114  ';
+	contents['454293']='周芳 星期一 1-2 [4-19]  23楼406  <br>周芳 星期三 1-2 [4-19]  23楼406  <br>周芳 星期五 1-2 [4-19]  23楼406  ';
+	contents['454538']='';
+	contents['454437']='杜发强 星期四 1-2 [4-19]    ';
+	contents['454438']='张鲲 星期三 5-6 [12-19]  23楼206  ';
+	contents['454439']='Peter Robert Taylor 星期二 1-2 [8-19]  26楼A309  <br>Peter Robert Taylor 星期五 3-4 [8-19]  26楼A409  ';
+	contents['454433']='Yuchi Zhiguang 星期四 3-4 [4-19]  23楼508  ';
+	contents['454435']='';
+	contents['454440']='郑有泉 星期二 5-6 [4-19]  37楼507  ';
+	contents['454442']='田代军 星期二 3-4 [4-17]  46楼A110  <br>田代军 星期四 3-4 [4-17]  46楼A110  ';
+	contents['454541']='王恒 星期一 5-6 [4-19]  23楼504  <br>王恒 星期三 5-6 [5-19]单  23楼504  ';
+	contents['454289']='';
+	contents['454522']='安青松 星期二 5-6 [5-16]  33楼116  <br>聂显铧 星期二 5-6 [1-4]  33楼116  ';
+	contents['454523']='刘雪玲 星期一 5-6 [1-3]单,[4-6],[9-16]  46楼A102  <br>刘雪玲 星期二 7-8 3  46楼A102  <br>刘雪玲 星期五 7-8 5,9  37楼507  ';
+	contents['454521']='宋馨宇 星期三 3-4 [4-19]  33楼104  ';
+	contents['454527']='王磊 星期二 7-8 [7-17]  33楼211  <br>王磊 星期五 3-4 [8-16]双  33楼211  ';
+	contents['454429']='罗旭 星期三 5-6 [4-19]    ';
+	contents['454524']='李君 星期三 5-6 [1-16]  46楼A104  <br>李君 星期五 1-2 [1-15]单  46楼A104  ';
+	contents['454525']='高文志 星期二 3-4 [1-16]  37楼513  <br>高文志 星期四 1-2 [2-16]双  37楼507  ';
+	contents['454427']='覃海军 星期三 3-4 [4-19]    ';
+	contents['454428']='宋祎琳 星期二 1-3 [4-19]    <br>宋祎琳 星期五 1-3 [4-19]    ';
+	contents['454425']='杨博文 星期三 1-2 [4-19]    ';
+	contents['454528']='郑仁成 星期一 3-4 [11-15]单  37楼511  <br>梅江平 星期一 3-4 [3-9]单  37楼511  <br>郑仁成 星期四 7-8 [10-16]  37楼511  <br>梅江平 星期四 7-8 [3-9]  37楼511  ';
+	contents['454529']='';
+	contents['454424']='林琳 星期二 5-6 [4-19]    ';
+	contents['454431']='谢诗桐 星期三 3-4 [4-19]  26楼A115  ';
+	contents['454430']='王焱 星期二 1-3 [4-19]    <br>王焱 星期五 1-3 [4-19]    ';
+	contents['454530']='宋轶民 星期二 5-6 [10-16]  33楼211  <br>孙涛 星期二 5-6 [3-9]  33楼211  <br>宋轶民 星期四 1-2 [10-16]  33楼211  <br>孙涛 星期四 1-2 [3-9]  33楼211  ';
+	contents['454418']='李岳楠 星期一 9-12 [4-13]  26楼A205  ';
+	contents['454557']='屈婷 星期二 5-6 [4-19]  45楼B207  <br>屈婷 星期四 7-8 [5-19]单  45楼B207  ';
+	contents['454558']='张宇 星期二 3-4 [4-19]  46楼A309  <br>张宇 星期四 5-6 [5-19]单  46楼A205  ';
+	contents['454559']='李丽 星期二 7-8 [4-18]双  23楼506  <br>李丽 星期四 5-6 [4-19]  23楼504  ';
+	contents['454555']='张媛媛 星期二 1-2 [5-19]单  46楼A305  <br>张媛媛 星期四 1-2 [4-19]  46楼A305  ';
+	contents['454413']='牛志彬 星期五 5-6 [4-11]  46楼A202  ';
+	contents['454416']='刘智 星期五 5-6 [4-11]  46楼A306  ';
+	contents['454417']='';
+	contents['454561']='';
+	contents['454563']='';
+	contents['454562']='';
+	contents['454409']='林岩 星期五 5-6 [4-11]  45楼B203  ';
+	contents['454548']='侯惠让 星期二 9-10 [12-19]  26楼B118  <br>侯惠让 星期四 5-6 [12-19]  26楼B118  ';
+	contents['454407']='李振鲁 星期五 5-6 [4-11]  23楼404  ';
+	contents['454546']='';
+	contents['454547']='';
+	contents['454544']='';
+	contents['454542']='陈乐 星期三 5-6 [5-19]单  46楼A108  <br>陈乐 星期五 1-2 [4-19]  46楼A108  ';
+	contents['454402']='康健 星期一 9-10 [4-11]  23楼102  ';
+	contents['454405']='曹家乐 星期五 5-6 [4-11]  23楼214  ';
+	contents['454403']='王日东 星期五 5-6 [4-11]  23楼114  ';
+	contents['454404']='张福民 星期五 5-6 [4-11]  23楼208  ';
+	contents['454552']='袁婷 星期三 1-2 [5-19]单  23楼402  <br>袁婷 星期五 3-4 [4-19]  23楼402  ';
+	contents['454550']='潘林 星期三 5-8 [4-19]  19楼405  ';
+	contents['454519']='';
+	contents['454513']='';
+	contents['454321']='徐淑贤 星期二 1-2 [5-14]  26楼A111  <br>杜慧滨 星期二 1-2 4  26楼A111  <br>徐淑贤 星期四 1-2 [5-14]  26楼A111  <br>杜慧滨 星期四 1-2 4  26楼A111  ';
+	contents['454516']='';
+	contents['454320']='曲亮 星期三 1-2 [4-14]  26楼A403  <br>曲亮 星期五 1-2 [4-14]  26楼A403  ';
+	contents['454510']='';
+	contents['454512']='刘乐全 星期四 3-4 [4-19]  31楼256  ';
+	contents['454511']='';
+	contents['454319']='张加万 星期一 7-8 [8-19]  46楼A102  <br>张加万 星期三 5-6 [8-19]  46楼A102  ';
+	contents['454509']='';
+	contents['454506']='周鹏 星期五 1-4 [4-11]  12楼301  ';
+	contents['454505']='徐瑞 星期四 5-6 18  23楼110  <br>刘凯风 星期四 5-6 [11-17],19  23楼110  <br>徐瑞 星期四 5-6 [4-10]  23楼110  ';
+	contents['454504']='于海情 星期三 7-8 10,[15-19]  23楼510  <br>黄永志 星期三 7-8 [8-9],[11-14]  23楼510  <br>于海情 星期三 7-8 [4-7]  23楼510  ';
+	contents['454502']='倪广健 星期一 5-6 [4-19]  26楼A115  ';
+	contents['454501']='华平壤 星期二 3-4 [4-19]  23楼512  ';
+	contents['454500']='';
+	contents['454306']='关静 星期一 3-4 [4-17]  45楼B206  <br>关静 星期三 3-4 [4-17]  45楼B206  ';
+	contents['454307']='杨玲玲 星期一 1-2 [4-17]  46楼A303  <br>杨玲玲 星期三 5-6 [4-17]  46楼A303  ';
+	contents['454300']='';
+	contents['454308']='胡飞 星期二 1-2 [4-17]  45楼B409  <br>胡飞 星期四 3-4 [4-17]  45楼B409  ';
+	contents['454336']='郑立群 星期二 5-6 [11-16]  26楼A115  <br>佘震宇 星期二 5-6 [4-10]  26楼A115  <br>郑立群 星期四 5-6 [11-16]  26楼A113  <br>佘震宇 星期四 5-6 [4-10]  26楼A113  ';
+	contents['454334']='杜军 星期三 3-4 [11-16]  19楼411  <br>谭庆美 星期三 3-4 [4-10]  19楼411  <br>杜军 星期五 1-2 [11-16]  19楼411  <br>谭庆美 星期五 1-2 [4-10]  19楼411  ';
+	contents['454339']='刘永长 星期五 3-4 [8-11]  31楼251  <br>李朝阳 星期五 3-4 [4-7]  31楼251  ';
+	contents['454338']='刘高华 星期五 5-6 [4-11]  46楼A303  ';
+	contents['454337']='王金石 星期二 9-10 [4-19]  26楼A105  ';
+	contents['454621']='刘依冉 星期四 3-4 [4-19]  33楼187  ';
+	contents['454342']='';
+	contents['454343']='';
+	contents['454340']='戴维迪 星期五 5-6 [4-11]  46楼A305  ';
+	contents['454620']='刘辉 星期二 1-2 [5-19]单  33楼201  <br>刘辉 星期四 1-2 [4-19]  33楼201  ';
+	contents['454341']='马明 星期四 9-10 [4-19]  46楼A120  ';
+	contents['454323']='王振强 星期一 1-2 [4-14]  26楼A303  <br>王振强 星期三 1-2 [4-14]  26楼A303  ';
+	contents['454322']='张彤 星期一 1-2 [11-16]  26楼A317  <br>李振华 星期一 1-2 [4-10]  26楼A317  <br>张彤 星期三 1-2 [11-16]  26楼A317  <br>李振华 星期三 1-2 [4-10]  26楼A317  ';
+	contents['454325']='白寅 星期一 1-2 [5-15]  26楼A203  <br>白寅 星期四 5-6 [5-15]  26楼A103  ';
+	contents['454324']='杜军 星期二 3-4 [11-16]  26楼A113  <br>谭庆美 星期二 3-4 [4-10]  26楼A113  <br>杜军 星期四 3-4 [11-16]  26楼A303  <br>谭庆美 星期四 3-4 [4-10]  26楼A303  ';
+	contents['454327']='姚晔 星期一 1-2 [5-14]  26楼A111  <br>杜慧滨 星期一 1-2 4  26楼A111  <br>姚晔 星期三 1-2 [5-14]  26楼A111  <br>杜慧滨 星期三 1-2 4  26楼A111  ';
+	contents['454326']='郑立群 星期二 7-8 [11-16]  26楼A113  <br>唐建生 星期二 7-8 [4-10]  26楼A113  <br>郑立群 星期四 3-4 [11-16]  26楼A213  <br>唐建生 星期四 3-4 [4-10]  26楼A213  ';
+	contents['454329']='李汶华 星期一 3-4 [7-14]  26楼B116  <br>刘钢 星期一 3-4 [4-6]  26楼B116  <br>李汶华 星期三 3-4 [7-14]  26楼B116  <br>刘钢 星期三 3-4 [4-6]  26楼B116  ';
+	contents['454328']='杜军 星期一 3-4 [11-16]  26楼A315  <br>唐建生 星期一 3-4 [4-10]  26楼A315  <br>杜军 星期三 5-6 [11-16]  26楼A315  <br>唐建生 星期三 5-6 [4-10]  26楼A315  ';
+	contents['454330']='张彤 星期一 5-6 [11-16]  26楼B120  <br>佘震宇 星期一 5-6 [4-10]  26楼B120  <br>张彤 星期三 5-6 [11-16]  26楼B120  <br>佘震宇 星期三 5-6 [4-10]  26楼B120  ';
+	contents['454331']='彭彬彬 星期三 3-4 [5-14]  26楼A111  <br>杜慧滨 星期三 3-4 4  26楼A111  <br>彭彬彬 星期五 1-2 [5-14]  26楼A111  <br>杜慧滨 星期五 1-2 4  26楼A111  ';
+	contents['454332']='张彤 星期二 1-2 [11-16]  26楼A407  <br>李振华 星期二 1-2 [4-10]  26楼A407  <br>张彤 星期四 3-4 [11-16]  26楼A407  <br>李振华 星期四 3-4 [4-10]  26楼A407  ';
+	contents['454364']='汤颖 星期二 1-2 [4-19]  45楼B101  ';
+	contents['454365']='马非 星期四 5-6 [4-19]  33楼105  ';
+	contents['454362']=' 星期一 3-4 [14-19]  45楼B101  <br>王潜龙 星期一 3-4 [8-13]  45楼B101  <br>刘海峰 星期一 3-4 [4-7]  45楼B101  <br> 星期三 7-8 [14-19]  45楼B101  <br>王潜龙 星期三 7-8 [8-13]  45楼B101  <br>刘海峰 星期三 7-8 [4-7]  45楼B101  ';
+	contents['454363']=' 星期二 5-6 [5-11],[14-15]  45楼B103  <br>蒋浩然 星期二 5-6 [12-13]  45楼B103  <br>杜希文 星期二 5-6 4  45楼B103  <br> 星期四 3-4 [5-11],[14-15]  45楼B103  <br>蒋浩然 星期四 3-4 [12-13]  45楼B103  <br>杜希文 星期四 3-4 4  45楼B103  ';
+	contents['454360']='谢舒 星期一 1-4 [1-2]  19楼205  <br>谢舒 星期三 1-4 [1-2]  19楼205  ';
+	contents['454603']='何晋伟 星期一 5-6 [12-19]  26楼A505  <br>何晋伟 星期四 7-8 [12-19]  26楼A505  ';
+	contents['454361']='冀浩然 星期二 3-4 [12-19]  46楼A117  <br>冀浩然 星期四 1-2 [12-19]  46楼A104  ';
+	contents['454604']='宋晓菲 星期一 1-4 [1-6]  33楼190  <br>宋晓菲 星期四 5-8 [1-6]  33楼190  ';
+	contents['454601']='王梦凡 星期一 1-2 [4-14]  19楼509  <br>王梦凡 星期四 7-8 [5-13]单  19楼509  ';
+	contents['454602']='康君 星期三 3-4 [4-11]  23楼408  ';
+	contents['454605']='穆云飞 星期三 5-6 [12-19]  26楼A507  <br>穆云飞 星期五 1-2 [12-19]  26楼A507  ';
+	contents['454609']='陈多旭 星期四 7-8 [4-19]  46楼A120  ';
+	contents['454492']='郭学石 星期四 1-2 [4-15]  23楼408  ';
+	contents['454497']='贾大功 星期一 1-2 [4-9]  26楼A205  <br>贾大功 星期三 5-6 [4-9]  26楼A309  ';
+	contents['454349']='杨斯博 星期二 3-4 [4-16]  26楼A315  <br>杨斯博 星期四 1-2 [4-16]  26楼A315  ';
+	contents['454348']='吕斯轩 星期二 5-6 [4-19]  23楼504  ';
+	contents['454345']='';
+	contents['454347']='王立 星期五 5-6 [4-11]  46楼A108  ';
+	contents['454346']='';
+	contents['454351']='袁学民 星期二 9-10 [4-16]    <br>袁学民 星期四 5-6 [4-16]    ';
+	contents['454352']='胡明艳 星期一 9-10 [4-19]  33楼205  <br>胡明艳 星期三 7-8 [4-19]    <br>胡明艳 星期三 5-6 [4-19]  33楼205  ';
+	contents['454353']='谢满庭 星期三 3-4 [4-15]  33楼201  <br>谢满庭 星期五 3-4 [4-15]  33楼201  ';
+	contents['454610']='李海龙 星期二 3-4 [7-13]  31楼249  <br>李欣 星期二 3-4 [3-6]  31楼249  ';
+	contents['454611']='李海龙 星期三 5-6 [7-13]  31楼249  <br>李欣 星期三 5-6 [3-6]  31楼249  ';
+	contents['454612']='';
+	contents['454613']='';
+	contents['454614']='';
+	contents['454615']='';
+	contents['454350']='张永杰 星期一 5-6 [4-12]  26楼A403  <br>张永杰 星期三 7-8 [4-12]  26楼A403  ';
+	contents['454616']='';
+	contents['454487']='赵瑾 星期二 3-4 [4-15]  31楼256  ';
+	contents['454618']='贺敬垒 星期三 1-2 [4-19]  46楼A208  <br>贺敬垒 星期五 1-2 [4-18]双  46楼A208  ';
+	contents['454489']='';
+	contents['454619']='王军旗 星期二 7-8 [4-18]双  45楼B409  <br>王军旗 星期四 7-8 [4-19]  45楼B409  ';
+	contents['454379']='王龙 星期六 1-8 11  33楼113  ';
+	contents['454377']='Benjamin Robert Clark 星期二 3-4 [4-19]  23楼510  <br>Benjamin Robert Clark 星期四 1-2 [4-18]双  23楼510  ';
+	contents['454378']='岳静 星期三 3-4 [15-19]  46楼A110  <br>吕静 星期三 3-4 [10-14]  46楼A110  <br>王用源 星期三 3-4 [4-9]  46楼A110  ';
+	contents['454585']='胡正林 星期一 3-4 [8-15]  50楼A336  <br>黄成德 星期一 3-4 [4-7]  50楼A336  <br>胡正林 星期三 5-6 [8-15]  50楼A336  <br>黄成德 星期三 5-6 [4-7]  50楼A336  ';
+	contents['454582']='陈曦 星期一 5-6 [4-11]  26楼B114  <br>陈曦 星期四 7-8 [4-11]  26楼B116  ';
+	contents['454583']='';
+	contents['454286']='韩健 星期一 3-4 [4-19]  23楼114  <br>韩健 星期二 3-4 [4-19]  23楼114  <br>韩健 星期四 3-4 [4-19]  23楼114  ';
+	contents['454285']='';
+	contents['454478']='欧阳春梅 星期三 3-4 [4-19]  26楼A315  ';
+	contents['454477']='史伟 星期三 5-6 [8-11]  23楼508  <br>盛泉 星期三 5-6 [4-7]  23楼508  <br>史伟 星期五 1-2 [8-11]  23楼312  <br>盛泉 星期五 1-2 [4-7]  23楼312  ';
+	contents['454476']='闫凤英 星期一 1-3 [10-17]    <br>闫凤英 星期四 1-3 [10-17]    ';
+	contents['454383']='肖迁 星期四 7-8 [12-19]  23楼506  ';
+	contents['454578']='褚晶辉 星期二 5-6 [4-15]  19楼201  <br>褚晶辉 星期五 3-4 [4-15]  19楼201  ';
+	contents['454382']='李晨曦 星期五 5-6 [4-11]  23楼202  ';
+	contents['454381']='王龙 星期日 1-8 13  西阶201  ';
+	contents['454576']='曹家乐 星期三 5-6 [4-19]  19楼201  ';
+	contents['454575']='曾沅 星期一 7-8 [4-11]  19楼201  <br>曾沅 星期四 3-4 [5-11]  19楼201  <br>曾沅 星期五 5-6 11  19楼311  ';
+	contents['454387']='姜忠义 星期三 1-2 [5-17]单  50楼A225  <br>姜忠义 星期五 3-4 [4-17]  50楼A225  ';
+	contents['454384']='曹家乐 星期三 9-10 [4-19]  23楼206  ';
+	contents['454366']='王养军 星期三 5-8 [4-15]  43楼A308  ';
+	contents['454367']='';
+	contents['454368']='';
+	contents['454369']='潘林 星期五 5-6 [4-11]  23楼106  ';
+	contents['454570']='贾宏杰 星期三 9-12 [12-15]  26楼B112  ';
+	contents['454571']='赵鑫 星期三 3-4 [12-19]  19楼203  <br>张涛 星期三 3-4 [4-11]  19楼203  ';
+	contents['454572']='金志刚 星期二 3-4 [4-13]  19楼203  <br>金志刚 星期五 1-2 [4-13]  19楼203  ';
+	contents['454573']='冀浩然 星期一 3-4 [4-11]  19楼203  <br>冀浩然 星期四 1-2 [4-11]  19楼203  ';
+	contents['454574']='王丹 星期一 3-4 [12-19]  19楼201  <br>王丹 星期四 1-2 [12-19]  19楼201  ';
+	contents['454474']='闫宏生 星期二 3-4 [4-13]  43楼A410  <br>闫宏生 星期五 1-2 [4-13]  43楼A410  ';
+	contents['454475']='';
+	contents['454465']='李俊凯 星期三 3-4 [4-19]  33楼192  ';
+	contents['454564']='';
+	contents['454372']='陈高明 星期一 1-4 [4-11]  19楼401  ';
+	contents['454566']='孙冰 星期一 1-2 [4-15]  19楼413  <br>孙冰 星期三 3-4 [5-15]  19楼413  <br>孙冰 星期五 5-6 5  19楼413  ';
+	contents['454374']='葛富东 星期二 1-2 [4-11]  26楼B112  <br>葛富东 星期日 3-4 [4-11]  26楼B112  ';
+	contents['454569']='李鹏 星期二 9-12 [12-15]  26楼B122  ';
+	contents['454373']='孔晓晓 星期二 7-8 [4-11]  26楼A504  <br>孔晓晓 星期四 3-4 [4-11]  26楼A504  ';
+	contents['454568']='杜伯学 星期四 9-12 [12-15]  26楼B112  ';
+	contents['454376']='';
+	contents['454375']='薛凌霄 星期三 5-6 [4-19]  45楼B310  ';
+	contents['454399']='李校博 星期五 5-6 [4-11]  23楼206  ';
+	contents['454460']='';
+	contents['454463']='张翠翠 星期三 5-6 [4-19]  19楼503  ';
+	contents['454461']='';
+	contents['454462']='';
+	contents['454459']='';
+	contents['454594']='杨方旭 星期一 3-4 [12-19]  32楼B区120  <br>于曦 星期一 3-4 [4-11]  32楼B区120  <br>杨方旭 星期三 7-8 [12-19]  32楼B区120  <br>于曦 星期三 7-8 [4-11]  32楼B区120  ';
+	contents['454595']='';
+	contents['454388']='李罡 星期一 1-2 [11-17]  46楼A309  <br>王立 星期一 1-2 [4-10]  46楼A309  <br>李罡 星期三 5-6 [11-17]  46楼A309  <br>王立 星期三 5-6 [4-10]  46楼A309  ';
+	contents['454389']='';
+	contents['454590']='李泽骁 星期日 1-2 [5-19]  26楼A105  ';
+	contents['454592']='刘晓海 星期三 1-3 [4-14]  32楼B区111  ';
+	contents['454450']='苏延磊 星期二 3-4 [4-19]  50楼A225  ';
+	contents['454451']='崔现宝 星期二 5-6 [16-19]  50楼A225  <br>苏荣欣 星期二 5-6 [12-15]  50楼A225  <br>崔现宝 星期四 3-4 [16-19]  50楼A225  <br>苏荣欣 星期四 3-4 [12-15]  50楼A225  ';
+	contents['454452']='赵志坚 星期五 3-4 [12-19]  50楼A336  <br>付东龙 星期五 3-4 [4-11]  50楼A336  ';
+	contents['454443']='周凤桐 星期三 3-4 [4-19]    ';
+	contents['454390']='';
+	contents['454446']='罗旭 星期四 3-4 [4-19]    ';
+	contents['454445']='';
+	contents['454448']='李茂帅 星期一 3-4 [11-17]  50楼A334  <br>王华 星期一 3-4 [4-10]  50楼A334  <br>李茂帅 星期三 1-2 [11-17]单  50楼A334  <br>王华 星期三 1-2 [5-9]单  50楼A334  ';
+	contents['454449']='';
+	contents['454396']='万亮 星期二 9-10 [4-11]  23楼214  <br>万亮 星期四 3-4 [4-11]  23楼214  ';
+	contents['454587']='';
+	contents['454391']='YEO KIAT SENG 星期一 3-4 [4-11]  26楼A105  <br>YEO KIAT SENG 星期四 3-4 [4-11]  26楼A105  ';
+	contents['454589']='邓海龙 星期三 1-2 [4-18]双  26楼A313  <br>邓海龙 星期五 1-2 [4-19]  26楼A315  ';
+	contents['454393']='';
+	function displayArrangeResult(taskId){
+  		var msg = "没有安排";
+  		if(null != contents[taskId] && contents[taskId].replace(/\s/g, '') != '') {
+	 		msg = contents[taskId];
+ 		}
+		toolTip(msg,'#000000', '#FFFF00',250);
+	}
+	initToolTips();
+</script><form id="taskListForm" name="taskListForm" action="/eams/stdSyllabus!search.action" method="post"  >
+
+<div class="grid">
+
+<div id="grid13044705621_bar1" class="gridbar"></div>
+<table id="grid13044705621" class="gridtable">
+<thead class="gridhead">
+
+<tr>
+  <th class="gridselect-top"  width="25px"><input type="submit" id="grid13044705621_filter_submit" value="" onclick="bg.form.submit('taskListForm',null,null,clearCheckbox_grid13044705621);return false;" class="grid-filter-submit"/>
+</th>
+<th title="课程序号" width="4%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.no"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程代码" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.code"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程名称" width="15%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程类别" width="10%" style="padding-left:3px">	  		<input name="multiOrCourseType.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="开课校区" width="7%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.campus.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教学班" width="23%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教师" width="7%" style="padding-left:3px">	  		<input name="teacher.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="实际" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.stdCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="总上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.limitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="计划外人数上限" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.unplanLimitCount"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="是否开放计划外" width="5%" style="padding-left:3px">            <select name="isUnplan" style="width:95%">
+                <option value="">...</option>
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+  </th>
+<th title="学分" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.credits"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="学时/周" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.coursePeriod"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th width="5%"></th><th title="课程大纲" width="4%" style="padding-left:3px">	    	<select name="syllabus" style="width:95%">
+	            <option value="">...</option>
+	            <option value="1">有</option>
+	            <option value="0">无</option>
+	        </select>
+  </th>
+</tr>
+
+<tr>
+<th  class="gridselect-top" ><input type="checkbox" name="lesson.idbox" onclick="bg.ui.grid.toggleAll(event)" title="选择全部"/> </th>
+<th  class="gridhead-sortable" id="lesson.no">课程序号</th>
+<th  class="gridhead-sortable" id="lesson.course.code">课程代码</th>
+<th  class="gridhead-sortable" id="lesson.course.name">课程名称</th>
+<th  class="gridhead-sortable" id="lesson.courseType.name">课程类别</th>
+<th  class="gridhead-sortable" id="lesson.campus.name">开课校区</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.name">教学班</th>
+<th  >教师</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.stdCount">实际</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.limitCount">总上限</th>
+<th  class="gridhead-sortable" id="lesson.unplanLimitCount">计划外人数上限</th>
+<th  class="gridhead-sortable" id="lesson.isUnplan">是否开放计划外</th>
+<th  class="gridhead-sortable" id="lesson.course.credits">学分</th>
+<th  class="gridhead-sortable" id="lesson.coursePeriod">学时/周</th>
+<th  class="gridhead-sortable" id="lesson.courseSchedule.weekState">起止周</th>
+<th  >课程大纲</th>
+</tr>
+
+</thead>
+
+<tbody id="grid13044705621_data"><tr><td class="gridselect"><input class="box" name="lesson.id" value="454285" type="checkbox"/></td><td>03307</td><td>1140003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454285" onclick="return bg.Go(this,null)" title="查看任务详细信息">法制安全教育</a></td><td>      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2024工科试验班（海洋类）1班 2024工科试验班（海洋类）2班 2024工科试验班（海洋类）3班</td><td>袁全</td><td>65</td><td>90</td><td>0</td><td>          否
+</td><td>0</td>      <td>16/1</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454286" type="checkbox"/></td><td>03308</td><td>2330068</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454286" onclick="return bg.Go(this,null)" title="查看任务详细信息">微积分I</a></td><td>      	数学
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电子科学技术类）1班 2024工科试验班（电子科学技术类）2班 2024工科试验班（电子科学技术类）3班 2024工科试验班（海洋类）1班 2024工科试验班（海洋类）2班 2024工科试验班（海洋类）3班</td><td>韩健</td><td>149</td><td>180</td><td>5</td><td>          是
+</td><td>6</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454289" type="checkbox"/></td><td>03311</td><td>1140003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454289" onclick="return bg.Go(this,null)" title="查看任务详细信息">法制安全教育</a></td><td>      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2024智能医学工程（医大）1班</td><td>袁全</td><td>22</td><td>35</td><td>0</td><td>          否
+</td><td>0</td>      <td>16/1</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454293" type="checkbox"/></td><td>03315</td><td>2330068</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454293" onclick="return bg.Go(this,null)" title="查看任务详细信息">微积分I</a></td><td>      	数学
+</td><td>卫津路校区</td><td>班级:2024生物医学工程（医大）1班 2024生物医学工程（医大）2班 2024医学试验班（新医科）5班 2024医学试验班（新医科）6班 2024医学试验班（新医科）7班</td><td>周芳</td><td>146</td><td>180</td><td>5</td><td>          是
+</td><td>6</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454294" type="checkbox"/></td><td>03316</td><td>1140003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454294" onclick="return bg.Go(this,null)" title="查看任务详细信息">法制安全教育</a></td><td>      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2024生物科学（强基计划）1班</td><td>袁全</td><td>29</td><td>30</td><td>0</td><td>          否
+</td><td>0</td>      <td>16/1</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454298" type="checkbox"/></td><td>03320</td><td>2111440</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454298" onclick="return bg.Go(this,null)" title="查看任务详细信息">基础英语1</a></td><td>      	外语
+</td><td>卫津路校区</td><td>2024级大学英语D类</td><td>倪旸</td><td>54</td><td>55</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454299" type="checkbox"/></td><td>03321</td><td>2330067</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454299" onclick="return bg.Go(this,null)" title="查看任务详细信息">微积分导论</a></td><td>      	数学
+</td><td>卫津路校区</td><td>班级:2024生物科学（强基计划）1班 2024生物科学（拔尖班）1班 2024建筑类（教学）5班</td><td>高维东</td><td>66</td><td>105</td><td>5</td><td>          是
+</td><td>6</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454300" type="checkbox"/></td><td>03322</td><td>1140003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454300" onclick="return bg.Go(this,null)" title="查看任务详细信息">法制安全教育</a></td><td>      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2024生物科学（拔尖班）1班</td><td>袁全</td><td>11</td><td>30</td><td>0</td><td>          否
+</td><td>0</td>      <td>16/1</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454306" type="checkbox"/></td><td>03328</td><td>2330066</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454306" onclick="return bg.Go(this,null)" title="查看任务详细信息">概率论与数理统计</a></td><td>      	数理基础课程
+</td><td>北洋园校区</td><td>班级:2023储能科学与工程1班 2023港口航道与海岸工程1班 2023港口航道与海岸工程2班 2023港口航道与海岸工程3班 2023建工新工科领军班1班</td><td>关静</td><td>129</td><td>160</td><td>15</td><td>          是
+</td><td>3.5</td>      <td>56/4</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454307" type="checkbox"/></td><td>03329</td><td>2330066</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454307" onclick="return bg.Go(this,null)" title="查看任务详细信息">概率论与数理统计</a></td><td>      	数理基础课程,
+      	数学
+</td><td>北洋园校区</td><td>班级:2023材料科学与工程6班 2023水利水电工程1班 2023水利水电工程2班 2023水利水电工程3班 2023水利水电工程4班</td><td>杨玲玲</td><td>118</td><td>155</td><td>5</td><td>          是
+</td><td>3.5</td>      <td>56/4</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454308" type="checkbox"/></td><td>03330</td><td>2330066</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454308" onclick="return bg.Go(this,null)" title="查看任务详细信息">概率论与数理统计</a></td><td>      	数理基础课程
+</td><td>北洋园校区</td><td>班级:2023土木工程1班 2023土木工程2班 2023土木工程3班 2023土木工程4班 2023土木工程5班</td><td>胡飞</td><td>110</td><td>155</td><td>5</td><td>          是
+</td><td>3.5</td>      <td>56/4</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454319" type="checkbox"/></td><td>03341</td><td>2440163</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454319" onclick="return bg.Go(this,null)" title="查看任务详细信息">问题建模与求解</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2023计算机科学与技术（拔尖班）1班</td><td>张加万</td><td>15</td><td>30</td><td>0</td><td>          否
+</td><td>3</td>      <td>48/4</td>
+      <td>8-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454320" type="checkbox"/></td><td>03342</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454320" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023工业工程1班 2023物流工程（智慧供应链与运营管理）1班</td><td>曲亮</td><td>49</td><td>65</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454321" type="checkbox"/></td><td>03343</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454321" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023信息管理与信息系统1班</td><td>杜慧滨,徐淑贤</td><td>54</td><td>60</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454322" type="checkbox"/></td><td>03344</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454322" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023信息管理与信息系统1班</td><td>李振华,张彤</td><td>52</td><td>60</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454323" type="checkbox"/></td><td>03345</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454323" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023财务管理1班</td><td>王振强</td><td>48</td><td>55</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454324" type="checkbox"/></td><td>03346</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454324" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023财务管理1班</td><td>杜军,谭庆美</td><td>58</td><td>60</td><td>10</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454325" type="checkbox"/></td><td>03347</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454325" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023工商管理1班 2023工商管理2班 2023工商管理3班</td><td>白寅</td><td>41</td><td>55</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>5-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454326" type="checkbox"/></td><td>03348</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454326" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023工商管理1班 2023工商管理2班 2023工商管理3班</td><td>唐建生,郑立群</td><td>41</td><td>50</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454327" type="checkbox"/></td><td>03349</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454327" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023保密管理1班 2023电子商务1班</td><td>杜慧滨,姚晔</td><td>60</td><td>65</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454328" type="checkbox"/></td><td>03350</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454328" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023电子商务1班</td><td>杜军,唐建生</td><td>25</td><td>45</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454329" type="checkbox"/></td><td>03351</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454329" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023工程管理1班</td><td>刘钢,李汶华</td><td>23</td><td>40</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454330" type="checkbox"/></td><td>03352</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454330" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023工程管理1班</td><td>佘震宇,张彤</td><td>23</td><td>45</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454331" type="checkbox"/></td><td>03353</td><td>2091170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454331" onclick="return bg.Go(this,null)" title="查看任务详细信息">管理统计分析</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023金融学1班</td><td>杜慧滨,彭彬彬</td><td>54</td><td>60</td><td>5</td><td>          是
+</td><td>3</td>      <td>44/4</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454332" type="checkbox"/></td><td>03354</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454332" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023金融学1班</td><td>李振华,张彤</td><td>53</td><td>60</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454334" type="checkbox"/></td><td>03356</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454334" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023保密管理1班</td><td>杜军,谭庆美</td><td>32</td><td>45</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454336" type="checkbox"/></td><td>03358</td><td>2091164</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454336" onclick="return bg.Go(this,null)" title="查看任务详细信息">会计与财务管理基础</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023工业工程1班 2023物流工程（智慧供应链与运营管理）1班</td><td>佘震宇,郑立群</td><td>50</td><td>65</td><td>5</td><td>          是
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454337" type="checkbox"/></td><td>03359</td><td>2020828</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454337" onclick="return bg.Go(this,null)" title="查看任务详细信息">原子尺度测量与表征技术</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2023测控技术与仪器1班 2023测控技术与仪器2班 2023测控技术与仪器3班 2023测控技术与仪器4班</td><td>王金石</td><td>90</td><td>110</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454338" type="checkbox"/></td><td>03360</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454338" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>北洋园校区</td><td>班级:2024工科试验班（新材料与加工技术类）1班 2024工科试验班（新材料与加工技术类）2班 2024工科试验班（新材料与加工技术类）3班 2024工科试验班（新材料与加工技术类）4班 2024工科试验班（新材料与加工技术类）5班</td><td>刘高华</td><td>100</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454339" type="checkbox"/></td><td>03361</td><td>2080543</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454339" onclick="return bg.Go(this,null)" title="查看任务详细信息">材料与社会发展</a></td><td>      	大类基础课
+</td><td>北洋园校区</td><td>班级:2024工科试验班（新材料与加工技术类）1班 2024工科试验班（新材料与加工技术类）2班 2024工科试验班（新材料与加工技术类）3班 2024工科试验班（新材料与加工技术类）4班 2024工科试验班（新材料与加工技术类）5班 2024工科试验班（新材料与加工技术类）6班 2024工科试验班（新材料与加工技术类）7班</td><td>刘永长,李朝阳</td><td>35</td><td>50</td><td>5</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454340" type="checkbox"/></td><td>03362</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454340" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>北洋园校区</td><td>班级:2024工科试验班（新材料与加工技术类）6班 2024工科试验班（新材料与加工技术类）7班 2024人文科学试验班1班 2024人文科学试验班2班 2024人文科学试验班3班</td><td>戴维迪</td><td>126</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454341" type="checkbox"/></td><td>03363</td><td>2210132</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454341" onclick="return bg.Go(this,null)" title="查看任务详细信息">西方思想史（上）</a></td><td>      	通识选修课程
+</td><td>北洋园校区</td><td>班级:2024人文科学试验班1班 2024人文科学试验班2班 2024人文科学试验班3班 2024社会科学试验班2班 2024社会科学试验班1班 2024社会科学试验班3班 2024社会科学试验班4班 2024社会科学试验班5班 2024社会科学试验班6班</td><td>马明</td><td>216</td><td>316</td><td>16</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454342" type="checkbox"/></td><td>03364</td><td>2091178</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454342" onclick="return bg.Go(this,null)" title="查看任务详细信息">创新创业模拟训练</a></td><td>      	综合实践课程
+</td><td>卫津路校区</td><td>班级:2023工商管理1班 2023工商管理3班</td><td>郑春东</td><td>19</td><td>35</td><td>3</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454343" type="checkbox"/></td><td>03365</td><td>2080563</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454343" onclick="return bg.Go(this,null)" title="查看任务详细信息">材料3D打印实践</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2023材料科学与工程1班 2023材料科学与工程2班</td><td>贾慧珍</td><td>45</td><td>55</td><td>5</td><td>          是
+</td><td>1</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454345" type="checkbox"/></td><td>03367</td><td>2091179</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454345" onclick="return bg.Go(this,null)" title="查看任务详细信息">创新创业思维与实训</a></td><td>      	综合实践课程
+</td><td>卫津路校区</td><td>班级:2023工程管理1班</td><td>秦俊男</td><td>21</td><td>45</td><td>3</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454346" type="checkbox"/></td><td>03368</td><td>2091172</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454346" onclick="return bg.Go(this,null)" title="查看任务详细信息">科研思维与实训</a></td><td>      	综合实践课程
+</td><td>卫津路校区</td><td>班级:2023工程管理1班</td><td>傅永程</td><td>21</td><td>35</td><td>4</td><td>          是
+</td><td>4</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454347" type="checkbox"/></td><td>03369</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454347" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>北洋园校区</td><td>班级:2024工科试验班（化工能源与生命健康类）17班 2024工科试验班（化工能源与生命健康类）18班 2024工科试验班（化工能源与生命健康类）19班 2024工科试验班（化工能源与生命健康类）20班 2024化工领军卓越班（教学）1班 2024化工领军卓越班（教学）2班</td><td>王立</td><td>126</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454348" type="checkbox"/></td><td>03370</td><td>2300191</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454348" onclick="return bg.Go(this,null)" title="查看任务详细信息">法律英语</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022法学1班 2022法学2班</td><td>吕斯轩</td><td>11</td><td>84</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454349" type="checkbox"/></td><td>03371</td><td>2091196</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454349" onclick="return bg.Go(this,null)" title="查看任务详细信息">保密技术及管理</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023保密管理1班</td><td>杨斯博</td><td>30</td><td>35</td><td>0</td><td>          否
+</td><td>3</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454350" type="checkbox"/></td><td>03372</td><td>2091165</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454350" onclick="return bg.Go(this,null)" title="查看任务详细信息">金融机构与金融市场</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023金融学1班</td><td>张永杰</td><td>55</td><td>60</td><td>5</td><td>          是
+</td><td>2</td>      <td>36/4</td>
+      <td>4-12</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454351" type="checkbox"/></td><td>03373</td><td>2091198</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454351" onclick="return bg.Go(this,null)" title="查看任务详细信息">程序设计语言</a></td><td>      	专业方向模块
+</td><td>卫津路校区</td><td>班级:2023保密管理1班</td><td>袁学民</td><td>28</td><td>35</td><td>1</td><td>          是
+</td><td>3.5</td>      <td>52/4</td>
+      <td>4-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454352" type="checkbox"/></td><td>03374</td><td>2011035</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454352" onclick="return bg.Go(this,null)" title="查看任务详细信息">工程图学3B</a></td><td>      	学科基础
+</td><td>北洋园校区</td><td>班级:2023材料成型及控制工程1班 2023材料成型及控制工程2班 2023工业设计1班</td><td>胡明艳</td><td>69</td><td>105</td><td>15</td><td>          是
+</td><td>3</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454353" type="checkbox"/></td><td>03375</td><td>2330080</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454353" onclick="return bg.Go(this,null)" title="查看任务详细信息">数值线性代数</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022求是数学班（教学）1班 2022数学与应用数学1班 2022数据科学与大数据技术1班 2022金融数学1班</td><td>谢满庭</td><td>20</td><td>146</td><td>3</td><td>          是
+</td><td>3</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454360" type="checkbox"/></td><td>03382</td><td>2470025</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454360" onclick="return bg.Go(this,null)" title="查看任务详细信息">大学生创新创意思维培养</a></td><td>      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2023汉语言文学1班</td><td>谢舒</td><td>38</td><td>40</td><td>0</td><td>          否
+</td><td>1</td>      <td>16/8</td>
+      <td>1-2</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454361" type="checkbox"/></td><td>03383</td><td>2480009</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454361" onclick="return bg.Go(this,null)" title="查看任务详细信息">电力系统分析B</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>冀浩然</td><td>22</td><td>30</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454362" type="checkbox"/></td><td>03384</td><td>2480010</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454362" onclick="return bg.Go(this,null)" title="查看任务详细信息">储能原理</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>刘海峰,王潜龙</td><td>22</td><td>30</td><td>0</td><td>          否
+</td><td>4</td>      <td>64/4</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454363" type="checkbox"/></td><td>03385</td><td>2480012</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454363" onclick="return bg.Go(this,null)" title="查看任务详细信息">储能材料分析方法</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>杜希文,蒋浩然</td><td>22</td><td>30</td><td>0</td><td>          否
+</td><td>3</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454364" type="checkbox"/></td><td>03386</td><td>2480011</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454364" onclick="return bg.Go(this,null)" title="查看任务详细信息">纳米科学与技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>汤颖</td><td>21</td><td>30</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454365" type="checkbox"/></td><td>03387</td><td>2480013</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454365" onclick="return bg.Go(this,null)" title="查看任务详细信息">储热储冷技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>马非</td><td>21</td><td>100</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454366" type="checkbox"/></td><td>03388</td><td>2051144</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454366" onclick="return bg.Go(this,null)" title="查看任务详细信息">土木工程制图</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2023土木工程1班 2023土木工程2班</td><td>王养军</td><td>48</td><td>70</td><td>5</td><td>          是
+</td><td>2.5</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454367" type="checkbox"/></td><td>03389</td><td>2440165</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454367" onclick="return bg.Go(this,null)" title="查看任务详细信息">计算机系统综合实践</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2023计算机科学与技术（拔尖班）1班</td><td>魏继增</td><td>10</td><td>35</td><td>5</td><td>          是
+</td><td>3</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454368" type="checkbox"/></td><td>03390</td><td>2051145</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454368" onclick="return bg.Go(this,null)" title="查看任务详细信息">土木工程材料试验</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2023土木工程1班 2023土木工程2班 2023土木工程3班 2023土木工程4班 2023土木工程5班</td><td>李志鹏</td><td>108</td><td>155</td><td>5</td><td>          是
+</td><td>0.5</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454369" type="checkbox"/></td><td>03391</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454369" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机,
+      	数理基础课程
+</td><td>卫津路校区</td><td>班级:2024建筑类（教学）1班 2024建筑类（教学）2班 2024建筑类（教学）3班 2024建筑类（教学）4班 2024建筑类（教学）5班 2024环境设计1班</td><td>潘林</td><td>168</td><td>180</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454372" type="checkbox"/></td><td>03394</td><td>2060722</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454372" onclick="return bg.Go(this,null)" title="查看任务详细信息">视觉设计基础1(上)</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2024环境设计1班</td><td>陈高明</td><td>29</td><td>30</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454373" type="checkbox"/></td><td>03395</td><td>2340179</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454373" onclick="return bg.Go(this,null)" title="查看任务详细信息">工程电介质物理</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021电气工程及其自动化1班 2021电气工程及其自动化2班 2021电气工程及其自动化3班 2021电气工程及其自动化4班 2021电气工程及其自动化5班</td><td>孔晓晓</td><td>3</td><td>25</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454374" type="checkbox"/></td><td>03396</td><td>2340180</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454374" onclick="return bg.Go(this,null)" title="查看任务详细信息">数据驱动建模与控制</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022自动化1班 2022自动化2班 2022自动化3班 2022自动化4班 2022自动化5班 2022自动化6班</td><td>葛富东</td><td>39</td><td>52</td><td>2</td><td>          是
+</td><td>2.5</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454375" type="checkbox"/></td><td>03397</td><td>2480015</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454375" onclick="return bg.Go(this,null)" title="查看任务详细信息">现代电力电子技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022储能科学与工程1班</td><td>薛凌霄</td><td>18</td><td>30</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454376" type="checkbox"/></td><td>03398</td><td>207n255</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454376" onclick="return bg.Go(this,null)" title="查看任务详细信息">新生研讨课</a></td><td>      	通识教育
+</td><td>北洋园校区</td><td>班级:2024分子科学与工程1班 2024分子科学与工程2班</td><td></td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>1</td>      <td>16/1</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454377" type="checkbox"/></td><td>03399</td><td>2130270</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454377" onclick="return bg.Go(this,null)" title="查看任务详细信息">有机化学II</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2023药学1班 2023药学2班</td><td>Benjamin Robert Clark</td><td>50</td><td>70</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454378" type="checkbox"/></td><td>03400</td><td>2470002</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454378" onclick="return bg.Go(this,null)" title="查看任务详细信息">应用写作与思维训练</a></td><td>      	文化素质选修-思维培养与沟通表达,
+      	文化素质选修-人文科学,
+      	大类通识课
+</td><td>北洋园校区</td><td>班级:2024社会科学试验班2班 2024社会科学试验班1班 2024社会科学试验班3班 2024社会科学试验班4班 2024社会科学试验班5班 2024社会科学试验班6班</td><td>吕静,王用源,岳静</td><td>249</td><td>261</td><td>18</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454379" type="checkbox"/></td><td>03401</td><td>4080003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454379" onclick="return bg.Go(this,null)" title="查看任务详细信息">健康教育</a></td><td>      	文化素质教育必修
+</td><td>北洋园校区</td><td>班级:2024求是数学班（教学）1班 2024数学与应用数学（强基计划）1班 2024社会科学试验班2班 2024社会科学试验班1班 2024社会科学试验班3班 2024社会科学试验班4班 2024社会科学试验班5班 2024社会科学试验班6班</td><td>王龙</td><td>281</td><td>305</td><td>0</td><td>          否
+</td><td>0</td>      <td>8/8</td>
+      <td>11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454381" type="checkbox"/></td><td>03403</td><td>4080003</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454381" onclick="return bg.Go(this,null)" title="查看任务详细信息">健康教育</a></td><td>      	健康教育,
+      	文化素质教育必修
+</td><td>卫津路校区</td><td>班级:2024医学试验班（新医科）1班 2024医学试验班（新医科）2班 2024医学试验班（新医科）3班 2024医学试验班（新医科）4班 2024医学试验班（新医科）5班 2024医学试验班（新医科）6班 2024医学试验班（新医科）7班 2024医学试验班（新医科）8班 2024生物医学工程专业(脑机接口方向)1班</td><td>王龙</td><td>246</td><td>300</td><td>0</td><td>          否
+</td><td>0</td>      <td>8/8</td>
+      <td>13</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454382" type="checkbox"/></td><td>03404</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454382" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>卫津路校区</td><td>班级:2024医学试验班（新医科）1班 2024医学试验班（新医科）2班 2024医学试验班（新医科）3班 2024医学试验班（新医科）4班</td><td>李晨曦</td><td>112</td><td>140</td><td>0</td><td>          否
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454383" type="checkbox"/></td><td>03405</td><td>2340182</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454383" onclick="return bg.Go(this,null)" title="查看任务详细信息">积分变换</a></td><td>      	数理基础课程
+</td><td>卫津路校区</td><td>班级:2023电气工程及其自动化1班 2023电气工程及其自动化2班 2023电气工程及其自动化3班 2023电气工程及其自动化4班 2023电气工程及其自动化5班</td><td>肖迁</td><td>167</td><td>180</td><td>20</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454384" type="checkbox"/></td><td>03406</td><td>2340183</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454384" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能基础</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2023物联网工程1班 2023电子信息工程1班 2023电子信息工程2班 2023电子信息工程3班</td><td>曹家乐</td><td>131</td><td>149</td><td>0</td><td>          否
+</td><td>1.5</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454387" type="checkbox"/></td><td>03409</td><td>2070946</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454387" onclick="return bg.Go(this,null)" title="查看任务详细信息">化工分离技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022化工卓越工程师班（教学）1班</td><td>姜忠义</td><td>25</td><td>40</td><td>5</td><td>          是
+</td><td>2</td>      <td>42/3</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454388" type="checkbox"/></td><td>03410</td><td>2440168</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454388" onclick="return bg.Go(this,null)" title="查看任务详细信息">计算机系统基础2</a></td><td>      	大类基础课
+</td><td>北洋园校区</td><td>班级:2023工科试验班（智能与计算类）1班 2023工科试验班（智能与计算类）2班 2023工科试验班（智能与计算类）3班 2023工科试验班（智能与计算类）4班 2023工科试验班（智能与计算类）5班</td><td>王立,李罡</td><td>166</td><td>182</td><td>15</td><td>          是
+</td><td>3</td>      <td>56/4</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454389" type="checkbox"/></td><td>03411</td><td>202n245</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454389" onclick="return bg.Go(this,null)" title="查看任务详细信息">新生研讨课</a></td><td>      	思想政治理论
+</td><td>卫津路校区</td><td>班级:2024光电信息科学与工程(天南大合办)1班 2024光电信息科学与工程(天南大合办)2班</td><td></td><td>0</td><td>64</td><td>0</td><td>          否
+</td><td>1</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454390" type="checkbox"/></td><td>03412</td><td>2270176</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454390" onclick="return bg.Go(this,null)" title="查看任务详细信息">海洋信息技术实践</a></td><td>      	综合实践课程
+</td><td>卫津路校区</td><td>班级:2023海洋技术1班 2023海洋技术2班</td><td>张学峰</td><td>37</td><td>60</td><td>10</td><td>          是
+</td><td>3</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454391" type="checkbox"/></td><td>03413</td><td>2320075</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454391" onclick="return bg.Go(this,null)" title="查看任务详细信息">CMOS射频/毫米波收发与合成器的设计（全英文）</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021电子科学与技术(微电子)1班 2021电子科学与技术(微电子)2班 2021电子科学与技术(微电子)3班 2021集成电路设计与集成系统1班 2021集成电路设计与集成系统2班 2021集成电路设计与集成系统3班</td><td>YEO KIAT SENG</td><td>0</td><td>90</td><td>20</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454393" type="checkbox"/></td><td>03415</td><td>2460099</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454393" onclick="return bg.Go(this,null)" title="查看任务详细信息">医学工程与创新创造</a></td><td>      	研究与创新
+</td><td>卫津路校区</td><td>班级:2023智能医学工程（医大）1班 2023生物医学工程1班 2023生物医学工程2班 2023智能医学工程1班</td><td>朱险峰,黄永志</td><td>135</td><td>145</td><td>5</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454396" type="checkbox"/></td><td>03418</td><td>2460096</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454396" onclick="return bg.Go(this,null)" title="查看任务详细信息">Python编程与医学应用</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2023智能医学工程（医大）1班 2023智能医学工程1班</td><td>万亮</td><td>68</td><td>75</td><td>5</td><td>          是
+</td><td>1.5</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454399" type="checkbox"/></td><td>03421</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454399" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机,
+      	数理基础课程
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电子科学技术类）5班 2024工科试验班（电子科学技术类）6班 2024工科试验班（海洋类）1班 2024工科试验班（海洋类）2班 2024工科试验班（海洋类）3班 2024工科试验班（电子科学技术类）8班</td><td>李校博</td><td>168</td><td>180</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454402" type="checkbox"/></td><td>03424</td><td>2060727</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454402" onclick="return bg.Go(this,null)" title="查看任务详细信息">人居环境与人因工程学技术导论</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022环境设计1班 2022建筑学1班 2022建筑学2班 2022建筑学3班 2022城乡规划1班</td><td>康健</td><td>54</td><td>100</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454403" type="checkbox"/></td><td>03425</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454403" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	大类基础课程
+</td><td>卫津路校区</td><td>班级:2024工科试验班（精仪与光电信息类）1班 2024工科试验班（精仪与光电信息类）2班 2024工科试验班（精仪与光电信息类）3班 2024工科试验班（精仪与光电信息类）4班</td><td>王日东</td><td>147</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454404" type="checkbox"/></td><td>03426</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454404" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机,
+      	大类基础课程
+</td><td>卫津路校区</td><td>班级:2024工程科学实验班1班 2024工科试验班（精仪与光电信息类）9班 2024工科试验班（精仪与光电信息类）10班 2024智能医学工程（医大）1班</td><td>张福民</td><td>162</td><td>180</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454405" type="checkbox"/></td><td>03427</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454405" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电气信息类）1班 2024工科试验班（电气信息类）2班 2024工科试验班（电气信息类）3班 2024工科试验班（电气信息类）4班 2024工科试验班（电气信息类）5班</td><td>曹家乐</td><td>138</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454407" type="checkbox"/></td><td>03429</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454407" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>卫津路校区</td><td>班级:2024生物科学（强基计划）1班 2024生物科学（拔尖班）1班 2024医学试验班（新医科）5班 2024医学试验班（新医科）6班 2024医学试验班（新医科）7班 2024医学试验班（新医科）8班</td><td>李振鲁</td><td>159</td><td>180</td><td>17</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454409" type="checkbox"/></td><td>03431</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454409" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机,
+      	大类基础课程
+</td><td>北洋园校区</td><td>班级:2024求是数学班（教学）1班 2024数学类（教学）1班 2024数学类（教学）2班 2024数学与应用数学（强基计划）1班</td><td>林岩</td><td>146</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454413" type="checkbox"/></td><td>03435</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454413" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>北洋园校区</td><td>班级:2024工科试验班（智能制造与建造）25班 2024工科试验班（智能制造与建造）26班 2024工科试验班（智能制造与建造）27班 2024工程力学（强基计划）1班 2024工程力学（拔尖班）1班</td><td>牛志彬</td><td>97</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454416" type="checkbox"/></td><td>03438</td><td>2440170</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454416" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能导论</a></td><td>      	计算机
+</td><td>北洋园校区</td><td>班级:2024工科试验班（智能制造与建造）1班 2024工科试验班（智能制造与建造）2班 2024工科试验班（智能制造与建造）3班 2024工科试验班（智能制造与建造）4班 2024工科试验班（智能制造与建造）5班 2024工科试验班（智能制造与建造）6班</td><td>刘智</td><td>123</td><td>180</td><td>30</td><td>          是
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454417" type="checkbox"/></td><td>03439</td><td>2340188</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454417" onclick="return bg.Go(this,null)" title="查看任务详细信息">科学计算语言（MWORKS）</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023物联网工程1班 2023电子信息工程1班 2023电子信息工程2班 2023电子信息工程3班</td><td>刘婧</td><td>137</td><td>141</td><td>2</td><td>          是
+</td><td>1</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454418" type="checkbox"/></td><td>03440</td><td>2340189</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454418" onclick="return bg.Go(this,null)" title="查看任务详细信息">科学计算语言（Python）</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2023物联网工程1班 2023电子信息工程1班 2023电子信息工程2班 2023电子信息工程3班</td><td>李岳楠</td><td>111</td><td>140</td><td>2</td><td>          是
+</td><td>1.5</td>      <td>40/4</td>
+      <td>4-13</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454424" type="checkbox"/></td><td>03446</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454424" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">游泳</sup>
+</td><td>      	体育
+</td><td>北洋园校区</td><td>班级:2024工科试验班（智能制造与建造）15班 2024工科试验班（化工能源与生命健康类）5班 2024工科试验班（化工能源与生命健康类）6班 2024工科试验班（化工能源与生命健康类）7班 2024工科试验班（化工能源与生命健康类）11班 2024工科试验班（化工能源与生命健康类）12班 2024工科试验班（化工能源与生命健康类）18班 2024工科试验班（化工能源与生命健康类）19班 2024工科试验班（化工能源与生命健康类）20班</td><td>林琳</td><td>22</td><td>24</td><td>0</td><td>          否
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454425" type="checkbox"/></td><td>03447</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454425" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">乒乓球</sup>
+</td><td>      	体育
+</td><td>北洋园校区</td><td>班级:2024工科试验班（新材料与加工技术类）5班 2024工科试验班（新材料与加工技术类）6班 2024工科试验班（新材料与加工技术类）7班 2024工科试验班（智能制造与建造）25班 2024工科试验班（智能制造与建造）26班 2024工科试验班（智能制造与建造）27班 2024工科试验班（化工能源与生命健康类）8班 2024工科试验班（化工能源与生命健康类）9班 2024工科试验班（化工能源与生命健康类）10班</td><td>杨博文</td><td>32</td><td>32</td><td>6</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454427" type="checkbox"/></td><td>03449</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454427" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">羽毛球</sup>
+</td><td>      	体育
+</td><td>卫津路校区</td><td>班级:2024经济管理试验班（教学）11班 2024经济管理试验班（教学）12班 2024医学试验班（新医科）5班 2024医学试验班（新医科）6班 2024医学试验班（新医科）7班</td><td>覃海军</td><td>35</td><td>35</td><td>14</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454428" type="checkbox"/></td><td>03450</td><td>2060371</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454428" onclick="return bg.Go(this,null)" title="查看任务详细信息">建筑设计基础1</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2024建筑类（教学）1班 2024建筑类（教学）2班 2024建筑类（教学）3班 2024建筑类（教学）4班 2024建筑类（教学）5班</td><td>宋祎琳</td><td>64</td><td>150</td><td>20</td><td>          是
+</td><td>6</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454429" type="checkbox"/></td><td>03451</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454429" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">健美操</sup>
+</td><td>      	体育
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电气信息类）16班 2024工科试验班（电气信息类）17班 2024工科试验班（电气信息类）18班 2024工科试验班（电气信息类）19班 2024工科试验班（电气信息类）20班 2024工科试验班（电子科学技术类）4班</td><td>罗旭</td><td>37</td><td>37</td><td>5</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454430" type="checkbox"/></td><td>03452</td><td>2060371</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454430" onclick="return bg.Go(this,null)" title="查看任务详细信息">建筑设计基础1</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2024环境设计1班</td><td>王焱</td><td>29</td><td>30</td><td>0</td><td>          否
+</td><td>6</td>      <td>96/6</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454431" type="checkbox"/></td><td>03453</td><td>2130193</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454431" onclick="return bg.Go(this,null)" title="查看任务详细信息">经济学概论</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2023药学1班 2023药学2班</td><td>谢诗桐</td><td>50</td><td>70</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454433" type="checkbox"/></td><td>03455</td><td>2130217</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454433" onclick="return bg.Go(this,null)" title="查看任务详细信息">生物化学</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2023药学1班 2023药学2班</td><td>Yuchi Zhiguang</td><td>50</td><td>70</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454435" type="checkbox"/></td><td>03457</td><td>207n109</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454435" onclick="return bg.Go(this,null)" title="查看任务详细信息">当代化学前沿2-1</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2024分子科学与工程1班 2024分子科学与工程2班</td><td></td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>34/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454437" type="checkbox"/></td><td>03459</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454437" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">武术</sup>
+</td><td>      	体育
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电气信息类）1班 2024工科试验班（电气信息类）2班 2024工科试验班（电气信息类）3班 2024工科试验班（电气信息类）4班 2024地理科学1班 2024地理科学2班</td><td>杜发强</td><td>33</td><td>33</td><td>1</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454438" type="checkbox"/></td><td>03460</td><td>2130216</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454438" onclick="return bg.Go(this,null)" title="查看任务详细信息">实验室安全</a></td><td>      	大类基础课
+</td><td>卫津路校区</td><td>班级:2024医学试验班（新医科）1班 2024医学试验班（新医科）2班 2024医学试验班（新医科）3班 2024医学试验班（新医科）4班 2024医学试验班（新医科）5班</td><td>张鲲</td><td>145</td><td>175</td><td>0</td><td>          否
+</td><td>1</td>      <td>8/1</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454439" type="checkbox"/></td><td>03461</td><td>2130201</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454439" onclick="return bg.Go(this,null)" title="查看任务详细信息">药物科学基础化学</a></td><td>      	大类通识课
+</td><td>卫津路校区</td><td>班级:2024医学试验班（新医科）1班 2024医学试验班（新医科）2班 2024医学试验班（新医科）3班 2024医学试验班（新医科）4班 2024医学试验班（新医科）5班 2024医学试验班（新医科）6班 2024医学试验班（新医科）7班 2024医学试验班（新医科）8班</td><td>Peter Robert Taylor</td><td>14</td><td>100</td><td>10</td><td>          是
+</td><td>3</td>      <td>48/4</td>
+      <td>8-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454440" type="checkbox"/></td><td>03462</td><td>2100063</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454440" onclick="return bg.Go(this,null)" title="查看任务详细信息">数理方程</a></td><td>      	数学
+</td><td>北洋园校区</td><td>班级:2023工程力学（强基计划）1班 2023工程力学（拔尖班）1班</td><td>郑有泉</td><td>58</td><td>60</td><td>1</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454442" type="checkbox"/></td><td>03464</td><td>2100558</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454442" onclick="return bg.Go(this,null)" title="查看任务详细信息">线性代数及其应用</a></td><td>      	数学
+</td><td>北洋园校区</td><td>班级:2023应用化学（强基计划）1班 2023应用化学（拔尖班）1班 2024工科试验班（智能与计算类）13班 2024计算机科学与技术（拔尖班）1班</td><td>田代军</td><td>115</td><td>150</td><td>20</td><td>          是
+</td><td>3.5</td>      <td>56/4</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454443" type="checkbox"/></td><td>03465</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454443" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">足球</sup>
+</td><td>      	体育
+</td><td>北洋园校区</td><td>班级:2024人文科学试验班1班 2024人文科学试验班2班 2024人文科学试验班3班 2024工科试验班（智能制造与建造）19班 2024工科试验班（智能制造与建造）20班 2024工科试验班（智能制造与建造）21班 2024工科试验班（智能制造与建造）22班 2024工科试验班（智能制造与建造）23班 2024工科试验班（智能制造与建造）24班</td><td>周凤桐</td><td>22</td><td>35</td><td>10</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454445" type="checkbox"/></td><td>03467</td><td>2060548</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454445" onclick="return bg.Go(this,null)" title="查看任务详细信息">设计软件实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021建筑学1班 2021建筑学2班 2021建筑学3班</td><td>刘魁星,白雪海</td><td>100</td><td>138</td><td>5</td><td>          是
+</td><td>4</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454446" type="checkbox"/></td><td>03468</td><td>2310001</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454446" onclick="return bg.Go(this,null)" title="查看任务详细信息">体育A</a>        <sup style="color:#333fff;">瑜伽</sup>
+</td><td>      	体育
+</td><td>卫津路校区</td><td>班级:2024经济管理试验班（教学）1班 2024经济管理试验班（教学）2班 2024经济管理试验班（教学）3班 2024经济管理试验班（教学）4班 2024经济管理试验班（教学）5班 2024经济管理试验班（教学）6班</td><td>罗旭</td><td>28</td><td>33</td><td>5</td><td>          是
+</td><td>1</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454448" type="checkbox"/></td><td>03470</td><td>2070700</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454448" onclick="return bg.Go(this,null)" title="查看任务详细信息">化学工艺学（全英文）</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021化学工程与工艺(留学生)1班</td><td>李茂帅,王华</td><td>10</td><td>35</td><td>5</td><td>          是
+</td><td>2.5</td>      <td>42/3</td>
+      <td>4-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454449" type="checkbox"/></td><td>03471</td><td>2070701</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454449" onclick="return bg.Go(this,null)" title="查看任务详细信息">化工课程设计2（全英文）</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021化学工程与工艺(留学生)1班</td><td>夏清</td><td>9</td><td>30</td><td>5</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454450" type="checkbox"/></td><td>03472</td><td>2070702</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454450" onclick="return bg.Go(this,null)" title="查看任务详细信息">新型分离技术（全英文）</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021化学工程与工艺(留学生)1班</td><td>苏延磊</td><td>10</td><td>35</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454451" type="checkbox"/></td><td>03473</td><td>2070703</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454451" onclick="return bg.Go(this,null)" title="查看任务详细信息">分子设计与化工产品工程（全英文）</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021化学工程与工艺(留学生)1班</td><td>苏荣欣,崔现宝</td><td>11</td><td>35</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454452" type="checkbox"/></td><td>03474</td><td>2070748</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454452" onclick="return bg.Go(this,null)" title="查看任务详细信息">非均相催化原理导论（全英文）</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021化学工程与工艺(留学生)1班</td><td>赵志坚,付东龙</td><td>10</td><td>35</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454459" type="checkbox"/></td><td>03481</td><td>2270093</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454459" onclick="return bg.Go(this,null)" title="查看任务详细信息">业务化海洋学实习与见习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021海洋科学1班</td><td>李威</td><td>13</td><td>30</td><td>6</td><td>          是
+</td><td>1</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454460" type="checkbox"/></td><td>03482</td><td>2270090</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454460" onclick="return bg.Go(this,null)" title="查看任务详细信息">海洋观测实习（水文，化学）</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021海洋科学1班</td><td>陈儒</td><td>13</td><td>30</td><td>6</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454461" type="checkbox"/></td><td>03483</td><td>2270091</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454461" onclick="return bg.Go(this,null)" title="查看任务详细信息">海岸带调查实习（地质，生态环境）</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021海洋科学1班</td><td>陈儒</td><td>13</td><td>30</td><td>6</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454462" type="checkbox"/></td><td>03484</td><td>2270092</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454462" onclick="return bg.Go(this,null)" title="查看任务详细信息">近海海洋环境与工程环境评价实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021海洋科学1班</td><td>王煊</td><td>13</td><td>30</td><td>6</td><td>          是
+</td><td>1</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454463" type="checkbox"/></td><td>03485</td><td>2270044</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454463" onclick="return bg.Go(this,null)" title="查看任务详细信息">海洋专业英语</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021海洋技术1班 2021海洋技术2班</td><td>张翠翠</td><td>2</td><td>60</td><td>20</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454465" type="checkbox"/></td><td>03487</td><td>2111356</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454465" onclick="return bg.Go(this,null)" title="查看任务详细信息">法语二外D</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021英语1班 2021英语2班</td><td>李俊凯</td><td>4</td><td>30</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454474" type="checkbox"/></td><td>03496</td><td>2050978</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454474" onclick="return bg.Go(this,null)" title="查看任务详细信息">船舶与海洋结构物设计原理1</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021船舶与海洋工程1班 2021船舶与海洋工程2班</td><td>闫宏生</td><td>38</td><td>65</td><td>5</td><td>          是
+</td><td>2.5</td>      <td>40/4</td>
+      <td>4-13</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454475" type="checkbox"/></td><td>03497</td><td>2050979</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454475" onclick="return bg.Go(this,null)" title="查看任务详细信息">国航及工程管理课程设计</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021船舶与海洋工程1班 2021船舶与海洋工程2班 2021船舶与海洋工程3班 2021船舶与海洋工程4班 2021船舶与海洋工程5班</td><td>徐万海,周丽丹</td><td>22</td><td>150</td><td>0</td><td>          否
+</td><td>4</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454476" type="checkbox"/></td><td>03498</td><td>2060575</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454476" onclick="return bg.Go(this,null)" title="查看任务详细信息">城市规划设计5</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2020城乡规划1班</td><td>闫凤英</td><td>41</td><td>45</td><td>0</td><td>          否
+</td><td>3</td>      <td>48/6</td>
+      <td>10-17</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454477" type="checkbox"/></td><td>03499</td><td>2020674</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454477" onclick="return bg.Go(this,null)" title="查看任务详细信息">光纤激光技术及应用</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021电子科学与技术(光电子技术)1班 2021电子科学与技术(光电子技术)2班</td><td>盛泉,史伟</td><td>17</td><td>90</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454478" type="checkbox"/></td><td>03500</td><td>2020677</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454478" onclick="return bg.Go(this,null)" title="查看任务详细信息">激光材料与人工介质</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021电子科学与技术(光电子技术)1班 2021电子科学与技术(光电子技术)2班</td><td>欧阳春梅</td><td>56</td><td>90</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454487" type="checkbox"/></td><td>03509</td><td>2080440</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454487" onclick="return bg.Go(this,null)" title="查看任务详细信息">高分子基工程复合材料</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021材料科学与工程1班 2021材料科学与工程2班</td><td>赵瑾</td><td>9</td><td>50</td><td>5</td><td>          是
+</td><td>1.5</td>      <td>24/2</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454489" type="checkbox"/></td><td>03511</td><td>2080448</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454489" onclick="return bg.Go(this,null)" title="查看任务详细信息">专业模块课程设计</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>无机非金属材料模块</td><td>郭安然</td><td>14</td><td>30</td><td>2</td><td>          是
+</td><td>4</td>      <td>0/0</td>
+      <td>1-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454492" type="checkbox"/></td><td>03514</td><td>2020652</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454492" onclick="return bg.Go(this,null)" title="查看任务详细信息">电路设计</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班</td><td>郭学石</td><td>7</td><td>110</td><td>10</td><td>          是
+</td><td>1.5</td>      <td>24/2</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454497" type="checkbox"/></td><td>03519</td><td>2020658</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454497" onclick="return bg.Go(this,null)" title="查看任务详细信息">环境光学</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班</td><td>贾大功</td><td>46</td><td>100</td><td>10</td><td>          是
+</td><td>1.5</td>      <td>24/4</td>
+      <td>4-9</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454500" type="checkbox"/></td><td>03522</td><td>2020683</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454500" onclick="return bg.Go(this,null)" title="查看任务详细信息">专业综合课程设计</a></td><td>      	课程设计
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班</td><td>田庆国,丁振扬,汪毅,张学迁,杨志群</td><td>99</td><td>123</td><td>10</td><td>          是
+</td><td>3</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454501" type="checkbox"/></td><td>03523</td><td>2020660</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454501" onclick="return bg.Go(this,null)" title="查看任务详细信息">仪器工程设计</a></td><td>      	专业选修,
+      	课程设计
+</td><td>卫津路校区</td><td>班级:2021光电信息科学与工程1班 2021光电信息科学与工程2班 2021光电信息科学与工程3班 2022工程科学实验班2班</td><td>华平壤</td><td>105</td><td>126</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454502" type="checkbox"/></td><td>03524</td><td>2020662</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454502" onclick="return bg.Go(this,null)" title="查看任务详细信息">专业英语</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>倪广健</td><td>63</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454504" type="checkbox"/></td><td>03526</td><td>2020664</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454504" onclick="return bg.Go(this,null)" title="查看任务详细信息">神经工程学导论</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>黄永志,于海情</td><td>32</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454505" type="checkbox"/></td><td>03527</td><td>2020665</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454505" onclick="return bg.Go(this,null)" title="查看任务详细信息">人因工程学导论</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>徐瑞,刘凯风</td><td>69</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454506" type="checkbox"/></td><td>03528</td><td>2020666</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454506" onclick="return bg.Go(this,null)" title="查看任务详细信息">医疗仪器公司创业导论</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>周鹏</td><td>40</td><td>75</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454509" type="checkbox"/></td><td>03531</td><td>2020687</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454509" onclick="return bg.Go(this,null)" title="查看任务详细信息">生物医学测量实践</a></td><td>      	课程设计
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>李刚</td><td>68</td><td>75</td><td>0</td><td>          否
+</td><td>1.5</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454510" type="checkbox"/></td><td>03532</td><td>2020688</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454510" onclick="return bg.Go(this,null)" title="查看任务详细信息">医学测量中的微机接口实践</a></td><td>      	课程设计
+</td><td>卫津路校区</td><td>班级:2021生物医学工程1班 2021生物医学工程2班</td><td>李刚</td><td>68</td><td>70</td><td>0</td><td>          否
+</td><td>1.5</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454511" type="checkbox"/></td><td>03533</td><td>2080449</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454511" onclick="return bg.Go(this,null)" title="查看任务详细信息">功能材料课程设计</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021功能材料1班</td><td>李方</td><td>22</td><td>30</td><td>5</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454512" type="checkbox"/></td><td>03534</td><td>2080450</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454512" onclick="return bg.Go(this,null)" title="查看任务详细信息">催化科学与技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021功能材料1班</td><td>刘乐全</td><td>21</td><td>30</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454513" type="checkbox"/></td><td>03535</td><td>2040404</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454513" onclick="return bg.Go(this,null)" title="查看任务详细信息">生产实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021通信工程1班 2021通信工程2班 2021通信工程3班 2021通信工程4班</td><td>冯人海</td><td>126</td><td>146</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454516" type="checkbox"/></td><td>03538</td><td>2040404</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454516" onclick="return bg.Go(this,null)" title="查看任务详细信息">生产实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2021物联网工程1班 2021电子信息工程1班 2021电子信息工程2班 2021电子信息工程3班</td><td>吕卫</td><td>118</td><td>144</td><td>8</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454519" type="checkbox"/></td><td>03541</td><td>2070706</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454519" onclick="return bg.Go(this,null)" title="查看任务详细信息">专业实验B</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2021制药工程1班</td><td>蒋建兰</td><td>20</td><td>35</td><td>5</td><td>          是
+</td><td>1.5</td>      <td>48/12</td>
+      <td>5-8</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454521" type="checkbox"/></td><td>03543</td><td>2070746</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454521" onclick="return bg.Go(this,null)" title="查看任务详细信息">生物伦理与安全</a></td><td>      	学科基础,
+      	专业选修
+</td><td>北洋园校区</td><td>班级:2021合成生物学1班 2022应用化学（拔尖班）1班</td><td>宋馨宇</td><td>27</td><td>63</td><td>3</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454522" type="checkbox"/></td><td>03544</td><td>2010969</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454522" onclick="return bg.Go(this,null)" title="查看任务详细信息">工程热力学2</a></td><td>      	学科基础
+</td><td>北洋园校区</td><td>班级:2022能源与动力工程1班 2022能源与动力工程3班</td><td>安青松,聂显铧</td><td>58</td><td>70</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454523" type="checkbox"/></td><td>03545</td><td>2010967</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454523" onclick="return bg.Go(this,null)" title="查看任务详细信息">传热学</a></td><td>      	学科基础
+</td><td>北洋园校区</td><td>班级:2022能源与动力工程1班</td><td>刘雪玲</td><td>29</td><td>35</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454524" type="checkbox"/></td><td>03546</td><td>2010968</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454524" onclick="return bg.Go(this,null)" title="查看任务详细信息">燃烧理论</a></td><td>      	学科基础
+</td><td>北洋园校区</td><td>班级:2022能源与动力工程1班</td><td>李君</td><td>29</td><td>35</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454525" type="checkbox"/></td><td>03547</td><td>2011007</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454525" onclick="return bg.Go(this,null)" title="查看任务详细信息">汽车发动机构造</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2022能源与动力工程1班 2022能源与动力工程2班 2022能源与动力工程3班1</td><td>高文志</td><td>4</td><td>55</td><td>8</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454527" type="checkbox"/></td><td>03549</td><td>2010970</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454527" onclick="return bg.Go(this,null)" title="查看任务详细信息">数据科学与大数据分析</a></td><td>      	学科基础,
+      	专业选修,
+      	核心课
+</td><td>北洋园校区</td><td>班级:2021机械设计制造及其自动化1班 2021机械设计制造及其自动化2班 2021机械设计制造及其自动化3班 2021机械设计制造及其自动化4班 2021机械设计制造及其自动化5班 2021机械设计制造及其自动化6班</td><td>王磊</td><td>48</td><td>60</td><td>5</td><td>          是
+</td><td>2</td>      <td>33/3</td>
+      <td>7-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454528" type="checkbox"/></td><td>03550</td><td>2010973</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454528" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能传感器与测试技术</a></td><td>      	学科基础
+</td><td>北洋园校区</td><td>班级:2022智能制造工程1班 2022智能制造工程2班</td><td>梅江平,郑仁成</td><td>46</td><td>70</td><td>10</td><td>          是
+</td><td>2</td>      <td>42/3</td>
+      <td>3-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454529" type="checkbox"/></td><td>03551</td><td>2340140</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454529" onclick="return bg.Go(this,null)" title="查看任务详细信息">电气电子工程实训</a></td><td>      	实习
+</td><td>北洋园校区</td><td>班级:2021能源与动力工程1班 2021能源与动力工程2班 2021能源与动力工程3班 2022智能制造工程1班 2022智能制造工程2班</td><td>张军</td><td>123</td><td>150</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>1-2</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454530" type="checkbox"/></td><td>03552</td><td>2011017</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454530" onclick="return bg.Go(this,null)" title="查看任务详细信息">设计与建造IIB</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2022智能制造工程1班 2022智能制造工程2班</td><td>宋轶民,孙涛</td><td>45</td><td>70</td><td>10</td><td>          是
+</td><td>3</td>      <td>56/4</td>
+      <td>3-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454531" type="checkbox"/></td><td>03553</td><td>2010982</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454531" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能制造概论</a></td><td>      	专业核心,
+      	核心课
+</td><td>北洋园校区</td><td>班级:2022智能机器平台1班 2022智能制造工程1班 2022智能制造工程2班</td><td>田颖</td><td>47</td><td>70</td><td>10</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>3-18</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454532" type="checkbox"/></td><td>03554</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454532" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024工科试验班（新材料与加工技术类）1班 2024工科试验班（新材料与加工技术类）2班 2024工科试验班（新材料与加工技术类）3班 2024工科试验班（新材料与加工技术类）4班</td><td>赵冶</td><td>81</td><td>120</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454534" type="checkbox"/></td><td>03556</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454534" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024求是数学班（教学）1班 2024数学类（教学）1班 2024数学类（教学）2班 2024数学与应用数学（强基计划）1班</td><td>王恒</td><td>145</td><td>170</td><td>20</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-20</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454536" type="checkbox"/></td><td>03558</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454536" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024人文科学试验班1班 2024人文科学试验班2班 2024人文科学试验班3班</td><td>李伟</td><td>86</td><td>105</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454538" type="checkbox"/></td><td>03560</td><td>2340123</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454538" onclick="return bg.Go(this,null)" title="查看任务详细信息">电子系统设计1</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2023物联网工程1班 2023电子信息工程1班 2023电子信息工程2班 2023电子信息工程3班</td><td>何宇清</td><td>137</td><td>141</td><td>2</td><td>          是
+</td><td>1</td>      <td>24/8</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454541" type="checkbox"/></td><td>03563</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454541" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>卫津路校区</td><td>班级:2024工科试验班（电气信息类）1班 2024工科试验班（电气信息类）2班 2024工科试验班（电气信息类）3班 2024工科试验班（电气信息类）4班 2024工科试验班（电气信息类）5班</td><td>王恒</td><td>136</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454542" type="checkbox"/></td><td>03564</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454542" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024工科试验班（化工能源与生命健康类）1班 2024工科试验班（化工能源与生命健康类）2班 2024工科试验班（化工能源与生命健康类）3班 2024工科试验班（化工能源与生命健康类）4班 2024工科试验班（化工能源与生命健康类）5班</td><td>陈乐</td><td>72</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454544" type="checkbox"/></td><td>03566</td><td>2340125</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454544" onclick="return bg.Go(this,null)" title="查看任务详细信息">通信系统工程实践1</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2023通信工程1班 2023通信工程2班</td><td>冷文</td><td>70</td><td>71</td><td>1</td><td>          是
+</td><td>1.5</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454546" type="checkbox"/></td><td>03568</td><td>2340126</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454546" onclick="return bg.Go(this,null)" title="查看任务详细信息">认识实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2023电气工程及其自动化1班 2023电气工程及其自动化2班 2023电气工程及其自动化3班 2023电气工程及其自动化4班 2023电气工程及其自动化5班</td><td>朱琳</td><td>167</td><td>178</td><td>10</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454547" type="checkbox"/></td><td>03569</td><td>2260053</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454547" onclick="return bg.Go(this,null)" title="查看任务详细信息">企业认知实习</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2023生物科学（强基计划）1班 2023生物科学（拔尖班）1班 2023生物科学1班</td><td>米立志,乔安娜,李振鲁</td><td>77</td><td>95</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454548" type="checkbox"/></td><td>03570</td><td>2340159</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454548" onclick="return bg.Go(this,null)" title="查看任务详细信息">机器嗅觉</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022自动化1班 2022自动化2班 2022自动化3班 2022自动化4班 2022自动化5班 2022自动化6班 2022智能机器平台10班</td><td>侯惠让</td><td>62</td><td>62</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454550" type="checkbox"/></td><td>03572</td><td>2270146</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454550" onclick="return bg.Go(this,null)" title="查看任务详细信息">程序设计基础</a></td><td>      	计算机
+</td><td>卫津路校区</td><td>班级:2024工科试验班（海洋类）1班 2024工科试验班（海洋类）2班</td><td>潘林</td><td>53</td><td>62</td><td>6</td><td>          是
+</td><td>3</td>      <td>64/4</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454552" type="checkbox"/></td><td>03574</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454552" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>卫津路校区</td><td>班级:2024经济管理试验班（教学）11班 2024经济管理试验班（教学）12班 2024经济管理试验班（教学）13班 2024生物科学（强基计划）1班 2024生物科学（拔尖班）1班</td><td>袁婷</td><td>71</td><td>160</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454555" type="checkbox"/></td><td>03577</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454555" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024工科试验班（智能制造与建造）1班 2024工科试验班（智能制造与建造）2班 2024工科试验班（智能制造与建造）3班 2024工科试验班（智能制造与建造）4班 2024工科试验班（智能制造与建造）5班</td><td>张媛媛</td><td>95</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454557" type="checkbox"/></td><td>03579</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454557" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024应用化学（强基计划）1班 2024应用物理学（强基计划）1班 2024应用化学（拔尖班）1班 2024工程力学（强基计划）1班 2024工程力学（拔尖班）1班</td><td>屈婷</td><td>139</td><td>149</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454558" type="checkbox"/></td><td>03580</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454558" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2024工科试验班(高新舰船与海洋装备智能设计与管理)1班 2024工科试验班(高新舰船与海洋装备智能设计与管理)2班 2024工科试验班(高新舰船与海洋装备智能设计与管理)3班 2024工科试验班(高新舰船与海洋装备智能设计与管理)4班 2024工科试验班(高新舰船与海洋装备智能设计与管理)5班</td><td>张宇</td><td>106</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454559" type="checkbox"/></td><td>03581</td><td>2210117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454559" onclick="return bg.Go(this,null)" title="查看任务详细信息">思想道德与法治</a></td><td>      	思想政治理论
+</td><td>卫津路校区</td><td>班级:2024建筑类（教学）1班 2024建筑类（教学）2班 2024建筑类（教学）3班 2024建筑类（教学）4班 2024建筑类（教学）5班</td><td>李丽</td><td>121</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454561" type="checkbox"/></td><td>03583</td><td>2130264</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454561" onclick="return bg.Go(this,null)" title="查看任务详细信息">现代仪器分析方法导引</a></td><td>      	实习
+</td><td>卫津路校区</td><td>班级:2023药学1班 2023药学2班</td><td>晋兴华</td><td>49</td><td>70</td><td>0</td><td>          否
+</td><td>1</td>      <td>0/0</td>
+      <td>1-3</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454562" type="checkbox"/></td><td>03584</td><td>524n341</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454562" onclick="return bg.Go(this,null)" title="查看任务详细信息">基础英语I B</a></td><td>      	通识教育
+</td><td>北洋园校区</td><td>班级:2024分子科学与工程1班 2024分子科学与工程2班</td><td></td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454563" type="checkbox"/></td><td>03585</td><td>524n343</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454563" onclick="return bg.Go(this,null)" title="查看任务详细信息">基础英语I A</a></td><td>      	通识教育
+</td><td>北洋园校区</td><td>班级:2024分子科学与工程1班 2024分子科学与工程2班</td><td></td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454564" type="checkbox"/></td><td>03586</td><td>524n342</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454564" onclick="return bg.Go(this,null)" title="查看任务详细信息">基础英语I C</a></td><td>      	通识教育
+</td><td>北洋园校区</td><td>班级:2024分子科学与工程1班 2024分子科学与工程2班</td><td></td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454566" type="checkbox"/></td><td>03588</td><td>2340104</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454566" onclick="return bg.Go(this,null)" title="查看任务详细信息">自动控制理论A</a></td><td>      	学科基础
+</td><td>卫津路校区</td><td>班级:2022电气工程及其自动化3班</td><td>孙冰</td><td>34</td><td>37</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454568" type="checkbox"/></td><td>03590</td><td>2340105</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454568" onclick="return bg.Go(this,null)" title="查看任务详细信息">电力系统高电压新技术</a></td><td>      	研究与创新
+</td><td>卫津路校区</td><td>班级:2022电气工程及其自动化1班 2022电气工程及其自动化2班 2022电气工程及其自动化3班 2022电气工程及其自动化4班 2022电气工程及其自动化5班 2022智能机器平台9班</td><td>杜伯学</td><td>18</td><td>60</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/4</td>
+      <td>12-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454569" type="checkbox"/></td><td>03591</td><td>2340103</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454569" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能电网研究与创新</a></td><td>      	研究与创新
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班;班级:2022电气工程及其自动化1班 2022电气工程及其自动化2班 2022电气工程及其自动化3班 2022电气工程及其自动化4班 2022电气工程及其自动化5班 2022智能机器平台9班</td><td>李鹏</td><td>59</td><td>68</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/4</td>
+      <td>12-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454570" type="checkbox"/></td><td>03592</td><td>2340109</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454570" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能电网与综合能源系统</a></td><td>      	研究与创新
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班;班级:2022电气工程及其自动化1班 2022电气工程及其自动化2班 2022电气工程及其自动化3班 2022电气工程及其自动化4班 2022电气工程及其自动化5班 2022智能机器平台9班</td><td>贾宏杰</td><td>59</td><td>68</td><td>10</td><td>          是
+</td><td>1</td>      <td>16/4</td>
+      <td>12-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454571" type="checkbox"/></td><td>03593</td><td>2340117</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454571" onclick="return bg.Go(this,null)" title="查看任务详细信息">电力物联网技术</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>张涛,赵鑫</td><td>31</td><td>35</td><td>4</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454572" type="checkbox"/></td><td>03594</td><td>2340102</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454572" onclick="return bg.Go(this,null)" title="查看任务详细信息">计算机网络与通信</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>金志刚</td><td>31</td><td>35</td><td>3</td><td>          是
+</td><td>2</td>      <td>40/4</td>
+      <td>4-13</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454573" type="checkbox"/></td><td>03595</td><td>2340118</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454573" onclick="return bg.Go(this,null)" title="查看任务详细信息">电力系统分析B</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>冀浩然</td><td>31</td><td>40</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454574" type="checkbox"/></td><td>03596</td><td>2340108</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454574" onclick="return bg.Go(this,null)" title="查看任务详细信息">智慧能源系统</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>王丹</td><td>16</td><td>18</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454575" type="checkbox"/></td><td>03597</td><td>2340112</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454575" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能电网最优运行</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>曾沅</td><td>16</td><td>18</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454576" type="checkbox"/></td><td>03598</td><td>2340119</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454576" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能视觉</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>曹家乐</td><td>11</td><td>14</td><td>3</td><td>          是
+</td><td>1.5</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454578" type="checkbox"/></td><td>03600</td><td>2340116</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454578" onclick="return bg.Go(this,null)" title="查看任务详细信息">信息论与编码</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2022智能电网信息工程1班</td><td>褚晶辉</td><td>11</td><td>14</td><td>3</td><td>          是
+</td><td>2</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454582" type="checkbox"/></td><td>03604</td><td>2340154</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454582" onclick="return bg.Go(this,null)" title="查看任务详细信息">人工智能技术</a></td><td>      	专业核心
+</td><td>卫津路校区</td><td>班级:2021智能电网信息工程1班</td><td>陈曦</td><td>29</td><td>37</td><td>5</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454583" type="checkbox"/></td><td>03605</td><td>2340140</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454583" onclick="return bg.Go(this,null)" title="查看任务详细信息">电气电子工程实训</a></td><td>      	实习
+</td><td>北洋园校区</td><td>班级:2022化工新工科领军班（教学）1班 2022化工卓越工程师班（教学）1班 2022化学工程与工艺1班 2022化学工程与工艺2班 2022化学工程与工艺3班 2022化学工程与工艺4班 2022化学工程与工艺5班 2022化学工程与工艺6班 2022化学工程与工艺7班 2022化学工程与工艺8班</td><td>张军</td><td>176</td><td>272</td><td>20</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>19-20</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454585" type="checkbox"/></td><td>03607</td><td>2070858</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454585" onclick="return bg.Go(this,null)" title="查看任务详细信息">理论电化学</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022化学工程与工艺8班</td><td>黄成德,胡正林</td><td>18</td><td>40</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/4</td>
+      <td>4-15</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454587" type="checkbox"/></td><td>03609</td><td>2340140</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454587" onclick="return bg.Go(this,null)" title="查看任务详细信息">电气电子工程实训</a></td><td>      	实习
+</td><td>北洋园校区</td><td>班级:2022精细化工1班 2022精细化工2班 2022食品科学与工程1班 2022食品科学与工程2班</td><td>张军</td><td>69</td><td>99</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>8-9</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454589" type="checkbox"/></td><td>03611</td><td>2210106</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454589" onclick="return bg.Go(this,null)" title="查看任务详细信息">习近平新时代中国特色社会主义思想概论</a></td><td>      	思想政治理论
+</td><td>卫津路校区</td><td>班级:2022环境设计1班 2021城乡规划1班 2021风景园林1班</td><td>邓海龙</td><td>84</td><td>100</td><td>8</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454590" type="checkbox"/></td><td>03612</td><td>2020751</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454590" onclick="return bg.Go(this,null)" title="查看任务详细信息">先进光学元件制造技术</a></td><td>      	创新创业与跨学科选修,
+      	专业选修,
+      	跨学科选修
+</td><td>卫津路校区</td><td>班级:2022光电信息科学与工程(天南大合办)1班 2022光电信息科学与工程(天南大合办)2班 2022工程科学实验班1班 2022测控技术与仪器1班 2022测控技术与仪器2班 2022测控技术与仪器3班 2022测控技术与仪器4班 2022智能感知工程1班 2022光电信息科学与工程1班 2022光电信息科学与工程2班 2022光电信息科学与工程3班 2022工程科学实验班4班</td><td>李泽骁</td><td>49</td><td>125</td><td>5</td><td>          是
+</td><td>2</td>      <td>30/2</td>
+      <td>5-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454592" type="checkbox"/></td><td>03614</td><td>2105046</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454592" onclick="return bg.Go(this,null)" title="查看任务详细信息">粒子物理导论</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021应用物理学（强基计划）1班 2021应用物理学1班 2021应用物理学2班</td><td>刘晓海</td><td>6</td><td>100</td><td>8</td><td>          是
+</td><td>2</td>      <td>33/3</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454594" type="checkbox"/></td><td>03616</td><td>2105050</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454594" onclick="return bg.Go(this,null)" title="查看任务详细信息">物理化学B</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2022应用化学（拔尖班）1班 2022应用化学（强基计划）1班</td><td>于曦,杨方旭</td><td>38</td><td>55</td><td>1</td><td>          是
+</td><td>4</td>      <td>64/4</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454595" type="checkbox"/></td><td>03617</td><td>2340140</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454595" onclick="return bg.Go(this,null)" title="查看任务详细信息">电气电子工程实训</a></td><td>      	实习
+</td><td>北洋园校区</td><td>班级:2022应用物理学（强基计划）1班 2022应用物理学1班 2022应用物理学2班 2022功能材料1班</td><td>张军</td><td>81</td><td>110</td><td>4</td><td>          是
+</td><td>2</td>      <td>0/0</td>
+      <td>16-17</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454601" type="checkbox"/></td><td>03623</td><td>2260059</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454601" onclick="return bg.Go(this,null)" title="查看任务详细信息">合成生物学</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021生物科学（强基计划）1班 2021生物科学1班</td><td>王梦凡</td><td>10</td><td>60</td><td>6</td><td>          是
+</td><td>2</td>      <td>33/3</td>
+      <td>4-14</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454602" type="checkbox"/></td><td>03624</td><td>2260060</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454602" onclick="return bg.Go(this,null)" title="查看任务详细信息">科技论文写作</a></td><td>      	研究与创新
+</td><td>卫津路校区</td><td>班级:2021生物科学（强基计划）1班 2021生物科学1班</td><td>康君</td><td>67</td><td>67</td><td>0</td><td>          否
+</td><td>1</td>      <td>16/2</td>
+      <td>4-11</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454603" type="checkbox"/></td><td>03625</td><td>2340156</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454603" onclick="return bg.Go(this,null)" title="查看任务详细信息">信息化电力电子变流技术（英）</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021智能电网信息工程1班</td><td>何晋伟</td><td>2</td><td>17</td><td>2</td><td>          是
+</td><td>2</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454604" type="checkbox"/></td><td>03626</td><td>2010996</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454604" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能驱动控制与创新开发</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021工业设计1班</td><td>宋晓菲</td><td>19</td><td>40</td><td>5</td><td>          是
+</td><td>2</td>      <td>48/8</td>
+      <td>1-6</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454605" type="checkbox"/></td><td>03627</td><td>2340157</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454605" onclick="return bg.Go(this,null)" title="查看任务详细信息">电动汽车充电规划和有序运行</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021智能电网信息工程1班</td><td>穆云飞</td><td>15</td><td>17</td><td>1</td><td>          是
+</td><td>1.5</td>      <td>32/4</td>
+      <td>12-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454609" type="checkbox"/></td><td>03631</td><td>2210094</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454609" onclick="return bg.Go(this,null)" title="查看任务详细信息">马克思主义与中国传统文化</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021马克思主义理论1班 2023马克思主义理论1班</td><td>陈多旭</td><td>18</td><td>63</td><td>0</td><td>          否
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454610" type="checkbox"/></td><td>03632</td><td>2080536</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454610" onclick="return bg.Go(this,null)" title="查看任务详细信息">电子封装结构设计</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021材料成型及控制工程1班 2021材料成型及控制工程2班</td><td>李欣,李海龙</td><td>7</td><td>75</td><td>5</td><td>          是
+</td><td>1</td>      <td>22/2</td>
+      <td>3-13</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454611" type="checkbox"/></td><td>03633</td><td>2080537</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454611" onclick="return bg.Go(this,null)" title="查看任务详细信息">电子材料</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2021材料成型及控制工程1班 2021材料成型及控制工程2班</td><td>李欣,李海龙</td><td>2</td><td>75</td><td>5</td><td>          是
+</td><td>1</td>      <td>22/2</td>
+      <td>3-13</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454612" type="checkbox"/></td><td>03634</td><td>2080534</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454612" onclick="return bg.Go(this,null)" title="查看任务详细信息">材料设计/工程实践</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021功能材料1班</td><td>李方</td><td>22</td><td>30</td><td>5</td><td>          是
+</td><td>8</td>      <td>0/0</td>
+      <td>1-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454613" type="checkbox"/></td><td>03635</td><td>2080534</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454613" onclick="return bg.Go(this,null)" title="查看任务详细信息">材料设计/工程实践</a></td><td>      	课程设计
+</td><td>北洋园校区</td><td>班级:2021材料科学与工程1班 2021材料科学与工程2班</td><td>贾慧珍</td><td>35</td><td>50</td><td>5</td><td>          是
+</td><td>8</td>      <td>0/0</td>
+      <td>1-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454614" type="checkbox"/></td><td>03636</td><td>2130256</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454614" onclick="return bg.Go(this,null)" title="查看任务详细信息">化学发光分析技术及其在药物分析中的应用</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021药学1班 2021药学2班 2022药学1班 2022药学2班</td><td>樊爱萍</td><td>0</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454615" type="checkbox"/></td><td>03637</td><td>2130257</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454615" onclick="return bg.Go(this,null)" title="查看任务详细信息">模式生物</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021药学1班 2021药学2班 2022药学1班 2022药学2班</td><td>汪以馼</td><td>5</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454616" type="checkbox"/></td><td>03638</td><td>2130258</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454616" onclick="return bg.Go(this,null)" title="查看任务详细信息">基因与蛋白质工程</a></td><td>      	专业选修
+</td><td>卫津路校区</td><td>班级:2021药学1班 2021药学2班 2022药学1班 2022药学2班</td><td>梅坤荣</td><td>1</td><td>60</td><td>0</td><td>          否
+</td><td>2</td>      <td>0/0</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454618" type="checkbox"/></td><td>03640</td><td>2210106</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454618" onclick="return bg.Go(this,null)" title="查看任务详细信息">习近平新时代中国特色社会主义思想概论</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2022船舶与海洋工程1班 2022船舶与海洋工程2班 2022船舶与海洋工程3班 2022船舶与海洋工程4班 2022船舶与海洋工程5班</td><td>贺敬垒</td><td>85</td><td>150</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454619" type="checkbox"/></td><td>03641</td><td>2210106</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454619" onclick="return bg.Go(this,null)" title="查看任务详细信息">习近平新时代中国特色社会主义思想概论</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2022计算机科学与技术（拔尖班）1班 2022计算机科学与技术4班 2022计算机科学与技术5班 2022网络空间安全1班</td><td>王军旗</td><td>114</td><td>123</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454620" type="checkbox"/></td><td>03642</td><td>2210106</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454620" onclick="return bg.Go(this,null)" title="查看任务详细信息">习近平新时代中国特色社会主义思想概论</a></td><td>      	思想政治理论
+</td><td>北洋园校区</td><td>班级:2022英语1班 2022教育学1班 2022教育学2班 2022英语2班</td><td>刘辉</td><td>83</td><td>110</td><td>5</td><td>          是
+</td><td>3</td>      <td>48/3</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="454621" type="checkbox"/></td><td>03643</td><td>2120244</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=454621" onclick="return bg.Go(this,null)" title="查看任务详细信息">学习科学与技术</a></td><td>      	专业选修
+</td><td>北洋园校区</td><td>班级:2022教育学1班 2022教育学2班</td><td>刘依冉</td><td>14</td><td>70</td><td>10</td><td>          是
+</td><td>2</td>      <td>32/2</td>
+      <td>4-19</td>
+      <td>有</td>
+</tr></tbody>
+</table>
+<div id="grid13044705621_bar2"  class="gridbar"></div>
+</div>
+<script type="text/javascript">
+  var clearCheckbox_grid13044705621 = function() {
+    jQuery("#grid13044705621").find(".box:checkbox").removeProp("checked");
+    jQuery("#grid13044705621").find(".gridselect-top :checkbox").removeProp("checked");
+    return true;
+  }
+
+  page_grid13044705621 = bg.page("/eams/stdSyllabus!search.action","");
+  {
+    var _paramstring = 'lesson.project.id=1&lesson.semester.id=114&pageNo=10&pageSize=200';
+    var _params = _paramstring.split('&');
+    for (var i = 0; i < _params.length; i++) {
+      _params[i] = decodeURIComponent(_params[i]);
+    }
+    _paramstring = _params.join('&');
+    page_grid13044705621.target("",'grid13044705621').action("/eams/stdSyllabus!search.action").addParams(_paramstring).orderBy("null");
+  }
+  bg.ui.grid.init('grid13044705621',page_grid13044705621);
+  bar=new bg.ui.gridbar(['grid13044705621_bar1','grid13044705621_bar2'],'');
+  bar.pageId('grid13044705621')
+  page_grid13044705621.pageInfo(10,200,4019);
+  bar.addPage(page_grid13044705621,null,{first:'«首页',previous:'‹前页',next:'后页›',last:'末页»',no:'页码:',size:'每页',change:'点击改变每页数据量',pagesize:'每页数据量'});
+
+  action=bar.addEntityAction('lesson',page_grid13044705621);
+  			bar.addItem("查看",action.info());
+			bar.addItem("查看课程大纲",action.single("syllabusInfo"));
+
+</script>
+
+</form>
+<script>
+	jQuery(function(){
+		bg.form.addHiddens(document.taskListForm, "&lesson.project.id=1&lesson.semester.id=114&pageNo=10&pageSize=200");
+		jQuery("#taskListForm .griddata-even,#taskListForm .griddata-odd").mouseover(function(){
+			displayArrangeResult(jQuery(".box",this).val());
+		}).mouseout(function(){
+			toolTip();
+		});
+	});
+</script>
+
+  <script type="text/javascript">
+  	$(function() {
+  	  if(bg.Go != undefined) {
+  	    var originalGo = bg.Go;
+  	    bg.Go = function (obj, target, historyMode, historyData) {
+  	      if(target == "main") {
+  	        target = "_self";
+  	      }
+
+  	      return originalGo(obj, target, historyMode, historyData);
+  	    }
+  	  }
+
+	  $(".toolbar").each(function() {
+        if($(this).prev().length==0 && $(this).find(".toolbar-item").length==0) {
+          $(this).css("display", "none");
+        }
+	  });
+      $(".search-widget").css("margin-left", "auto");
+
+      var $chosenObj = $("select[class='chosen-simple']");
+      if($chosenObj.length > 0) {
+ 		$chosenObj.chosen({search_contains: true, placeholder_text: '...'});
+		$chosenObj.val('-1');
+		$chosenObj.trigger('chosen:updated');
+      }
+    });
+  </script>
+</body>
+</html>

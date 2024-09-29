@@ -44,11 +44,12 @@ def _parse_arrange(html):
             continue
         item = {}
         components = re.findall(
-            r"(\S*)\s+星期(\S*)\s+(\d+)-(\d+)\s+(\S*)\s+(\S*)", each
+            r"(.*)\s*星期(\S*)\s+(\d+)-(\d+)\s+(\S*)\s+(\S*)", each
         )[0]
+        components = [_.strip() for _ in components]
         if len(components) < 6:
             raise HtmlParseError("HTML parse error")
-        item["teacher"] = components[0].split(",")
+        item["teacher"] = components[0].split(",") if components[0] else []
         item["weekday"] = CHINESE_WEEKDAY[components[1]]
         item["unit"] = [_ for _ in range(int(components[2]), int(components[3]) + 1)]
         item["week"] = _parse_week(components[4])
