@@ -73,7 +73,7 @@ def parse_course(html, semester: str):
     if sup_pattern.findall(content_and_tail[0]):
         content_and_tail[0] = re.sub(sup_pattern, r">\1 \2</a>", content_and_tail[0])
     content = re.findall(
-        r'<tr><td.*value="(.*)"\s*type.*><\/td><td>(.*)<\/td><td>(.*)<\/td><td><a.*>(.*)<\/a><\/td><td>(.*\s?.*)\s?<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)\s?<\/td><td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>',
+        r'<tr><td.*value="(.*)"\s*type.*><\/td><td>(.*)<\/td><td>(.*)<\/td><td><a.*>(.*\s?.*)<\/a><\/td><td>(.*\s?.*)\s?<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)\s?<\/td><td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>',
         content_and_tail[0],
     )
 
@@ -101,6 +101,8 @@ def parse_course(html, semester: str):
                 item["总学时"] = c.split("/")[0]
                 item["周学时"] = c.split("/")[1]
                 continue
+            elif key == "课程名称":
+                c = c.replace("\n", "")
             item[key] = c
         if item["lession_id"] not in lession_id_to_arrange:
             raise HtmlParseError("HTML parse error")
