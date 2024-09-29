@@ -7,6 +7,35 @@ from tju.consts import CHINESE_WEEKDAY
 from tju.exceptions import HtmlParseError
 
 
+def _parse_week(html):
+    if "," in html:
+        weeks = html.split(",")
+    else:
+        weeks = [html]
+    result = []
+    for week in weeks:
+        if "-" in week:
+            is_odd_week = "单" in week
+            is_even_week = "双" in week
+            weeks_str = week.replace("[", "").replace("]", "")
+            if is_odd_week:
+                weeks = weeks_str.replace("单", "").strip().split("-")
+                result.extend(
+                    [_ for _ in range(int(weeks[0]), int(weeks[1]) + 1) if _ % 2 == 1]
+                )
+            elif is_even_week:
+                weeks = weeks_str.replace("双", "").strip().split("-")
+                result.extend(
+                    [_ for _ in range(int(weeks[0]), int(weeks[1]) + 1) if _ % 2 == 0]
+                )
+            else:
+                weeks = weeks_str.strip().split("-")
+                result.extend([_ for _ in range(int(weeks[0]), int(weeks[1]) + 1)])
+        else:
+            result.extend([int(week.strip())])
+    return sorted(result)
+
+
 def _parse_arrange(html):
     result = []
     for each in html.strip().split("<br>"):
@@ -22,25 +51,7 @@ def _parse_arrange(html):
         item["teacher"] = components[0].split(",")
         item["weekday"] = CHINESE_WEEKDAY[components[1]]
         item["unit"] = [_ for _ in range(int(components[2]), int(components[3]) + 1)]
-        if "-" in components[4]:
-            is_odd_week = "单" in components[4]
-            is_even_week = "双" in components[4]
-            weeks_str = components[4].replace("[", "").replace("]", "")
-            if is_odd_week:
-                weeks = weeks_str.replace("单", "").strip().split("-")
-                item["week"] = [
-                    _ for _ in range(int(weeks[0]), int(weeks[1]) + 1) if _ % 2 == 1
-                ]
-            elif is_even_week:
-                weeks = weeks_str.replace("双", "").strip().split("-")
-                item["week"] = [
-                    _ for _ in range(int(weeks[0]), int(weeks[1]) + 1) if _ % 2 == 0
-                ]
-            else:
-                weeks = weeks_str.strip().split("-")
-                item["week"] = [_ for _ in range(int(weeks[0]), int(weeks[1]) + 1)]
-        else:
-            item["week"] = [int(components[4].strip())]
+        item["week"] = _parse_week(components[4])
         item["location"] = components[5]
         result.append(item)
     return result

@@ -60,7 +60,7 @@ def test_profile_schema():
 def test_course_schema():
     raw_dict = json.loads(
         Path(__file__)
-        .parent.joinpath("resources/parsed/parsed_course_ug.json")
+        .parent.joinpath("resources/parsed/parsed_course_ug_1.json")
         .read_text(encoding="utf-8")
     )
     serialized_dict = json.loads(
