@@ -1,6 +1,6 @@
 [project]
 name = "tju"
-version = "0.1.0"
+version = "0.1.1"
 description = "The Python TJU client — scrapes TJU SSO + EAMS for structured academic data"
 authors = [
     { name = "Super Lee", email = "hi@repus.me" }

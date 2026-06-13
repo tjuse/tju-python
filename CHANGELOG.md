@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-13
+
+### Fixed
+
+- Set `requires-python = ">= 3.11"` — `onnxruntime` ≥ 1.24 (pulled in by `ddddocr`) no longer
+  ships cp310 wheels, so Python 3.10 was never actually supported
+- Updated classifiers to reflect supported versions (3.11 / 3.12 / 3.13) and CI matrix to match
+
 ## [0.1.0] - 2026-06-13
 
 ### Added
@@ -91,5 +99,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Schema system refactored to use `LoadDumpSchema` base with `post_dump` key restoration,
   enabling clean Python-named serialised output from Chinese-keyed EAMS data
 
-[Unreleased]: https://github.com/superpung/tju-python/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/superpung/tju-python/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/superpung/tju-python/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/superpung/tju-python/releases/tag/v0.1.0
