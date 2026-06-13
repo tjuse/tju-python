@@ -61,7 +61,7 @@ print(client.schedule(semester="24251"))
 # Personal timetable — prints your courses and saves JSON
 uv run --env-file .env python examples/fetch_schedule.py
 
-# Full course library — crawls all pages and saves JSON
+# Full course library (UG + GS) — crawls all pages and saves JSON
 uv run --env-file .env python examples/fetch_all_courses.py
 ```
 

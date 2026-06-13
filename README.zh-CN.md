@@ -61,7 +61,7 @@ print(client.schedule(semester="24251"))
 # 个人课表 — 打印你的课程并保存 JSON
 uv run --env-file .env python examples/fetch_schedule.py
 
-# 全部课程库 — 爬取所有分页并保存 JSON
+# 全部课程库（本科+研究生）— 爬取所有分页并保存 JSON
 uv run --env-file .env python examples/fetch_all_courses.py
 ```
 

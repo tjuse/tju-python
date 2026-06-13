@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import time
+
 from tju.consts import (
     COURSE_INFO_URL_PATH,
     COURSE_SYLLABUS_URL_PATH,
     COURSELIB_URL_PATH,
+    COURSETABLE_INDEX_URL_PATH,
     SEMESTER,
 )
 from tju.exceptions import DataError, HtmlParseError, StuTypeError
@@ -50,6 +53,14 @@ class CourseMixin(BaseClient):
             page_size = 10
         elif page_size > 1000:
             page_size = 1000
+
+        # Set project context in the EAMS session before querying the course library.
+        # Without this, project 22 (graduate) returns an AuthenticationException on a
+        # fresh session because the EAMS default context is project 1 (undergraduate).
+        self._session.get(
+            COURSETABLE_INDEX_URL_PATH, params={"projectId": project_id}, **kwargs
+        )
+        time.sleep(0.1)
 
         course_html = self._session.get(
             COURSELIB_URL_PATH,
