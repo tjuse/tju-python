@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-13
+
+### Changed
+
+- Migrated repository to <https://github.com/tjuse/tju-python>
+- Docs site moved to custom domain <https://python.tjuse.com/>
+- CI badge switched to shields.io for reliable rendering on PyPI
+- Chinese README link in PyPI description now uses absolute GitHub URL (fixes 404)
+- Docs deployment no longer triggered on version tags (fixes GitHub Pages
+  environment protection rejection)
+
 ## [0.1.1] - 2026-06-13
 
 ### Fixed
@@ -99,6 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Schema system refactored to use `LoadDumpSchema` base with `post_dump` key restoration,
   enabling clean Python-named serialised output from Chinese-keyed EAMS data
 
-[Unreleased]: https://github.com/tjuse/tju-python/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/tjuse/tju-python/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/tjuse/tju-python/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/tjuse/tju-python/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/tjuse/tju-python/releases/tag/v0.1.0
