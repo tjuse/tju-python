@@ -132,3 +132,4 @@ dmypy.json
 # private files
 cookie
 .scratch/
+examples/output/
