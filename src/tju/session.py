@@ -16,6 +16,7 @@ from .consts import (
     DEFAULT_BASE_URL,
     HOME_URL_PATH,
     LOGIN_URL,
+    LOGOUT_URL,
 )
 from .encrypt import ctx
 from .exceptions import HtmlParseError, LoginError, SessionError
@@ -196,9 +197,10 @@ class Session:
 
     def logout(self):
         """
-        TODO: Session logout
+        Session logout
         """
-        raise NotImplementedError("Not implemented")
+        self._cache = {}
+        self.get(LOGOUT_URL, validate_session=False)
 
     @property
     def _cookies(self) -> httpx.Cookies:

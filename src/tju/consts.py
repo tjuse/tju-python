@@ -4,6 +4,7 @@ TJU consts
 
 # fmt: off
 LOGIN_URL = "https://sso.tju.edu.cn/cas/login"
+LOGOUT_URL = "https://sso.tju.edu.cn/cas/logout"
 CAPTCHA_URL = "https://sso.tju.edu.cn/cas/code"
 
 DEFAULT_BASE_URL = "http://classes.tju.edu.cn"
