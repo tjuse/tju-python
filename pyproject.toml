@@ -31,11 +31,11 @@ readme = "README.md"
 requires-python = ">= 3.11"
 
 [project.urls]
-Homepage = "https://github.com/superpung/tju-python"
-Repository = "https://github.com/superpung/tju-python"
-Documentation = "https://superpung.github.io/tju-python/"
-Changelog = "https://github.com/superpung/tju-python/blob/main/CHANGELOG.md"
-Issues = "https://github.com/superpung/tju-python/issues"
+Homepage = "https://github.com/tjuse/tju-python"
+Repository = "https://github.com/tjuse/tju-python"
+Documentation = "https://python.tjuse.com/"
+Changelog = "https://github.com/tjuse/tju-python/blob/main/CHANGELOG.md"
+Issues = "https://github.com/tjuse/tju-python/issues"
 
 [build-system]
 requires = ["hatchling"]

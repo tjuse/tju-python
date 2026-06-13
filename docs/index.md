@@ -3,8 +3,8 @@
 **Python client for Tianjin University's SSO and EAMS systems.**
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
-[![CI](https://img.shields.io/github/actions/workflow/status/superpung/tju-python/ci.yml?branch=main&label=CI)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/superpung/tju-python/blob/main/LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/tjuse/tju-python/ci.yml?branch=main&label=CI)](https://github.com/tjuse/tju-python/actions/workflows/ci.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/tjuse/tju-python/blob/main/LICENSE)
 
 > **Beta.** The API is functional; minor breaking changes may occur before v1.0.
 
@@ -48,4 +48,4 @@ for runnable scripts.
 
 ## License
 
-[GPLv3](https://github.com/superpung/tju-python/blob/main/LICENSE) © 2023-PRESENT Super Lee
+[GPLv3](https://github.com/tjuse/tju-python/blob/main/LICENSE) © 2023-PRESENT Super Lee

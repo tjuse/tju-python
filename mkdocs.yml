@@ -1,8 +1,8 @@
 site_name: tju
 site_description: Python client for TJU SSO and EAMS
-site_url: https://superpung.github.io/tju-python/
-repo_url: https://github.com/superpung/tju-python
-repo_name: superpung/tju-python
+site_url: https://python.tjuse.com/
+repo_url: https://github.com/tjuse/tju-python
+repo_name: tjuse/tju-python
 edit_uri: edit/main/docs/
 
 theme:

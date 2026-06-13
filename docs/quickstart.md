@@ -15,7 +15,7 @@ pip install tju
 Or from source (recommended for development):
 
 ```sh
-git clone https://github.com/superpung/tju-python.git
+git clone https://github.com/tjuse/tju-python.git
 cd tju-python
 uv sync
 ```

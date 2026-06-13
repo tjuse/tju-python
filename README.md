@@ -1,11 +1,11 @@
 <p align="center"><b>TJU</b> <sup><samp>The Python TJU client</samp></sup></p>
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
-[![CI](https://img.shields.io/github/actions/workflow/status/superpung/tju-python/ci.yml?branch=main&label=CI)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
-[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://superpung.github.io/tju-python/)
+[![CI](https://img.shields.io/github/actions/workflow/status/tjuse/tju-python/ci.yml?branch=main&label=CI)](https://github.com/tjuse/tju-python/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://python.tjuse.com/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-English | [简体中文](https://github.com/superpung/tju-python/blob/main/README.zh-CN.md)
+English | [简体中文](https://github.com/tjuse/tju-python/blob/main/README.zh-CN.md)
 
 > **Beta.** The API is functional; minor breaking changes may occur before v1.0.
 
@@ -36,7 +36,7 @@ pip install tju
 From source (recommended for development):
 
 ```sh
-git clone https://github.com/superpung/tju-python.git
+git clone https://github.com/tjuse/tju-python.git
 cd tju-python
 uv sync       # installs all dependencies into .venv
 ```
@@ -113,7 +113,7 @@ privacy rule.  See [AGENTS.md](AGENTS.md) for AI-agent contributor guidance.
 
 ## Documentation
 
-Full API reference and usage guides: **<https://superpung.github.io/tju-python/>**
+Full API reference and usage guides: **<https://python.tjuse.com/>**
 
 To build the docs locally:
 

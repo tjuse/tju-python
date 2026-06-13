@@ -16,7 +16,7 @@ publish a new version of `tju` to PyPI and GitHub.
 1. Go to <https://pypi.org/manage/account/publishing/> (log in to PyPI first).
 2. Under **Add a new pending publisher**, fill in:
    - **PyPI project name:** `tju`
-   - **Owner:** `superpung`
+   - **Owner:** `tjuse`
    - **Repository name:** `tju-python`
    - **Workflow filename:** `publish.yml`
    - **Environment name:** `pypi`
@@ -72,5 +72,5 @@ python -c "import tju; print(tju.__doc__)"
 
 Check:
 - <https://pypi.org/project/tju/> — new version appears
-- <https://superpung.github.io/tju-python/> — docs updated
-- <https://github.com/superpung/tju-python/releases> — GitHub Release created
+- <https://python.tjuse.com/> — docs updated
+- <https://github.com/tjuse/tju-python/releases> — GitHub Release created

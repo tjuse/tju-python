@@ -1,8 +1,8 @@
 <p align="center"><b>TJU</b> <sup><samp>The Python TJU client</samp></sup></p>
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
-[![CI](https://img.shields.io/github/actions/workflow/status/superpung/tju-python/ci.yml?branch=main&label=CI)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
-[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://superpung.github.io/tju-python/)
+[![CI](https://img.shields.io/github/actions/workflow/status/tjuse/tju-python/ci.yml?branch=main&label=CI)](https://github.com/tjuse/tju-python/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://python.tjuse.com/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 [English](README.md) | 简体中文
@@ -36,7 +36,7 @@ pip install tju
 从源码安装（推荐用于开发）：
 
 ```sh
-git clone https://github.com/superpung/tju-python.git
+git clone https://github.com/tjuse/tju-python.git
 cd tju-python
 uv sync       # 将所有依赖安装到 .venv
 ```
@@ -112,7 +112,7 @@ uv run pytest    # 运行离线测试套件（30 个测试，无需网络）
 
 ## 文档
 
-完整 API 参考与使用教程：**<https://superpung.github.io/tju-python/>**
+完整 API 参考与使用教程：**<https://python.tjuse.com/>**
 
 本地构建文档：
 

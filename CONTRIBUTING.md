@@ -5,7 +5,7 @@ Thank you for your interest in `tju`!
 ## Development setup
 
 ```sh
-git clone https://github.com/superpung/tju-python.git
+git clone https://github.com/tjuse/tju-python.git
 cd tju-python
 uv sync          # installs runtime + dev deps into .venv
 ```
