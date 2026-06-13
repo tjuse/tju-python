@@ -85,11 +85,6 @@ def parse_course(html, semester: str):
     )
     content = row_pattern.findall(content_and_tail[0])
 
-    if len(content) != len(lession_id_to_arrange):
-        raise HtmlParseError(
-            f"Courses count not match: courses({len(content)}) != ids({len(lession_id_to_arrange)})"
-        )
-
     result = []
     for lession in content:
         item = {}
@@ -118,9 +113,9 @@ def parse_course(html, semester: str):
             elif key == "课程名称":
                 c = c.replace("\n", "")
             item[key] = c
-        if item["lession_id"] not in lession_id_to_arrange:
-            raise HtmlParseError("HTML parse error")
-        item["arrange"] = _parse_arrange(lession_id_to_arrange[item["lession_id"]])
+        # Some courses (e.g. thesis supervision, online-only) have no timetable JS entry.
+        arrange_html = lession_id_to_arrange.get(item["lession_id"], "")
+        item["arrange"] = _parse_arrange(arrange_html) if arrange_html.strip() else []
         result.append(item)
 
     numbers = re.findall(r"pageInfo\((\d+),(\d+),(\d+)\)", content_and_tail[1])[0]

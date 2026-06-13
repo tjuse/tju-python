@@ -55,14 +55,17 @@ print(client.profile)
 print(client.schedule(semester="24251"))
 ```
 
-**可运行示例 — 获取并保存当前学期课表：**
+**可运行示例：**
 
 ```sh
+# 个人课表 — 打印你的课程并保存 JSON
 uv run --env-file .env python examples/fetch_schedule.py
+
+# 全部课程库 — 爬取所有分页并保存 JSON
+uv run --env-file .env python examples/fetch_all_courses.py
 ```
 
-脚本会在控制台打印可读的课程列表，并将完整 JSON 写入
-`examples/output/schedule_<semester>.json`。
+两个脚本均将输出写入 `examples/output/`（已 gitignore）。
 
 ## 使用方法
 

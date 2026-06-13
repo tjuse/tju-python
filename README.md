@@ -55,14 +55,17 @@ print(client.profile)
 print(client.schedule(semester="24251"))
 ```
 
-**Runnable example — fetch and save the current timetable:**
+**Runnable examples:**
 
 ```sh
+# Personal timetable — prints your courses and saves JSON
 uv run --env-file .env python examples/fetch_schedule.py
+
+# Full course library — crawls all pages and saves JSON
+uv run --env-file .env python examples/fetch_all_courses.py
 ```
 
-The script prints a human-readable course list and writes the full JSON to
-`examples/output/schedule_<semester>.json`.
+Both scripts write output to `examples/output/` (gitignored).
 
 ## Usage
 
