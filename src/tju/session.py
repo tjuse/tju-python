@@ -64,6 +64,9 @@ class Session:
         )
         self._cache = {}
 
+    def __enter__(self):
+        return self
+
     def __exit__(self, exc_type, exc_value, traceback):
         self._client.close()
 
