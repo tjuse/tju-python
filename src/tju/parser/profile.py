@@ -1,3 +1,5 @@
+"""HTML parser for the student personal-information (profile) page."""
+
 import re
 from typing import Any, Dict
 

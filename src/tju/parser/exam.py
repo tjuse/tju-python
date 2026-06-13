@@ -1,3 +1,5 @@
+"""HTML parsers for the exam schedule page."""
+
 import re
 
 from tju.exceptions import HtmlParseError

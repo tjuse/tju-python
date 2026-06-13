@@ -1,9 +1,22 @@
 [project]
 name = "tju"
 version = "0.1.0"
-description = "The Python TJU client"
+description = "The Python TJU client — scrapes TJU SSO + EAMS for structured academic data"
 authors = [
     { name = "Super Lee", email = "hi@repus.me" }
+]
+license = "GPL-3.0-or-later"
+keywords = ["tju", "tianjin university", "eams", "academic", "scraper"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
     "ddddocr>=1.5.5",
@@ -20,6 +33,9 @@ requires-python = ">= 3.8"
 [project.urls]
 Homepage = "https://github.com/superpung/tju-python"
 Repository = "https://github.com/superpung/tju-python"
+Documentation = "https://superpung.github.io/tju-python/"
+Changelog = "https://github.com/superpung/tju-python/blob/main/CHANGELOG.md"
+Issues = "https://github.com/superpung/tju-python/issues"
 
 [build-system]
 requires = ["hatchling"]
@@ -28,6 +44,10 @@ build-backend = "hatchling.build"
 [dependency-groups]
 dev = [
     "pytest>=8.3.3",
+]
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.25",
 ]
 
 [tool.hatch.metadata]

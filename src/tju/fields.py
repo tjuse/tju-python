@@ -1,3 +1,10 @@
+"""Custom marshmallow :class:`~marshmallow.fields.Field` subclasses for
+deserialising Chinese-format values from EAMS HTML data.
+
+Includes gender/student-type converters, date formatters, Chinese boolean
+fields (是/有), exam-time range splitter, and GPA/semester normalisation.
+"""
+
 from __future__ import annotations
 
 import re

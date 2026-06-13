@@ -1,10 +1,13 @@
 <p align="center"><b>TJU</b> <sup><samp>The Python TJU client</samp></sup></p>
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
+[![CI](https://github.com/superpung/tju-python/actions/workflows/ci.yml/badge.svg)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://superpung.github.io/tju-python/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 English | [简体中文](README.zh-CN.md)
 
-> **Work in progress.** The API is functional but not yet stable.
+> **Beta release (v0.1.0).** The API is functional; minor breaking changes may occur before v1.0.
 
 `tju` is a Python library that logs into Tianjin University's SSO and EAMS systems and returns structured academic data. It handles CAS authentication, CAPTCHA solving (via `ddddocr`), and HTML parsing — so your code just calls methods and gets typed objects back.
 
@@ -105,7 +108,19 @@ uv sync          # install runtime + dev dependencies
 uv run pytest    # run the offline test suite (30 tests, no network required)
 ```
 
-See [AGENTS.md](AGENTS.md) for architecture details and contributor guidance.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for architecture details and the fixture
+privacy rule.  See [AGENTS.md](AGENTS.md) for AI-agent contributor guidance.
+
+## Documentation
+
+Full API reference and usage guides: **<https://superpung.github.io/tju-python/>**
+
+To build the docs locally:
+
+```sh
+uv sync --group docs
+uv run mkdocs serve
+```
 
 ## License
 

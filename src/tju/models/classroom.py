@@ -1,3 +1,5 @@
+"""Models for the free-classroom search (借用教室)."""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -25,4 +27,6 @@ class FreeClassroom(Result):
 
 
 class FreeClassrooms(Results[FreeClassroom]):
+    """List of available :class:`FreeClassroom` entries."""
+
     _item = FreeClassroom

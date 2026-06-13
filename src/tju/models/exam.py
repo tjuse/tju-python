@@ -1,3 +1,5 @@
+"""Models for the exam schedule."""
+
 from datetime import date
 from typing import Annotated, Optional
 
@@ -13,6 +15,9 @@ from .base import Result, Results
 # fmt: off
 @dataclass(frozen=True, base_schema=LoadDumpSchema)
 class Exam(Result):
+    """A single exam entry.  ``exam_time`` is a list of two ``datetime.time`` objects
+    (start, end); ``exam_date`` is a ``datetime.date``."""
+
     class_id: Optional[str] = mfield(default=None, data_key="课程序号")
     name: Optional[str] = mfield(default=None, data_key="课程名称")
     exam_type: Optional[str] = mfield(default=None, data_key="考试类别")
@@ -29,4 +34,6 @@ class Exam(Result):
 
 
 class Exams(Results[Exam]):
+    """List of :class:`Exam` items from the exam schedule page."""
+
     _item = Exam

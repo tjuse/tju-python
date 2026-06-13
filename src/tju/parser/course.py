@@ -1,3 +1,10 @@
+"""HTML parsers for the public course library, course detail, and syllabus pages.
+
+:func:`parse_course` handles both the 12-column (GS) and 16-column (UG) EAMS
+table formats dynamically.  :func:`parse_course_info` extracts semester and
+faculty metadata.  :func:`parse_syllabus` converts the syllabus HTML to Markdown.
+"""
+
 import itertools
 import re
 

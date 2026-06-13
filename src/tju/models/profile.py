@@ -1,3 +1,5 @@
+"""Model for the student personal-information (profile) page."""
+
 from datetime import date
 from typing import Annotated, Optional
 
@@ -14,6 +16,9 @@ from .common import Gender, StuType
 # fmt: off
 @dataclass(frozen=True, base_schema=LoadDumpSchema)
 class Profile(Result):
+    """Complete student record scraped from the EAMS profile page.  Contains
+    identity, enrolment, contact and supervisory information."""
+
     stu_id: Optional[str] = mfield(default=None, data_key="学号")
     stu_name: Optional[str] = mfield(default=None, data_key="姓名")
     stu_name_en: Optional[str] = mfield(default=None, data_key="英文名")

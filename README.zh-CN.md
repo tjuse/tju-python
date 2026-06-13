@@ -1,10 +1,13 @@
 <p align="center"><b>TJU</b> <sup><samp>The Python TJU client</samp></sup></p>
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
+[![CI](https://github.com/superpung/tju-python/actions/workflows/ci.yml/badge.svg)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://superpung.github.io/tju-python/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 [English](README.md) | 简体中文
 
-> **开发中。** API 可用，但尚未稳定。
+> **Beta 版本 (v0.1.0)。** API 可用；v1.0 之前可能有少量破坏性变更。
 
 `tju` 是一个 Python 库，用于登录天津大学 SSO 和 EAMS 学务系统并返回结构化的学业数据。它内置了 CAS 认证、验证码识别（通过 `ddddocr`）和 HTML 解析，你只需调用方法即可获得类型化的数据对象。
 
@@ -105,7 +108,18 @@ uv sync          # 安装运行时及开发依赖
 uv run pytest    # 运行离线测试套件（30 个测试，无需网络）
 ```
 
-架构细节与贡献指南请参见 [AGENTS.md](AGENTS.md)。
+贡献指南与测试 fixture 隐私规则请参见 [CONTRIBUTING.md](CONTRIBUTING.md)。AI 贡献指南请参见 [AGENTS.md](AGENTS.md)。
+
+## 文档
+
+完整 API 参考与使用教程：**<https://superpung.github.io/tju-python/>**
+
+本地构建文档：
+
+```sh
+uv sync --group docs
+uv run mkdocs serve
+```
 
 ## 许可证
 

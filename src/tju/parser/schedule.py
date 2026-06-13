@@ -1,3 +1,5 @@
+"""HTML parser for the personal timetable (course table) page."""
+
 import re
 
 

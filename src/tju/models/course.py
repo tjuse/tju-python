@@ -1,3 +1,5 @@
+"""Models for the public course library (``query_courses``)."""
+
 from typing import Annotated, Optional
 
 from marshmallow import EXCLUDE
@@ -13,6 +15,10 @@ from .schedule import Course, CourseArrange
 # fmt: off
 @dataclass(frozen=True, base_schema=LoadDumpSchema)
 class LibCourse(Course):
+    """A course entry from the public course library.  Extends :class:`~tju.models.schedule.Course`
+    with library-specific fields such as ``lession_id``, ``course_type``, enrollment limits,
+    and ``has_syllabus``.  The ``selected``/``limit`` fields are populated for UG courses
+    (16-column format) but are ``None`` for GS courses (12-column format)."""
     # key in Course
     class_id: Optional[str] = mfield(default=None, data_key="课程序号")
     course_id: Optional[str] = mfield(default=None, data_key="课程代码")
@@ -40,4 +46,6 @@ class LibCourse(Course):
 
 
 class CourseLib(Results[LibCourse]):
+    """List of :class:`LibCourse` items from the public course library."""
+
     _item = LibCourse

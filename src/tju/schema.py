@@ -1,3 +1,11 @@
+"""Custom marshmallow schema and field helper used by all models.
+
+:class:`LoadDumpSchema` ensures that ``data_key`` aliases (Chinese field names)
+are used for loading EAMS data and that Python field names are used for
+serialised output.  :func:`mfield` is a thin wrapper around ``dataclasses.field``
+that threads marshmallow metadata through ``marshmallow-dataclass``.
+"""
+
 from __future__ import annotations
 
 from dataclasses import field

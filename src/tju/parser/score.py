@@ -1,3 +1,5 @@
+"""HTML parsers for the academic score pages (UG / GS / experiment)."""
+
 import re
 
 from tju.exceptions import HtmlParseError
