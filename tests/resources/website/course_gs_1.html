@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="content-style-type" content="text/css" />
+  <meta http-equiv="content-script-type" content="text/javascript" />
+  <script type="text/javascript">
+      window.$BG_LANG='zh';
+  </script>
+  <script type="text/javascript" src="/eams/static/scripts/jquery/jquery,jquery.ui.core.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/plugins/jquery-form,jquery-history,jquery-colorbox,jquery-chosen.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/js/plugins/jquery.subscribe,/js/struts2/jquery.struts2,jquery.ui.struts2.js?bg=3.4.3"></script>
+  <script type="text/javascript" src="/eams/static/scripts/beangle/beangle,beangle-ui.js?bg=3.4.3"></script>
+  <script type="text/javascript">var App = {contextPath:"/eams"};var funcInit = function () {jQuery.struts2_jquery.version="3.6.1";beangle.contextPath=App.contextPath;jQuery.scriptPath = App.contextPath+"/static/";jQuery.struts2_jquerySuffix = "";jQuery.ajaxSettings.traditional = true;jQuery.ajaxSetup ({cache: false});};</script>
+  <script type="text/javascript" src="/eams/static/scripts/my97/WdatePicker-4.72.js?compress=no"></script>
+  <link id="jquery_theme_link" rel="stylesheet" href="/eams/static/themes/smoothness/jquery-ui.css?s2j=3.6.1" type="text/css"/>
+  <link id="beangle_theme_link" href="/eams/static/themes/default/beangle-ui,colorbox,chosen.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/eams/static/css/foundation.css" type="text/css"/>
+  <script type="text/javascript" src="/eams/static/scripts/highcharts.js"></script>
+
+	<script src="/eams/static/scripts/require.config.js?v=3"></script>
+	<script>
+	require.baseUrl="/eams/static/scripts";
+	</script>
+	<script src="/eams/static/scripts/require.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/require.js"></script>
+	
+	<!-- backbone & underscore -- fontend MVC framework -->
+	<script type="text/javascript" src="/eams/static/scripts/underscore.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/backbone.min.js"></script>
+	<script type="text/javascript" src="/eams/static/scripts/underscore.string.min.js"></script>
+	<script>
+	require(['underscore.string'], function(_s) {
+	        _.str = _s;
+	        _.mixin(_.str.exports());
+	});
+	funcInit();
+	//beangle.ajaxhistory = false;
+	</script>
+	
+
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="/eams/static/css/lesson.css" />
+
+
+<div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+<script language="JavaScript" type="text/JavaScript" src="/eams/static/scripts/prompt.js"></script> 
+<script>
+	var contents = new Object();
+	contents['800007']='孔康 星期一 7-8 [13-16]  32楼B区111  <br>苏赫 星期一 7-8 [9-12]  32楼B区111  <br>孔康 星期三 9-10 [13-16]  32楼B区111  <br>苏赫 星期三 9-10 [9-12]  32楼B区111  ';
+	contents['800000']='王芳 星期二 1-2 16  19楼403  <br>王芳 星期二 1-2 [1-15]单  19楼403  <br>王芳 星期二 3-4 [1-13],[15-16]  19楼403  ';
+	contents['800003']='';
+	contents['800001']='李明 星期三 1-2 [1-12]  46楼A408  <br>李明 星期四 9-10 [1-12]  46楼A408  ';
+	contents['800004']='孙涛 星期一 1-2 [4-12]  19楼403  <br>孙涛 星期三 3-4 [4-12]  19楼403  ';
+	contents['800002']='陈伟 星期一 1-2 17    <br>陈伟 星期一 1-2 [8-12]  43楼A405  <br>赵强 星期一 1-2 [1-6]  43楼A405  <br>陈伟 星期四 3-4 [7-12]  43楼A405  <br>赵强 星期四 3-4 [1-6]  43楼A405  ';
+	contents['800005']='蔺宇 星期六 1-4 [8-15]  26楼B114  ';
+	contents['800006']='聂斌 星期一 3-4 [1-16]  26楼B114  ';
+	contents['800009']='';
+	contents['800008']='毛普健 星期一 5-6 [1-16]  45楼B304  <br>毛普健 星期三 1-2 [2-16]双  45楼B406  ';
+	function displayArrangeResult(taskId){
+  		var msg = "没有安排";
+  		if(null != contents[taskId] && contents[taskId].replace(/\s/g, '') != '') {
+	 		msg = contents[taskId];
+ 		}
+		toolTip(msg,'#000000', '#FFFF00',250);
+	}
+	initToolTips();
+</script><form id="taskListForm" name="taskListForm" action="/eams/stdSyllabus!search.action" method="post"  >
+
+<div class="grid">
+
+<div id="grid16653590301_bar1" class="gridbar"></div>
+<table id="grid16653590301" class="gridtable">
+<thead class="gridhead">
+
+<tr>
+  <th class="gridselect-top"  width="25px"><input type="submit" id="grid16653590301_filter_submit" value="" onclick="bg.form.submit('taskListForm',null,null,clearCheckbox_grid16653590301);return false;" class="grid-filter-submit"/>
+</th>
+<th title="课程序号" width="4%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.no"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程代码" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.code"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程名称" width="15%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="课程类别" width="10%" style="padding-left:3px">	  		<input name="multiOrCourseType.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="开课校区" width="7%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.campus.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教学班" width="23%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.teachClass.name"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="教师" width="7%" style="padding-left:3px">	  		<input name="teacher.name" type="text" style="width:95%;" value="" maxlength="100"/>
+  </th>
+<th title="学分" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.course.credits"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th title="学时/周" width="5%" style="padding-left:3px"><div style="margin-right:6px"><input type="text" name="lesson.coursePeriod"  maxlength="100" value="" style="width:100%;"/></div>  </th>
+<th width="5%"></th><th title="课程大纲" width="4%" style="padding-left:3px">	    	<select name="syllabus" style="width:95%">
+	            <option value="">...</option>
+	            <option value="1">有</option>
+	            <option value="0">无</option>
+	        </select> 	  		
+  </th>
+</tr>
+
+<tr>
+<th  class="gridselect-top" ><input type="checkbox" name="lesson.idbox" onclick="bg.ui.grid.toggleAll(event)" title="选择全部"/> </th>
+<th  class="gridhead-sortable" id="lesson.no">课程序号</th>
+<th  class="gridhead-sortable" id="lesson.course.code">课程代码</th>
+<th  class="gridhead-sortable" id="lesson.course.name">课程名称</th>
+<th  class="gridhead-sortable" id="lesson.courseType.name">课程类别</th>
+<th  class="gridhead-sortable" id="lesson.campus.name">开课校区</th>
+<th  class="gridhead-sortable" id="lesson.teachClass.name">教学班</th>
+<th  >教师</th>
+<th  class="gridhead-sortable" id="lesson.course.credits">学分</th>
+<th  class="gridhead-sortable" id="lesson.coursePeriod">学时/周</th>
+<th  class="gridhead-sortable" id="lesson.courseSchedule.weekState">起止周</th>
+<th  >课程大纲</th>
+</tr>
+
+</thead>
+
+<tbody id="grid16653590301_data"><tr><td class="gridselect"><input class="box" name="lesson.id" value="800000" type="checkbox"/></td><td>00007</td><td>2111301</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800000" onclick="return bg.Go(this,null)" title="查看任务详细信息">中国古代文学史D</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023示例专业1班</td><td>王芳</td><td>3</td>      <td>48/3</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800001" type="checkbox"/></td><td>00008</td><td>2050793</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800001" onclick="return bg.Go(this,null)" title="查看任务详细信息">混凝土结构设计</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2023示例专业2班 2023示例专业3班 2023示例专业4班 2023示例专业5班 2023示例专业6班 2023示例专业7班</td><td>李明</td><td>3</td>      <td>48/4</td>
+      <td>1-12</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800002" type="checkbox"/></td><td>00009</td><td>2050531</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800002" onclick="return bg.Go(this,null)" title="查看任务详细信息">土木工程施工</a></td><td>      	专业教育
+</td><td>北洋园校区</td><td>班级:2023示例专业2班 2023示例专业7班;班级:2023示例专业3班 2023示例专业4班</td><td>陈伟,赵强</td><td>3</td>      <td>48/3</td>
+      <td>1-17</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800003" type="checkbox"/></td><td>00018</td><td>2010738</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800003" onclick="return bg.Go(this,null)" title="查看任务详细信息">毕业设计（论文）</a></td><td>      	毕业设计(论文)
+</td><td>北洋园校区</td><td>班级:2022示例专业8班</td><td>刘洋</td><td>12</td>      <td>0/0</td>
+      <td>1-16</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800004" type="checkbox"/></td><td>00019</td><td>2090746</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800004" onclick="return bg.Go(this,null)" title="查看任务详细信息">智能算法在工业工程中的应用1</a></td><td>      	专业方向模块,
+      	跨学科选修
+</td><td>卫津路校区</td><td>班级:2023示例专业9班 2023示例专业10班 2023示例专业11班 2023示例专业12班 2023示例专业13班 2023示例专业14班 2023示例专业15班 2023示例专业16班 2023示例专业17班 2023示例专业18班 2023示例专业19班</td><td>孙涛</td><td>2</td>      <td>36/4</td>
+      <td>4-12</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800005" type="checkbox"/></td><td>00020</td><td>2090015</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800005" onclick="return bg.Go(this,null)" title="查看任务详细信息">成本控制</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023示例专业11班</td><td>蔺宇</td><td>2</td>      <td>32/4</td>
+      <td>8-15</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800006" type="checkbox"/></td><td>00021</td><td>2090023</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800006" onclick="return bg.Go(this,null)" title="查看任务详细信息">实验设计</a></td><td>      	专业核心课程
+</td><td>卫津路校区</td><td>班级:2023示例专业11班</td><td>聂斌</td><td>2</td>      <td>32/2</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800007" type="checkbox"/></td><td>00022</td><td>2010856</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800007" onclick="return bg.Go(this,null)" title="查看任务详细信息">工程制图基础4</a></td><td>      	专业方向模块
+</td><td>北洋园校区</td><td>班级:2024示例专业20班 2024示例专业21班 2024示例专业22班</td><td>孔康,苏赫</td><td>2</td>      <td>32/4</td>
+      <td>9-16</td>
+      <td>无</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800008" type="checkbox"/></td><td>00023</td><td>2100577</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800008" onclick="return bg.Go(this,null)" title="查看任务详细信息">理论力学</a></td><td>      	专业核心
+</td><td>北洋园校区</td><td>班级:2024示例专业21班 2024示例专业22班</td><td>毛普健</td><td>3</td>      <td>48/3</td>
+      <td>1-16</td>
+      <td>有</td>
+</tr><tr><td class="gridselect"><input class="box" name="lesson.id" value="800009" type="checkbox"/></td><td>00025</td><td>2010749</td><td><a href="/eams/stdSyllabus!info.action?lesson.id=800009" onclick="return bg.Go(this,null)" title="查看任务详细信息">毕业设计（论文）</a></td><td>      	毕业设计(论文)
+</td><td>北洋园校区</td><td>班级:2022示例专业23班 2022示例专业24班 2022示例专业25班 2022示例专业26班 2022示例专业27班 2022示例专业28班</td><td>王辉</td><td>12</td>      <td>0/0</td>
+      <td>1-16</td>
+      <td>无</td>
+</tr></tbody>
+</table>
+<div id="grid16653590301_bar2"  class="gridbar"></div>
+</div>
+<script type="text/javascript">
+  var clearCheckbox_grid16653590301 = function() {
+    jQuery("#grid16653590301").find(".box:checkbox").removeProp("checked");
+    jQuery("#grid16653590301").find(".gridselect-top :checkbox").removeProp("checked");
+    return true;
+  }
+  
+  page_grid16653590301 = bg.page("/eams/stdSyllabus!search.action","");
+  {
+    var _paramstring = 'lesson.project.id=1&lesson.semester.id=117&pageNo=1&pageSize=10';
+    var _params = _paramstring.split('&');
+    for (var i = 0; i < _params.length; i++) {
+      _params[i] = decodeURIComponent(_params[i]);
+    }
+    _paramstring = _params.join('&');
+    page_grid16653590301.target("",'grid16653590301').action("/eams/stdSyllabus!search.action").addParams(_paramstring).orderBy("null");
+  }
+  bg.ui.grid.init('grid16653590301',page_grid16653590301);
+  bar=new bg.ui.gridbar(['grid16653590301_bar1','grid16653590301_bar2'],'');
+  bar.pageId('grid16653590301')
+  page_grid16653590301.pageInfo(1,10,3580);
+  bar.addPage(page_grid16653590301,null,{first:'«首页',previous:'‹前页',next:'后页›',last:'末页»',no:'页码:',size:'每页',change:'点击改变每页数据量',pagesize:'每页数据量'});
+  
+  action=bar.addEntityAction('lesson',page_grid16653590301);
+  			bar.addItem("查看",action.info());
+			bar.addItem("查看课程大纲",action.single("syllabusInfo"));	
+
+</script>
+
+</form>
+<script>
+	jQuery(function(){
+		bg.form.addHiddens(document.taskListForm, "&lesson.project.id=1&lesson.semester.id=117&pageNo=1&pageSize=10");
+		jQuery("#taskListForm .griddata-even,#taskListForm .griddata-odd").mouseover(function(){
+			displayArrangeResult(jQuery(".box",this).val());
+		}).mouseout(function(){
+			toolTip();
+		});
+	});
+</script>
+
+  <script type="text/javascript">
+  	$(function() {
+  	  if(bg.Go != undefined) {
+  	    var originalGo = bg.Go;
+  	    bg.Go = function (obj, target, historyMode, historyData) {
+  	      if(target == "main") {
+  	        target = "_self";
+  	      }
+
+  	      return originalGo(obj, target, historyMode, historyData);
+  	    }
+  	  }
+
+	  $(".toolbar").each(function() {
+        if($(this).prev().length==0 && $(this).find(".toolbar-item").length==0) {
+          $(this).css("display", "none");
+        }
+	  });
+      $(".search-widget").css("margin-left", "auto");
+      
+      var $chosenObj = $("select[class='chosen-simple']");
+      if($chosenObj.length > 0) {
+ 		$chosenObj.chosen({search_contains: true, placeholder_text: '...'});
+		$chosenObj.val('-1');
+		$chosenObj.trigger('chosen:updated');
+      }
+    });
+  </script>
+</body>
+</html>

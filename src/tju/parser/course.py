@@ -72,10 +72,18 @@ def parse_course(html, semester: str):
     sup_pattern = re.compile(r">(\S+)<\/a>\s*<sup.*>(\S+)<\/sup>\s")
     if sup_pattern.findall(content_and_tail[0]):
         content_and_tail[0] = re.sub(sup_pattern, r">\1 \2</a>", content_and_tail[0])
-    content = re.findall(
-        r'<tr><td.*value="(.*)"\s*type.*><\/td><td>(.*)<\/td><td>(.*)<\/td><td><a.*>(.*\s?.*)<\/a><\/td><td>(.*\s?.*)\s?<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)<\/td><td>(.*)\s?<\/td><td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>\s*<td>(.*)<\/td>',
-        content_and_tail[0],
+
+    # Build row regex dynamically so it works regardless of column count.
+    # Old EAMS HTML had 16 columns; newer versions dropped 4 enrollment columns (12 columns).
+    # Pattern: checkbox TD (captures lession_id value) + n_data data TDs captured individually.
+    n_data = len(keys) - 1  # number of data TDs per row (excludes the lession_id column)
+    row_pattern = re.compile(
+        r"<tr>\s*<td[^>]*>"
+        r'<input[^>]*\bvalue="(\d+)"[^>]*/>'
+        r"</td>"
+        + (r"\s*<td[^>]*>([\s\S]*?)</td>") * n_data
     )
+    content = row_pattern.findall(content_and_tail[0])
 
     if len(content) != len(lession_id_to_arrange):
         raise HtmlParseError(
@@ -87,7 +95,13 @@ def parse_course(html, semester: str):
         item = {}
         item["semester"] = semester
         for i, key in enumerate(keys):
-            c = lession[i].strip()
+            raw = lession[i]
+            # Extract text content: prefer anchor text if present, otherwise strip all HTML tags.
+            a_match = re.search(r"<a[^>]*>([\s\S]*?)<\/a>", raw)
+            if a_match:
+                c = a_match.group(1).strip()
+            else:
+                c = re.sub(r"<[^>]+>", "", raw).strip()
             if key == "教学班":
                 if c.startswith("班级:"):
                     c = c.replace("班级:", "").strip()

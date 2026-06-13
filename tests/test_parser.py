@@ -116,6 +116,20 @@ def test_parse_course_4():
     assert result == parsed_list
 
 
+def test_parse_course_gs_1():
+    """12-column format (4 enrollment columns removed in newer EAMS versions)."""
+    raw_html = (
+        Path(__file__).parent.joinpath("resources/website/course_gs_1.html").read_text()
+    )
+    result = parse_course(html=raw_html, semester="25262")
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_course_gs_1.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
 def test_parse_course_info():
     raw_html = (
         Path(__file__).parent.joinpath("resources/website/course_info.html").read_text()
