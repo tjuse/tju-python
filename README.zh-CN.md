@@ -1,13 +1,13 @@
 <p align="center"><b>TJU</b> <sup><samp>The Python TJU client</samp></sup></p>
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
-[![CI](https://github.com/superpung/tju-python/actions/workflows/ci.yml/badge.svg)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/superpung/tju-python/ci.yml?branch=main&label=CI)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://superpung.github.io/tju-python/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 [English](README.md) | 简体中文
 
-> **Beta 版本 (v0.1.0)。** API 可用；v1.0 之前可能有少量破坏性变更。
+> **Beta 版本。** API 可用；v1.0 之前可能有少量破坏性变更。
 
 `tju` 是一个 Python 库，用于登录天津大学 SSO 和 EAMS 学务系统并返回结构化的学业数据。它内置了 CAS 认证、验证码识别（通过 `ddddocr`）和 HTML 解析，你只需调用方法即可获得类型化的数据对象。
 

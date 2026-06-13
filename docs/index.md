@@ -3,10 +3,10 @@
 **Python client for Tianjin University's SSO and EAMS systems.**
 
 [![PyPI version](https://img.shields.io/pypi/v/tju.svg)](https://pypi.org/project/tju/)
-[![CI](https://github.com/superpung/tju-python/actions/workflows/ci.yml/badge.svg)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/superpung/tju-python/ci.yml?branch=main&label=CI)](https://github.com/superpung/tju-python/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/superpung/tju-python/blob/main/LICENSE)
 
-> **Beta release (v0.1.0).** The API is functional; minor breaking changes may occur before v1.0.
+> **Beta.** The API is functional; minor breaking changes may occur before v1.0.
 
 `tju` is a Python library that logs into TJU's SSO and EAMS systems and returns structured academic data.
 It handles CAS authentication, CAPTCHA solving (via `ddddocr`), and HTML parsing — so your code just calls methods and gets typed objects back.
