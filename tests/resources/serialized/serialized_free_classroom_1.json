@@ -1,0 +1,23 @@
+[
+  {
+    "campus": "北洋园校区",
+    "building": "综合楼",
+    "name": "综合楼101",
+    "room_type": "普通教室",
+    "seats": "120"
+  },
+  {
+    "campus": "北洋园校区",
+    "building": "综合楼",
+    "name": "综合楼201",
+    "room_type": "多媒体",
+    "seats": "80"
+  },
+  {
+    "campus": "北洋园校区",
+    "building": "理科楼",
+    "name": "理科楼305",
+    "room_type": "普通教室",
+    "seats": "60"
+  }
+]

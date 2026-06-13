@@ -10,12 +10,12 @@ from tju.exceptions import HtmlParseError
 from tju.models import StuType
 from tju.utils import get_current_semester
 
-from .api import CourseMixin, ExamMixin, ProfileMixin, ScheduleMixin, ScoreMixin
+from .api import ClassroomMixin, CourseMixin, ExamMixin, ProfileMixin, ScheduleMixin, ScoreMixin
 from .base import BaseClient
 
 
 class Client(
-    ScheduleMixin, ProfileMixin, CourseMixin, ExamMixin, ScoreMixin, BaseClient
+    ScheduleMixin, ProfileMixin, CourseMixin, ExamMixin, ScoreMixin, ClassroomMixin, BaseClient
 ):
     """
     client for tju

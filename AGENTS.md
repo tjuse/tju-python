@@ -39,6 +39,7 @@ Session  →  Client (mixins)  →  parser  →  models
 | `ScheduleMixin` | `schedule(semester, ...)` |
 | `ExamMixin` | `exam(semester)` |
 | `ScoreMixin` | `score()`, `exp_score(semester)` |
+| `ClassroomMixin` | `free_classrooms(date_begin, ...)` |
 
 Supporting infrastructure: `src/tju/consts.py` (all URL paths, `SEMESTER` code→id map, `CHINESE_WEEKDAY`),
 `src/tju/exceptions.py` (`SessionError`, `LoginError`, `HtmlParseError`, `DataError`, `StuTypeError`),
@@ -90,6 +91,7 @@ print(client.query_syllabus(lession_id="387248"))
 print(client.exam(semester="24251"))              # ExamMixin
 print(client.score())                             # ScoreMixin
 print(client.exp_score(semester="20211"))
+print(client.free_classrooms(date_begin="2025-10-08"))  # ClassroomMixin
 
 # Identity properties on Client
 client.stu_id      # student ID string
@@ -108,12 +110,12 @@ The offline pytest suite is the **only** automated correctness signal. There is 
 uv run pytest        # or just: pytest (if .venv is active)
 ```
 
-26 tests across three modules:
+30 tests across three modules:
 
 | File | Count | What it tests |
 |---|---|---|
-| `tests/test_parser.py` | 15 | Parser functions: raw HTML → dict/markdown |
-| `tests/test_schema.py` | 9 | Model load/dump: parsed dict → typed dataclass → re-serialized JSON |
+| `tests/test_parser.py` | 16 | Parser functions: raw HTML → dict/markdown |
+| `tests/test_schema.py` | 10 | Model load/dump: parsed dict → typed dataclass → re-serialized JSON |
 | `tests/test_encrypt.py` | 2 | DES `strEnc` encryption in `encrypt.py` |
 
 ### Fixture contract
@@ -163,6 +165,7 @@ fixture pair, then add a `test_parse_<variant>()` function in `tests/test_parser
 | Exam schedule | `client.exam()` | `parse_exam`, `parse_exam_batch_id` | ✅ Implemented |
 | Scores (UG + GS) | `client.score()` | `parse_score` | ✅ Implemented |
 | Experiment scores | `client.exp_score()` | `parse_score_exp` | ✅ Implemented |
+| Free classroom search | `client.free_classrooms()` | `parse_free_classroom` | ✅ Implemented |
 
 ## Known Issues / Pending Work
 
@@ -170,9 +173,8 @@ fixture pair, then add a `test_parse_<variant>()` function in `tests/test_parser
 |---|---|---|
 | **`parse_schedule_selection` missing** | `src/tju/parser/__init__.py:8` | Exported but never implemented in `parser/schedule.py`. Any `import tju.parser` (including all tests) raises `ImportError`. Must be implemented or removed before the package is importable. |
 | **`Session.logout()` stub** | `src/tju/session.py:194` | Raises `NotImplementedError("Not implemented")`. |
-| **Study-plan features** | `src/tju/consts.py` (`PLAN_URL_PATH`, `PLAN_COMPL_URL_PATH`) | URL consts defined, no client/parser/model implementation. |
-| **Course selection** | `src/tju/consts.py` (`classify` paths) | URL consts defined, not wired to any mixin. |
-| **Free classroom search** | `src/tju/consts.py` (`FREE_*` paths) | URL consts defined, not wired to any mixin. |
+| **Study-plan features** | `src/tju/consts.py` (`PLAN_URL_PATH`, `PLAN_COMPL_URL_PATH`) | Blocked: 403 「对不起,您没有权限」 for graduate accounts; UG-only. Not implemented. |
+| **Course selection** | `src/tju/consts.py` (`classify` paths) | Blocked: 403 for graduate accounts; write operations out of scope. Not implemented. |
 | **No CI** | — | Tests must be run manually (`pytest`). No GitHub Actions or any other pipeline exists. |
 | **No linting / type-checking** | — | No ruff/flake8/black/mypy/pre-commit configuration. |
 

@@ -1,3 +1,4 @@
+from .classroom import parse_free_classroom as parse_free_classroom
 from .course import parse_course as parse_course
 from .course import parse_course_info as parse_course_info
 from .course import parse_syllabus as parse_syllabus

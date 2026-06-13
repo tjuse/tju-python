@@ -8,6 +8,7 @@ from tju.parser import (
     parse_course_info,
     parse_exam,
     parse_exam_batch_id,
+    parse_free_classroom,
     parse_profile,
     parse_schedule,
     parse_score,
@@ -244,6 +245,21 @@ def test_parse_score_exp():
     parsed_list = json.loads(
         Path(__file__)
         .parent.joinpath("resources/parsed/parsed_score_exp.json")
+        .read_text()
+    )
+    assert result == parsed_list
+
+
+def test_parse_free_classroom():
+    raw_html = (
+        Path(__file__)
+        .parent.joinpath("resources/website/free_classroom_1.html")
+        .read_text()
+    )
+    result = parse_free_classroom(raw_html)
+    parsed_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_free_classroom_1.json")
         .read_text()
     )
     assert result == parsed_list

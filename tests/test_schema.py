@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from tju.models.classroom import FreeClassroom, FreeClassrooms
 from tju.models.course import CourseLib, LibCourse
 from tju.models.exam import Exam, Exams
 from tju.models.profile import Profile
@@ -231,3 +232,22 @@ def test_score_exp_schema():
     assert scores is not None
     scores_list = ExpScore.Schema(many=True).dump(scores)
     assert scores_list == serialized_list
+
+
+def test_free_classroom_schema():
+    raw_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/parsed/parsed_free_classroom_1.json")
+        .read_text(encoding="utf-8")
+    )
+    serialized_list = json.loads(
+        Path(__file__)
+        .parent.joinpath("resources/serialized/serialized_free_classroom_1.json")
+        .read_text(encoding="utf-8")
+    )
+    rooms = FreeClassrooms()
+    rooms.load(data=raw_list)
+    assert rooms is not None
+    for serialized_dict, room in zip(serialized_list, rooms):
+        room_dict = FreeClassroom.Schema().dump(room)
+        assert room_dict == serialized_dict
