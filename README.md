@@ -145,7 +145,7 @@ Semester codes follow the EAMS convention, e.g. `"24251"` = 2024–2025 first te
 
 ```sh
 uv sync          # install runtime + dev dependencies
-uv run pytest    # run the offline test suite (30 tests, no network required)
+uv run pytest    # run the offline test suite (70 tests, no network required)
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for architecture details and the fixture

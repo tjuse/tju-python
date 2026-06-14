@@ -30,10 +30,30 @@ It handles CAS authentication, CAPTCHA solving (via `ddddocr`), and HTML parsing
 ## Installation
 
 ```sh
-pip install tju
+pip install tju                # Python library only
+pip install 'tju[tui]'        # + interactive terminal app  (tju command)
+pip install 'tju[mcp]'        # + local MCP server          (tju-mcp command)
 ```
 
 ## Quick start
+
+**Terminal app:**
+
+```sh
+tju          # full-screen interactive TUI — browse profile, schedule, scores, and more
+```
+
+**MCP server (AI agent integration):**
+
+```sh
+tju-mcp setup   # store credentials in OS keyring once
+tju-mcp         # start the stdio MCP server
+```
+
+Add `{ "mcpServers": { "tju": { "command": "tju-mcp" } } }` to Claude Desktop.
+Your password is never exposed to the agent — the server acts as the credential boundary.
+
+**Python API:**
 
 ```python
 from tju.client import create_client
@@ -43,7 +63,8 @@ print(client.profile)
 print(client.schedule())
 ```
 
-See the [Quick Start](quickstart.md) page for full details and the [Examples](examples.md) page
+See the [Quick Start](quickstart.md) page for full details, the [TUI](tui.md) and
+[MCP Server](mcp.md) pages for the interactive interfaces, and the [Examples](examples.md) page
 for runnable scripts.
 
 ## License

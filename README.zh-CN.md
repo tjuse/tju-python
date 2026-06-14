@@ -142,7 +142,7 @@ client.free_classrooms(date_begin="2025-10-08", campus_id=3)
 
 ```sh
 uv sync          # 安装运行时及开发依赖
-uv run pytest    # 运行离线测试套件（30 个测试，无需网络）
+uv run pytest    # 运行离线测试套件（70 个测试，无需网络）
 ```
 
 贡献指南与测试 fixture 隐私规则请参见 [CONTRIBUTING.md](CONTRIBUTING.md)。AI 贡献指南请参见 [AGENTS.md](AGENTS.md)。
