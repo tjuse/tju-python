@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-06-13
+
 ### Added
 
 - Interactive full-screen TUI (`tju` command, `pip install 'tju[tui]'` extra)
@@ -126,7 +128,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Schema system refactored to use `LoadDumpSchema` base with `post_dump` key restoration,
   enabling clean Python-named serialised output from Chinese-keyed EAMS data
 
-[Unreleased]: https://github.com/tjuse/tju-python/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/tjuse/tju-python/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/tjuse/tju-python/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/tjuse/tju-python/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/tjuse/tju-python/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/tjuse/tju-python/releases/tag/v0.1.0
