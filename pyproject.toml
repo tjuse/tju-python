@@ -39,12 +39,19 @@ Issues = "https://github.com/tjuse/tju-python/issues"
 
 [project.scripts]
 tju = "tju.tui:main"
+tju-mcp = "tju.mcp:main"
 
 [project.optional-dependencies]
 tui = [
     "keyring>=24",
     "platformdirs>=4",
     "textual>=0.60",
+    "tomli-w>=1",
+]
+mcp = [
+    "mcp>=1.2",
+    "keyring>=24",
+    "platformdirs>=4",
     "tomli-w>=1",
 ]
 

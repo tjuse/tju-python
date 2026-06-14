@@ -11,9 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Interactive full-screen TUI (`tju` command, `pip install 'tju[tui]'` extra)
   for browsing profile, schedule, courses, exams, scores and free classrooms
+- Local MCP server (`tju-mcp` command, `pip install 'tju[mcp]'` extra) exposing
+  all read-only EAMS queries as MCP tools over stdio; compatible with Claude
+  Desktop, Claude Code, and any MCP host
 - Credentials stored securely: username in `~/.config/tju/config.toml`,
   password in the OS keyring (macOS Keychain / Windows Credential Manager /
-  Linux Secret Service) — password never written to disk in plaintext
+  Linux Secret Service) — password never written to disk in plaintext; shared
+  between the TUI and MCP server via `tju.config`
+- MCP server security model: password is a hard secret — no tool accepts or
+  returns it; profile PII (student ID, phone, address, email) masked by default;
+  masking controlled server-side (`mcp_reveal_pii` config flag), never by a
+  tool argument
 
 ## [0.1.2] - 2026-06-13
 

@@ -39,6 +39,7 @@ nav:
       - Parsers: api/parsers.md
       - Exceptions: api/exceptions.md
   - TUI: tui.md
+  - MCP Server: mcp.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 

@@ -39,6 +39,12 @@ For the interactive terminal app (TUI):
 pip install 'tju[tui]'
 ```
 
+For the local MCP server (AI agent integration):
+
+```sh
+pip install 'tju[mcp]'
+```
+
 From source (recommended for development):
 
 ```sh
@@ -57,6 +63,23 @@ tju          # launches the full-screen terminal app
 
 Enter your student ID and password on first launch. Credentials are saved
 securely (username in `~/.config/tju/config.toml`, password in the OS keyring).
+
+### MCP server (AI agent integration)
+
+```sh
+tju-mcp setup   # store credentials in the OS keyring once
+tju-mcp         # start the stdio MCP server
+```
+
+Add to Claude Desktop:
+
+```json
+{ "mcpServers": { "tju": { "command": "tju-mcp" } } }
+```
+
+**Your password is never exposed to the agent.** The server reads credentials
+from the OS keyring and acts as the confidentiality boundary — no tool accepts
+or returns a password, and profile PII is masked by default.
 
 ### Python API
 

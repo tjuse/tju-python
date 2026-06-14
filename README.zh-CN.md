@@ -39,6 +39,12 @@ pip install tju
 pip install 'tju[tui]'
 ```
 
+安装本地 MCP server（AI agent 集成）：
+
+```sh
+pip install 'tju[mcp]'
+```
+
 从源码安装（推荐用于开发）：
 
 ```sh
@@ -56,6 +62,21 @@ tju          # 启动全屏终端应用
 ```
 
 首次启动输入学号和密码。凭据安全保存：用户名写入 `~/.config/tju/config.toml`，密码存入操作系统钥匙串（macOS Keychain / Windows Credential Manager / Linux Secret Service）。
+
+### MCP server（AI agent 集成）
+
+```sh
+tju-mcp setup   # 一次性将凭据存入操作系统钥匙串
+tju-mcp         # 启动 stdio MCP server
+```
+
+Claude Desktop 配置：
+
+```json
+{ "mcpServers": { "tju": { "command": "tju-mcp" } } }
+```
+
+**密码永远不会暴露给 AI agent。** server 从操作系统钥匙串读取凭据，是凭据的保密边界——没有任何工具接受或返回密码，个人信息默认脱敏。
 
 ### Python API
 
