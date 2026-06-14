@@ -1,45 +1,60 @@
 /* ──────────────────────────────────────────────────────────────────────────
-   TJU TUI  —  app-level stylesheet
+   TJU TUI — lazygit / nvim-inspired stylesheet
    ────────────────────────────────────────────────────────────────────────── */
 
-/* ── Root / Screen ─────────────────────────────────────────────────────── */
 Screen {
-    background: $surface;
+    background: $background;
 }
 
-/* ── Login screen ───────────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════════════════
+   Login screen
+   ════════════════════════════════════════════════════════════════════════ */
 LoginScreen {
     align: center middle;
 }
 
 #login-box {
-    width: 52;
+    width: 56;
     height: auto;
-    padding: 2 3;
+    padding: 1 3;
     border: round $primary;
-    background: $panel;
+    background: $surface;
+    border-title-color: $accent;
+    border-title-style: bold;
+    border-subtitle-color: $text-muted;
 }
 
 #login-title {
     text-align: center;
     text-style: bold;
-    color: $primary;
-    margin-bottom: 1;
+    color: $accent;
+    margin-top: 1;
 }
 
 #login-subtitle {
     text-align: center;
     color: $text-muted;
-    margin-bottom: 2;
+    margin-bottom: 1;
 }
 
 LoginScreen Label {
     margin-top: 1;
-    color: $text;
+    color: $text-muted;
 }
 
 LoginScreen Input {
+    width: 100%;
     margin-bottom: 1;
+    border: round $primary-darken-2;
+}
+
+LoginScreen Input:focus {
+    border: round $accent;
+}
+
+#btn-login {
+    width: 100%;
+    margin-top: 1;
 }
 
 #login-error {
@@ -52,32 +67,11 @@ LoginScreen Input {
     display: block;
 }
 
-#btn-login {
-    width: 100%;
-    margin-top: 1;
-}
-
-/* ── Main screen layout ─────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════════════════
+   Main screen — two bordered panels
+   ════════════════════════════════════════════════════════════════════════ */
 MainScreen {
     layout: vertical;
-}
-
-#topbar {
-    height: 1;
-    background: $primary;
-    color: $background;
-    padding: 0 2;
-    layout: horizontal;
-}
-
-#topbar-title {
-    width: 1fr;
-    text-style: bold;
-}
-
-#topbar-user {
-    color: $background;
-    text-style: italic;
 }
 
 #body {
@@ -85,140 +79,147 @@ MainScreen {
     height: 1fr;
 }
 
-/* ── Sidebar ────────────────────────────────────────────────────────────── */
-#sidebar {
-    width: 22;
-    border-right: solid $primary-darken-2;
-    background: $panel;
-    padding: 1 0;
-}
-
-#sidebar-list {
-    background: $panel;
-}
-
-#sidebar-list > ListItem {
-    padding: 0 2;
-}
-
-#sidebar-list > ListItem.--highlight {
-    background: $primary;
-    color: $background;
-}
-
-#sidebar-list > ListItem:hover {
-    background: $primary-darken-1;
-    color: $background;
-}
-
-/* ── Content panel ──────────────────────────────────────────────────────── */
-#content {
-    width: 1fr;
-    padding: 1 2;
-    overflow-y: auto;
-}
-
-#content-title {
-    text-style: bold;
-    color: $primary;
-    margin-bottom: 1;
-    border-bottom: solid $primary-darken-3;
-}
-
-/* ── Parameter form (inside content) ───────────────────────────────────── */
-#param-form {
-    height: auto;
-    margin-bottom: 1;
-    background: $panel;
+/* ── Panels: dim by default, accent border when focused (lazygit style) ─── */
+#menu-panel {
+    width: 24;
+    height: 1fr;
     border: round $primary-darken-2;
-    padding: 1 2;
+    border-title-color: $text-muted;
+    border-title-style: bold;
+    border-subtitle-color: $text-muted;
+    padding: 0;
 }
 
-#param-form Label {
+#content-panel {
+    width: 1fr;
+    height: 1fr;
+    border: round $primary-darken-2;
+    border-title-color: $text-muted;
+    border-title-style: bold;
+    padding: 0;
+}
+
+#menu-panel:focus-within {
+    border: round $accent;
+    border-title-color: $accent;
+}
+
+#content-panel:focus-within {
+    border: round $accent;
+    border-title-color: $accent;
+}
+
+/* ── Menu list ──────────────────────────────────────────────────────────── */
+#menu {
+    background: transparent;
+    height: 1fr;
+}
+
+#menu > ListItem {
+    padding: 0 1;
+    background: transparent;
+    color: $text;
+}
+
+#menu > ListItem.-highlight {
+    background: $accent 20%;
+    color: $accent;
+    text-style: bold;
+}
+
+#menu:focus > ListItem.-highlight {
+    background: $accent;
+    color: $background;
+    text-style: bold;
+}
+
+/* ── Content body ───────────────────────────────────────────────────────── */
+#content-body {
+    height: 1fr;
+    padding: 1 2;
+    background: transparent;
+}
+
+.hint {
     color: $text-muted;
 }
 
-#param-form Input {
+.result-header {
+    color: $accent;
+    text-style: bold;
     margin-bottom: 1;
-}
-
-#btn-fetch {
-    margin-top: 1;
-}
-
-/* ── Results area ───────────────────────────────────────────────────────── */
-#result-area {
-    height: 1fr;
-    overflow-y: auto;
-}
-
-#loading {
-    display: none;
-    margin: 2 0;
-}
-
-#loading.visible {
-    display: block;
-}
-
-#error-msg {
-    color: $error;
-    display: none;
-    padding: 1;
-    border: round $error;
-    margin-top: 1;
-}
-
-#error-msg.visible {
-    display: block;
 }
 
 /* ── DataTable ──────────────────────────────────────────────────────────── */
 DataTable {
     height: auto;
     max-height: 100%;
+    background: transparent;
 }
 
-/* ── Modal param screens ────────────────────────────────────────────────── */
-ParamModal {
-    align: center middle;
-}
-
-#modal-box {
-    width: 60;
-    height: auto;
-    max-height: 80%;
-    border: round $primary;
-    background: $panel;
-    padding: 2 3;
-}
-
-#modal-title {
+DataTable > .datatable--header {
+    background: $surface;
+    color: $accent;
     text-style: bold;
-    color: $primary;
-    margin-bottom: 1;
 }
 
-#modal-box Label {
+DataTable > .datatable--cursor {
+    background: $accent;
+    color: $background;
+}
+
+/* ── Parameter bar (semester) ───────────────────────────────────────────── */
+.param-bar {
+    height: auto;
+    margin-bottom: 1;
+    align: left middle;
+}
+
+.param-label {
+    width: auto;
+    color: $text-muted;
+    padding: 1 1 0 0;
+}
+
+.param-input {
+    width: 18;
+    border: tall $primary-darken-2;
+}
+
+.param-input:focus {
+    border: tall $accent;
+}
+
+.param-hint {
+    width: auto;
+    color: $text-muted;
+    padding: 1 0 0 2;
+}
+
+/* ── Forms (settings / classroom) ───────────────────────────────────────── */
+.form {
+    height: auto;
+}
+
+.form-label {
     color: $text-muted;
     margin-top: 1;
 }
 
-#modal-box Input {
-    margin-bottom: 1;
+.form .param-input {
+    width: 36;
 }
 
-#modal-buttons {
-    layout: horizontal;
+/* ── Error box ──────────────────────────────────────────────────────────── */
+.error-box {
+    color: $error;
+    border: round $error;
+    padding: 1 2;
     margin-top: 1;
-    height: auto;
 }
 
-#modal-buttons Button {
-    width: 1fr;
-    margin-right: 1;
-}
-
-#modal-buttons Button:last-child {
-    margin-right: 0;
+/* ── Loading ────────────────────────────────────────────────────────────── */
+LoadingIndicator {
+    height: 3;
+    background: transparent;
 }

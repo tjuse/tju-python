@@ -7,7 +7,7 @@ from textual.binding import Binding
 
 from tju.client import Client
 
-from . import config as cfg
+from tju import config as cfg
 from .screens import LoginScreen, MainScreen
 
 
@@ -21,6 +21,9 @@ class TjuApp(App):
 
     TITLE = "TJU"
     CSS_PATH = "app.tcss"
+    # nvim/lazygit-inspired dark palette.
+    theme = "tokyo-night"
+
     BINDINGS = [
         Binding("q", "quit", "退出", show=True),
         Binding("question_mark", "show_help", "帮助", show=True),
@@ -35,18 +38,14 @@ class TjuApp(App):
         if username:
             password = cfg.get_password(username)
             if password:
-                # Auto-login: push the login screen which will handle it
                 login = LoginScreen()
                 self.push_screen(login)
-                # Pre-fill and trigger auto-login after a short delay so the
-                # screen has time to compose
+                # Auto-login once the screen has composed.
                 self.set_timer(0.1, lambda: self._auto_login(login, username, password))
                 return
         self.push_screen(LoginScreen())
 
-    def _auto_login(
-        self, login: LoginScreen, username: str, password: str
-    ) -> None:
+    def _auto_login(self, login: LoginScreen, username: str, password: str) -> None:
         """Trigger login with stored credentials (called once screen is ready)."""
         from textual.widgets import Input  # noqa: PLC0415
 
@@ -59,7 +58,7 @@ class TjuApp(App):
 
     def action_show_help(self) -> None:
         self.notify(
-            "q — 退出  |  ← 侧边栏选择功能",
+            "Tab 切换面板 · j/k 上下移动 · Enter 选择 · r 刷新 · q 退出",
             title="快捷键",
-            timeout=5,
+            timeout=6,
         )

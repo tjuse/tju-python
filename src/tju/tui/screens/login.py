@@ -6,42 +6,37 @@ from textual import work
 from textual.app import ComposeResult
 from textual.containers import Vertical
 from textual.screen import Screen
-from textual.widgets import Button, Input, Label, LoadingIndicator, Static
+from textual.widgets import Button, Footer, Input, Label, LoadingIndicator, Static
 
 from tju import Session
 from tju.client import Client
 from tju.exceptions import LoginError, SessionError
 
-from .. import config as cfg
+from tju import config as cfg
 
 
 class LoginScreen(Screen):
-    """Full-screen login form.
-
-    On success the session and client are stored on the app and the main
-    screen is pushed.
-    """
+    """Full-screen login form rendered as a centered bordered card."""
 
     def compose(self) -> ComposeResult:
-        # Use Vertical (a real layout container) instead of Static
-        with Vertical(id="login-box"):
-            yield Static("TJU", id="login-title")
-            yield Static("Tianjin University Client", id="login-subtitle")
+        box = Vertical(id="login-box")
+        box.border_title = "登录"
+        box.border_subtitle = "TJU"
+        with box:
+            yield Static("天津大学学务系统", id="login-title")
+            yield Static("Tianjin University · EAMS Client", id="login-subtitle")
             yield Label("学号 / 用户名")
             yield Input(
-                placeholder="2024xxxxxx",
+                placeholder="如 2024xxxxxx",
                 id="input-username",
                 value=cfg.get_username() or "",
             )
             yield Label("密码")
-            yield Input(
-                placeholder="••••••••",
-                id="input-password",
-                password=True,
-            )
+            yield Input(placeholder="••••••••", id="input-password", password=True)
             yield Button("登 录", variant="primary", id="btn-login")
             yield LoadingIndicator(id="loading")
             yield Static("", id="login-error")
+        yield Footer()
 
     def on_mount(self) -> None:
         self.query_one("#loading", LoadingIndicator).display = False
@@ -81,23 +76,22 @@ class LoginScreen(Screen):
             self.app.call_from_thread(self._on_login_error, str(exc))
             return
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(
-                self._on_login_error, f"未知错误: {exc}"
-            )
+            self.app.call_from_thread(self._on_login_error, f"未知错误：{exc}")
             return
         self.app.call_from_thread(self._on_login_success, username, password, client)
 
-    def _on_login_success(
-        self, username: str, password: str, client: Client
-    ) -> None:
-        # Persist credentials
+    def _on_login_success(self, username: str, password: str, client: Client) -> None:
         cfg.set_username(username)
-        cfg.set_password(username, password)
-
-        # Store on app for MainScreen to access
+        saved = cfg.set_password(username, password)
         self.app.client = client  # type: ignore[attr-defined]
-
         self._set_loading(False)
+        if not saved:
+            self.app.notify(
+                "登录成功，但系统无可用的密钥环，密码未能保存（下次需重新输入）。",
+                title="提示",
+                severity="warning",
+                timeout=6,
+            )
         from .main import MainScreen  # noqa: PLC0415
 
         self.app.push_screen(MainScreen())
@@ -107,12 +101,10 @@ class LoginScreen(Screen):
         self._show_error(message)
 
     def _set_loading(self, loading: bool) -> None:
-        btn = self.query_one("#btn-login", Button)
-        loading_widget = self.query_one("#loading", LoadingIndicator)
-        btn.disabled = loading
-        loading_widget.display = loading
+        self.query_one("#btn-login", Button).disabled = loading
+        self.query_one("#loading", LoadingIndicator).display = loading
 
     def _show_error(self, message: str) -> None:
         error_widget = self.query_one("#login-error", Static)
-        error_widget.update(f"⚠ {message}")
+        error_widget.update(f"⚠  {message}")
         error_widget.add_class("visible")

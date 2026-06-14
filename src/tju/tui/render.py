@@ -11,39 +11,67 @@ from typing import Any
 
 from textual.widgets import DataTable, Markdown
 
+from .widgets import VimDataTable
+
+# ---------------------------------------------------------------------------
+# Profile — full ordered label map (covers UG + GS; only non-empty shown)
+# ---------------------------------------------------------------------------
+
+_PROFILE_LABELS: list[tuple[str, str]] = [
+    ("stu_id", "学号"),
+    ("stu_name", "姓名"),
+    ("stu_name_en", "英文名"),
+    ("gender", "性别"),
+    ("stu_type", "学生类别"),
+    ("edu_level", "学历层次"),
+    ("grade", "年级"),
+    ("edu_system", "学制"),
+    ("project", "项目"),
+    ("faculty", "院系"),
+    ("major", "专业"),
+    ("direction", "方向"),
+    ("admin_faculty", "行政管理院系"),
+    ("admin_class", "行政班"),
+    ("campus", "校区"),
+    ("study_form", "学习形式"),
+    ("supervisor", "导师"),
+    ("co_supervisor", "合作导师"),
+    ("scholarship_supervisor", "助学金导师"),
+    ("degree_category", "学位类别"),
+    ("training_plan", "培养方案"),
+    ("training_type", "培养类型"),
+    ("training_mode", "培养模式"),
+    ("enrollment_date", "入学日期"),
+    ("graduation_date", "预毕业时间"),
+    ("effective_date", "学籍生效日期"),
+    ("stu_status", "学籍状态"),
+    ("is_enrolled", "是否在籍"),
+    ("is_on_campus", "是否在校"),
+    ("has_enrolled", "是否有学籍"),
+    ("total_tuition", "总学费"),
+    ("cooperative_unit", "合作单位"),
+    ("orientation_unit", "定向单位"),
+    ("email", "电子邮件"),
+    ("phone", "联系电话"),
+    ("mobile", "移动电话"),
+    ("address", "联系地址"),
+    ("home_phone", "家庭电话"),
+    ("home_address", "家庭地址"),
+    ("remark", "备注"),
+]
 
 # ---------------------------------------------------------------------------
 # Column subsets for each feature (order matters)
 # ---------------------------------------------------------------------------
 
-_PROFILE_DISPLAY_KEYS = [
-    "stu_id", "stu_name", "stu_name_en", "gender", "faculty", "major",
-    "direction", "grade", "edu_system", "project", "edu_level", "stu_type",
-    "enrollment_date", "graduation_date", "admin_faculty", "campus",
-    "admin_class", "supervisor", "co_supervisor", "degree_category",
-    "stu_status", "email", "phone", "mobile",
-]
-
-_PROFILE_LABELS: dict[str, str] = {
-    "stu_id": "学号", "stu_name": "姓名", "stu_name_en": "英文名",
-    "gender": "性别", "faculty": "院系", "major": "专业",
-    "direction": "方向", "grade": "年级", "edu_system": "学制",
-    "project": "项目", "edu_level": "学历层次", "stu_type": "学生类别",
-    "enrollment_date": "入学日期", "graduation_date": "预毕业时间",
-    "admin_faculty": "行政管理院系", "campus": "校区",
-    "admin_class": "行政班", "supervisor": "导师",
-    "co_supervisor": "合作导师", "degree_category": "学位类别",
-    "stu_status": "学籍状态", "email": "邮箱",
-    "phone": "电话", "mobile": "手机",
-}
-
-_SCHEDULE_COLS = ["name", "credit", "campus", "weeks", "teacher"]
+_SCHEDULE_COLS = ["name", "class_id", "credit", "campus", "weeks", "teacher"]
 _SCHEDULE_LABELS = {
-    "name": "课程名称", "credit": "学分", "campus": "校区",
-    "weeks": "周次", "teacher": "教师",
+    "name": "课程名称", "class_id": "课程序号", "credit": "学分",
+    "campus": "校区", "weeks": "周次", "teacher": "教师",
 }
 
-_EXAM_COLS = ["name", "class_id", "exam_type", "exam_date", "exam_time", "location", "seat", "status"]
+_EXAM_COLS = ["name", "class_id", "exam_type", "exam_date", "exam_time",
+              "location", "seat", "status"]
 _EXAM_LABELS = {
     "name": "课程名称", "class_id": "课程序号", "exam_type": "考试类别",
     "exam_date": "考试日期", "exam_time": "考试时间",
@@ -100,7 +128,7 @@ def _fmt(value: Any) -> str:
     if value is None:
         return ""
     if isinstance(value, list):
-        return "、".join(str(v) for v in value)
+        return "、".join(_fmt(v) for v in value)
     if isinstance(value, bool):
         return "是" if value else "否"
     return str(value)
@@ -112,8 +140,7 @@ def _build_table(
     labels: dict[str, str],
 ) -> DataTable:
     """Return a populated :class:`~textual.widgets.DataTable` from *rows*."""
-    table: DataTable = DataTable()
-    table.zebra_stripes = True
+    table: DataTable = VimDataTable(zebra_stripes=True, cursor_type="row")
     for col in cols:
         table.add_column(labels.get(col, col), key=col)
     for row in rows:
@@ -127,15 +154,14 @@ def _build_table(
 
 
 def render_profile(data: dict[str, Any]) -> DataTable:
-    """Two-column key/value table for a serialised Profile dict."""
-    table: DataTable = DataTable()
-    table.zebra_stripes = True
+    """Two-column key/value table showing every non-empty profile field."""
+    table: DataTable = VimDataTable(zebra_stripes=True, cursor_type="row")
     table.add_column("字段", key="key")
     table.add_column("值", key="value")
-    for field in _PROFILE_DISPLAY_KEYS:
+    for field, label in _PROFILE_LABELS:
         v = data.get(field)
-        if v is not None:
-            table.add_row(_PROFILE_LABELS.get(field, field), _fmt(v))
+        if v not in (None, "", []):
+            table.add_row(label, _fmt(v))
     return table
 
 

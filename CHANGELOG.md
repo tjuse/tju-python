@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- TUI redesigned with a lazygit / nvim-inspired two-pane layout: bordered menu
+  and content panels, accent border that follows keyboard focus, the
+  `tokyo-night` theme, and vim-style navigation (`j`/`k`, `Tab`, `r`, `g`/`G`)
+- TUI profile view now shows every non-empty field (works for both
+  undergraduate and graduate records), and semester views (课表 / 考试安排 /
+  实验成绩) gained an inline semester input with `Enter`-to-refresh
+
+### Fixed
+
+- `Profile.Schema().dump()` (and therefore the TUI profile view and the MCP
+  `get_profile` tool) no longer crashes with `AttributeError` when a typed
+  field — `stu_type`, `gender`, a date, or exam-time — is `None` (common for
+  graduate accounts whose 学生类别 value is not a recognised enum); these
+  fields now serialise to an empty value
+- TUI no longer raises `DuplicateIds` when switching between menu items: content
+  is now swapped only after the previous widgets are fully removed
+- TUI course library view now reads the paged result correctly (it previously
+  iterated the result dict's keys instead of the course list)
+- TUI data tables are now built on the UI thread, fixing a `NoActiveAppError`
+  that could occur when a worker thread constructed the widget
+- TUI startup no longer crashes on systems without an OS keyring backend;
+  auto-login is skipped and the user is warned that the password cannot be saved
+- Rapidly switching menu items no longer renders a stale result over a newer one
+
 ## [0.2.0] - 2026-06-13
 
 ### Added

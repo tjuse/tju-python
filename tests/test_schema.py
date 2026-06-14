@@ -251,3 +251,23 @@ def test_free_classroom_schema():
     for serialized_dict, room in zip(serialized_list, rooms):
         room_dict = FreeClassroom.Schema().dump(room)
         assert room_dict == serialized_dict
+
+
+def test_profile_dump_with_none_typed_fields():
+    """Regression: serialising a Profile whose typed fields (stu_type, gender,
+    dates, exam-time) are ``None`` must not raise.
+
+    Some EAMS pages return a 学生类别 / 性别 value that does not map to a known
+    enum, leaving the field ``None`` after load.  The custom field
+    ``_serialize`` methods must tolerate ``None`` instead of doing
+    ``None.value`` (which previously raised ``AttributeError``).
+    """
+    profile = Profile.Schema().load({"学号": "2024000001", "姓名": "张三"})
+    # stu_type / gender / enrollment_date are all None here.
+    dumped = Profile.Schema().dump(profile)
+    assert dumped["stu_id"] == "2024000001"
+    assert dumped["stu_name"] == "张三"
+    # None-typed fields serialise to empty strings, not exceptions.
+    assert dumped["stu_type"] == ""
+    assert dumped["gender"] == ""
+    assert dumped["enrollment_date"] == ""

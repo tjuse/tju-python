@@ -1,516 +1,441 @@
-"""Main application screen — sidebar navigation + content panel."""
+"""Main application screen — lazygit-style two-pane layout.
+
+Left:  a bordered *menu* panel (navigation list).
+Right: a bordered *content* panel that shows the data for the selected item.
+
+Design notes
+------------
+* The active panel is highlighted via the ``:focus-within`` CSS rule, so the
+  border colour follows keyboard focus (like lazygit).
+* Content is swapped **asynchronously**: ``await body.remove_children()`` is
+  awaited *before* mounting new widgets.  Textual's ``remove()`` is deferred,
+  so mounting fixed-id widgets without awaiting the removal first raises
+  ``DuplicateIds`` — awaiting removal is the fix.
+* Worker threads only ever fetch/serialise raw data and hand it back to the
+  main thread via ``call_from_thread``; all widget creation happens on the
+  event-loop thread.
+"""
 
 from __future__ import annotations
 
-from typing import Any
-
 from textual import work
 from textual.app import ComposeResult
-from textual.containers import Horizontal, Vertical
+from textual.binding import Binding
+from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.screen import Screen
-from textual.widget import Widget
-from textual.widgets import (
-    Button,
-    DataTable,
-    Input,
-    Label,
-    ListItem,
-    ListView,
-    LoadingIndicator,
-    Markdown,
-    Static,
-)
+from textual.widgets import Footer, Input, ListItem, ListView, LoadingIndicator, Static
 
 from tju.client import Client
 from tju.exceptions import DataError, HtmlParseError
 from tju.models import StuType
 
-from .. import config as cfg
+from tju import config as cfg
+from ..widgets import VimListView
 from ..render import (
     render_classrooms,
     render_courses,
     render_exam,
     render_exp_scores,
     render_gs_scores,
-    render_markdown,
     render_profile,
     render_schedule,
     render_ug_scores,
 )
 
 # ---------------------------------------------------------------------------
-# Sidebar menu items
+# Sidebar menu items:  (action_id, label, icon)
 # ---------------------------------------------------------------------------
 
-_ACTIONS = [
-    ("profile",     "👤  个人信息"),
-    ("schedule",    "📅  课表"),
-    ("courses",     "📚  课程库"),
-    ("exam",        "📝  考试安排"),
-    ("scores",      "🏆  成绩"),
-    ("exp_scores",  "🔬  实验成绩"),
-    ("classrooms",  "🏫  空闲教室"),
-    ("settings",    "⚙️   设置"),
-    ("logout",      "🚪  退出登录"),
+_ACTIONS: list[tuple[str, str, str]] = [
+    ("profile",    "个人信息",  "󰀄"),
+    ("schedule",   "课表",      "󰃭"),
+    ("scores",     "成绩",      "󰄕"),
+    ("exam",       "考试安排",  "󰸞"),
+    ("exp_scores", "实验成绩",  "󰂖"),
+    ("courses",    "课程库",    "󰂺"),
+    ("classrooms", "空闲教室",  "󱂵"),
+    ("settings",   "设置",      "󰒓"),
+    ("logout",     "退出登录",  "󰍃"),
 ]
 
 
 class MainScreen(Screen):
-    """Two-pane main screen.
+    """Two-pane main screen with lazygit-style navigation."""
 
-    Left:  sidebar ``ListView`` of available actions.
-    Right: content panel that shows parameter forms and data tables.
-    """
+    BINDINGS = [
+        Binding("tab", "toggle_panel", "切换面板", show=True),
+        Binding("r", "refresh", "刷新", show=True),
+        Binding("escape", "focus_menu", "返回菜单", show=False),
+        Binding("h", "focus_menu", "菜单", show=False),
+        Binding("l", "focus_content", "内容", show=False),
+    ]
 
-    # Displayed name of the current action
     _current_action: str = ""
+    _request_id: int = 0
+
+    # ------------------------------------------------------------------
+    # Compose
+    # ------------------------------------------------------------------
 
     def compose(self) -> ComposeResult:
-        # Top bar
-        with Horizontal(id="topbar"):
-            yield Static("TJU", id="topbar-title")
-            yield Static("", id="topbar-user")
-
-        # Body: sidebar + content
         with Horizontal(id="body"):
-            with Vertical(id="sidebar"):
-                yield ListView(
-                    *[ListItem(Static(label), id=f"item-{action_id}")
-                      for action_id, label in _ACTIONS],
-                    id="sidebar-list",
+            menu = Vertical(id="menu-panel")
+            menu.border_title = "菜单"
+            menu.border_subtitle = "j/k 移动"
+            with menu:
+                yield VimListView(
+                    *[
+                        ListItem(Static(f" {icon}  {label}"), id=f"item-{aid}")
+                        for aid, label, icon in _ACTIONS
+                    ],
+                    id="menu",
                 )
-            with Vertical(id="content"):
-                yield Static("← 从左侧菜单选择功能", id="content-placeholder")
+            content = Vertical(id="content-panel")
+            content.border_title = "TJU"
+            with content:
+                yield VerticalScroll(
+                    Static("\n  ← 从左侧选择功能\n", classes="hint"),
+                    id="content-body",
+                )
+        yield Footer()
 
     # ------------------------------------------------------------------
     # Lifecycle
     # ------------------------------------------------------------------
 
     def on_mount(self) -> None:
+        self.query_one("#menu", ListView).focus()
         self._load_user_label()
 
     @work(thread=True)
     def _load_user_label(self) -> None:
         client: Client = self.app.client  # type: ignore[attr-defined]
         try:
-            label = f"{client.stu_name}（{client.stu_id}）"
+            label = f"{client.stu_name} · {client.stu_id}"
         except Exception:  # noqa: BLE001
-            label = ""
-        self.app.call_from_thread(self._set_user_label, label)
+            label = "TJU"
+        self.app.call_from_thread(self._set_panel_title, label)
 
-    def _set_user_label(self, label: str) -> None:
-        self.query_one("#topbar-user", Static).update(label)
+    def _set_panel_title(self, label: str) -> None:
+        self.query_one("#content-panel").border_title = label
+
+    # ------------------------------------------------------------------
+    # Navigation actions
+    # ------------------------------------------------------------------
+
+    def action_toggle_panel(self) -> None:
+        menu = self.query_one("#menu", ListView)
+        if menu.has_focus:
+            self.action_focus_content()
+        else:
+            self.action_focus_menu()
+
+    def action_focus_menu(self) -> None:
+        self.query_one("#menu", ListView).focus()
+
+    def action_focus_content(self) -> None:
+        body = self.query_one("#content-body", VerticalScroll)
+        # Focus the first focusable child (DataTable / Input) if present,
+        # otherwise the scroll container itself.
+        for child in body.query("DataTable, Input"):
+            child.focus()
+            return
+        body.focus()
+
+    def action_refresh(self) -> None:
+        if self._current_action and self._current_action not in {
+            "settings",
+            "logout",
+        }:
+            self._run_action(self._current_action)
 
     # ------------------------------------------------------------------
     # Sidebar selection
     # ------------------------------------------------------------------
 
     def on_list_view_selected(self, event: ListView.Selected) -> None:
-        item_id: str = event.item.id or ""
-        action = item_id.removeprefix("item-")
+        action = (event.item.id or "").removeprefix("item-")
+        self._run_action(action)
+
+    def _run_action(self, action: str) -> None:
         self._current_action = action
-        self._show_panel(action)
+        self._request_id += 1  # invalidate any in-flight fetch
+        rid = self._request_id
 
-    def _show_panel(self, action: str) -> None:
-        """Clear the content area and mount the panel for *action*."""
-        content = self.query_one("#content")
-        for child in list(content.children):
-            child.remove()
-
-        if action == "profile":
-            self._panel_profile(content)
-        elif action == "schedule":
-            self._panel_form(content, "课表", "学期（如 24251）", "semester",
-                             default=self._default_semester())
-        elif action == "courses":
-            self._panel_courses(content)
-        elif action == "exam":
-            self._panel_form(content, "考试安排", "学期（如 24251）", "semester",
-                             default=self._default_semester())
-        elif action == "exp_scores":
-            self._panel_form(content, "实验成绩", "学期（如 24251）", "semester",
-                             default=self._default_semester())
-        elif action == "scores":
-            self._panel_scores(content)
-        elif action == "classrooms":
-            self._panel_classrooms(content)
-        elif action == "settings":
-            self._panel_settings(content)
-        elif action == "logout":
+        if action == "settings":
+            self.run_worker(self._show_settings, group="ui", exclusive=True)
+            return
+        if action == "logout":
             self._do_logout()
+            return
 
-    # ------------------------------------------------------------------
-    # Panel builders — mount widgets into *container*
-    # ------------------------------------------------------------------
+        # Data actions: show loading, then fetch.
+        self.run_worker(self._show_loading, group="ui", exclusive=True)
 
-    def _panel_profile(self, container: Widget) -> None:
-        container.mount(Static("个人信息", id="content-title"))
-        loading = LoadingIndicator(id="loading")
-        container.mount(loading)
-        container.mount(Static("", id="error-msg"))
-        container.mount(Vertical(id="result-area"))
-        self._fetch_profile()
-
-    def _panel_form(
-        self,
-        container: Widget,
-        title: str,
-        label: str,
-        field: str,
-        default: str = "",
-    ) -> None:
-        container.mount(Static(title, id="content-title"))
-        form = Vertical(id="param-form")
-        container.mount(form)
-        form.mount(Label(label))
-        form.mount(Input(value=default, id=f"input-{field}"))
-        form.mount(Button("查 询", variant="primary", id="btn-fetch"))
-        loading = LoadingIndicator(id="loading")
-        loading.display = False
-        container.mount(loading)
-        container.mount(Static("", id="error-msg"))
-        container.mount(Vertical(id="result-area"))
-
-    def _panel_courses(self, container: Widget) -> None:
-        container.mount(Static("课程库", id="content-title"))
-        form = Vertical(id="param-form")
-        container.mount(form)
-        form.mount(Label("查询当前学期公开课程库（本科生/研究生均可）"))
-        form.mount(Button("查 询", variant="primary", id="btn-fetch"))
-        loading = LoadingIndicator(id="loading")
-        loading.display = False
-        container.mount(loading)
-        container.mount(Static("", id="error-msg"))
-        container.mount(Vertical(id="result-area"))
-
-    def _panel_scores(self, container: Widget) -> None:
-        container.mount(Static("成绩", id="content-title"))
-        form = Vertical(id="param-form")
-        container.mount(form)
-        form.mount(Label("查询全部历史成绩"))
-        form.mount(Button("查 询", variant="primary", id="btn-fetch"))
-        loading = LoadingIndicator(id="loading")
-        loading.display = False
-        container.mount(loading)
-        container.mount(Static("", id="error-msg"))
-        container.mount(Vertical(id="result-area"))
-
-    def _panel_classrooms(self, container: Widget) -> None:
-        container.mount(Static("空闲教室", id="content-title"))
-        form = Vertical(id="param-form")
-        container.mount(form)
-        form.mount(Label("日期（YYYY-MM-DD）"))
-        form.mount(Input(placeholder="2025-10-08", id="input-date_begin"))
-        form.mount(Label("校区 ID（2=卫津路 / 3=北洋园，留空不过滤）"))
-        form.mount(Input(placeholder="3", id="input-campus_id"))
-        form.mount(Label("开始节次（1–12，默认 1）"))
-        form.mount(Input(value="1", id="input-time_begin"))
-        form.mount(Label("结束节次（1–12，默认 12）"))
-        form.mount(Input(value="12", id="input-time_end"))
-        form.mount(Button("查 询", variant="primary", id="btn-fetch"))
-        loading = LoadingIndicator(id="loading")
-        loading.display = False
-        container.mount(loading)
-        container.mount(Static("", id="error-msg"))
-        container.mount(Vertical(id="result-area"))
-
-    def _panel_settings(self, container: Widget) -> None:
-        container.mount(Static("设置", id="content-title"))
-        prefs = cfg.get_preferences()
-        form = Vertical(id="param-form")
-        container.mount(form)
-        form.mount(Label("默认学期（留空使用系统当前学期）"))
-        form.mount(Input(
-            value=prefs.get("default_semester", ""),
-            id="input-default_semester",
-        ))
-        form.mount(Button("保 存", variant="primary", id="btn-save-settings"))
-        container.mount(Static("", id="error-msg"))
-
-    # ------------------------------------------------------------------
-    # Button events
-    # ------------------------------------------------------------------
-
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        btn_id = event.button.id
-        if btn_id == "btn-fetch":
-            self._dispatch_fetch()
-        elif btn_id == "btn-save-settings":
-            self._save_settings()
-
-    def _dispatch_fetch(self) -> None:
-        action = self._current_action
         if action == "profile":
-            self._fetch_profile()
+            self._profile_worker(rid)
         elif action == "schedule":
-            semester = self._input_value("input-semester")
-            if not semester:
-                self._show_error("请输入学期")
-                return
-            self._fetch_schedule(semester)
-        elif action == "courses":
-            self._fetch_courses()
-        elif action == "exam":
-            semester = self._input_value("input-semester")
-            if not semester:
-                self._show_error("请输入学期")
-                return
-            self._fetch_exam(semester)
+            self._schedule_worker(rid, self._semester())
         elif action == "scores":
-            self._fetch_scores()
+            self._scores_worker(rid)
+        elif action == "exam":
+            self._exam_worker(rid, self._semester())
         elif action == "exp_scores":
-            semester = self._input_value("input-semester")
-            if not semester:
-                self._show_error("请输入学期")
-                return
-            self._fetch_exp_scores(semester)
+            self._exp_scores_worker(rid, self._semester())
+        elif action == "courses":
+            self._courses_worker(rid)
         elif action == "classrooms":
-            date_begin = self._input_value("input-date_begin")
-            if not date_begin:
-                self._show_error("请输入日期")
-                return
-            campus_id = self._input_value("input-campus_id") or None
-            time_begin = self._input_value("input-time_begin") or "1"
-            time_end = self._input_value("input-time_end") or "12"
-            self._fetch_classrooms(date_begin, campus_id, time_begin, time_end)
+            self.run_worker(self._show_classroom_form, group="ui", exclusive=True)
 
     # ------------------------------------------------------------------
-    # API workers
-    #
-    # Pattern: worker thread fetches raw data (dicts/lists), then calls
-    # call_from_thread with a *data* callback that creates the widget on
-    # the main thread.  DataTable methods must only be called on the main
-    # event loop thread.
+    # Content rendering primitives (async — awaits removal first)
     # ------------------------------------------------------------------
 
-    def _fetch_profile(self) -> None:
-        self._set_loading(True)
-        self._profile_worker()
+    async def _swap(self, *widgets) -> None:
+        """Replace the content body with *widgets* (awaits removal first)."""
+        body = self.query_one("#content-body", VerticalScroll)
+        await body.remove_children()
+        if widgets:
+            await body.mount(*widgets)
+
+    async def _show_loading(self) -> None:
+        await self._swap(LoadingIndicator())
+
+    async def _show_error(self, message: str) -> None:
+        await self._swap(Static(f"  ⚠  {message}", classes="error-box"))
+
+    async def _show_table(
+        self, header: str, render_fn, data, param_bar: bool = False
+    ) -> None:
+        """Build the result widget on the main thread and mount it.
+
+        ``render_fn`` is called here (not in the worker thread) because Textual
+        ``DataTable`` construction requires the active-app context, which only
+        exists on the event-loop thread.
+        """
+        widget = render_fn(data)
+        children: list = []
+        if param_bar:
+            children.append(self._semester_bar())
+        children.append(Static(header, classes="result-header"))
+        children.append(widget)
+        await self._swap(*children)
+        # Focus the table so j/k scrolls immediately.
+        try:
+            widget.focus()
+        except Exception:  # noqa: BLE001
+            pass
+
+    # ------------------------------------------------------------------
+    # Param widgets
+    # ------------------------------------------------------------------
+
+    def _semester_bar(self) -> Horizontal:
+        return Horizontal(
+            Static("学期", classes="param-label"),
+            Input(value=self._semester(), id="param-semester", classes="param-input"),
+            Static("Enter 刷新", classes="param-hint"),
+            classes="param-bar",
+        )
+
+    # ------------------------------------------------------------------
+    # Settings panel
+    # ------------------------------------------------------------------
+
+    async def _show_settings(self) -> None:
+        prefs = cfg.get_preferences()
+        form = Vertical(
+            Static("默认学期（留空则用系统当前学期）", classes="form-label"),
+            Input(
+                value=prefs.get("default_semester", ""),
+                placeholder="如 25262",
+                id="set-default-semester",
+                classes="param-input",
+            ),
+            Static("回车保存", classes="param-hint"),
+            classes="form",
+        )
+        await self._swap(form)
+        self.query_one("#set-default-semester", Input).focus()
+
+    async def _show_classroom_form(self) -> None:
+        form = Vertical(
+            Static("日期（YYYY-MM-DD）", classes="form-label"),
+            Input(placeholder="2025-10-08", id="cr-date", classes="param-input"),
+            Static("校区（2 卫津路 / 3 北洋园，留空全部）", classes="form-label"),
+            Input(value="3", id="cr-campus", classes="param-input"),
+            Static("起始节次 / 结束节次（1–12）", classes="form-label"),
+            Input(value="1", id="cr-begin", classes="param-input"),
+            Input(value="12", id="cr-end", classes="param-input"),
+            Static("回车查询", classes="param-hint"),
+            classes="form",
+        )
+        await self._swap(form)
+        self.query_one("#cr-date", Input).focus()
+
+    # ------------------------------------------------------------------
+    # Input submitted (semester refresh / settings / classroom search)
+    # ------------------------------------------------------------------
+
+    def on_input_submitted(self, event: Input.Submitted) -> None:
+        wid = event.input.id
+        if wid == "param-semester":
+            sem = event.input.value.strip()
+            self._request_id += 1
+            rid = self._request_id
+            self.run_worker(self._show_loading, group="ui", exclusive=True)
+            action = self._current_action
+            if action == "schedule":
+                self._schedule_worker(rid, sem)
+            elif action == "exam":
+                self._exam_worker(rid, sem)
+            elif action == "exp_scores":
+                self._exp_scores_worker(rid, sem)
+        elif wid == "set-default-semester":
+            cfg.set_preference("default_semester", event.input.value.strip())
+            self.notify("设置已保存", title="设置")
+        elif wid in {"cr-date", "cr-campus", "cr-begin", "cr-end"}:
+            self._submit_classroom()
+
+    def _submit_classroom(self) -> None:
+        date_begin = self._val("cr-date")
+        if not date_begin:
+            self.notify("请输入日期", title="空闲教室", severity="warning")
+            return
+        campus = self._val("cr-campus") or None
+        begin = self._val("cr-begin") or "1"
+        end = self._val("cr-end") or "12"
+        self._request_id += 1
+        rid = self._request_id
+        self.run_worker(self._show_loading, group="ui", exclusive=True)
+        self._classrooms_worker(rid, date_begin, campus, begin, end)
+
+    def _val(self, wid: str) -> str:
+        try:
+            return self.query_one(f"#{wid}", Input).value.strip()
+        except Exception:  # noqa: BLE001
+            return ""
+
+    # ------------------------------------------------------------------
+    # API workers — fetch raw data on a thread, render on main thread
+    # ------------------------------------------------------------------
+
+    def _client(self) -> Client:
+        return self.app.client  # type: ignore[attr-defined,return-value]
+
+    def _fail(self, rid: int, exc: Exception) -> None:
+        if rid != self._request_id:
+            return  # a newer request superseded this one
+        msg = str(exc) if isinstance(exc, (DataError, HtmlParseError)) else f"请求失败：{exc}"
+        self.app.call_from_thread(self._show_error, msg)
+
+    def _done(self, rid: int, header: str, render_fn, data, param_bar: bool = False) -> None:
+        if rid != self._request_id:
+            return  # a newer request superseded this one
+        # render_fn is invoked on the main thread inside _show_table.
+        self.app.call_from_thread(self._show_table, header, render_fn, data, param_bar)
 
     @work(thread=True)
-    def _profile_worker(self) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
+    def _profile_worker(self, rid: int) -> None:
         try:
             from tju.models import Profile  # noqa: PLC0415
-            profile = client.profile
-            data: dict[str, Any] = Profile.Schema().dump(profile)
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
+            data = Profile.Schema().dump(self._client().profile)
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
+            self._fail(rid, exc)
             return
-        self.app.call_from_thread(self._on_profile_data, data)
-
-    def _on_profile_data(self, data: dict[str, Any]) -> None:
-        self._show_widget(render_profile(data))
-        self._set_loading(False)
-
-    # ---- Schedule ----
-
-    def _fetch_schedule(self, semester: str) -> None:
-        self._set_loading(True)
-        self._schedule_worker(semester)
+        self._done(rid, "个人信息", render_profile, data)
 
     @work(thread=True)
-    def _schedule_worker(self, semester: str) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
+    def _schedule_worker(self, rid: int, semester: str) -> None:
         try:
             from tju.models.schedule import Course  # noqa: PLC0415
-            schedule = client.schedule(semester=semester)
-            rows: list[dict[str, Any]] = Course.Schema(many=True).dump(list(schedule))
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
+            rows = Course.Schema(many=True).dump(
+                list(self._client().schedule(semester=semester))
+            )
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
+            self._fail(rid, exc)
             return
-        label = f"共 {len(rows)} 门课程 — 学期 {semester}"
-        self.app.call_from_thread(self._on_tabular_data, rows, "schedule", label)
-
-    # ---- Courses ----
-
-    def _fetch_courses(self) -> None:
-        self._set_loading(True)
-        self._courses_worker()
+        self._done(rid, f"共 {len(rows)} 门课程 · 学期 {semester}",
+                   render_schedule, rows, param_bar=True)
 
     @work(thread=True)
-    def _courses_worker(self) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
+    def _scores_worker(self, rid: int) -> None:
         try:
-            from tju.models.course import LibCourse  # noqa: PLC0415
-            courses = client.query_courses()
-            rows: list[dict[str, Any]] = LibCourse.Schema(many=True).dump(list(courses))
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
-        except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
-            return
-        label = f"共 {len(rows)} 门课程"
-        self.app.call_from_thread(self._on_tabular_data, rows, "courses", label)
-
-    # ---- Exam ----
-
-    def _fetch_exam(self, semester: str) -> None:
-        self._set_loading(True)
-        self._exam_worker(semester)
-
-    @work(thread=True)
-    def _exam_worker(self, semester: str) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
-        try:
-            from tju.models.exam import Exam  # noqa: PLC0415
-            exams = client.exam(semester=semester)
-            rows: list[dict[str, Any]] = Exam.Schema(many=True).dump(list(exams))
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
-        except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
-            return
-        label = f"共 {len(rows)} 场考试 — 学期 {semester}"
-        self.app.call_from_thread(self._on_tabular_data, rows, "exam", label)
-
-    # ---- Scores ----
-
-    def _fetch_scores(self) -> None:
-        self._set_loading(True)
-        self._scores_worker()
-
-    @work(thread=True)
-    def _scores_worker(self) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
-        try:
+            client = self._client()
             result = client.score()
-            is_gs = client.stu_type == StuType.GRADUATE
             score_list = result.get("list", [])
-            if is_gs:
+            if client.stu_type == StuType.GRADUATE:
                 from tju.models.score import GSScore  # noqa: PLC0415
-                rows: list[dict[str, Any]] = GSScore.Schema(many=True).dump(list(score_list))
-                kind = "gs_scores"
+                rows = GSScore.Schema(many=True).dump(list(score_list))
+                render_fn = render_gs_scores
             else:
                 from tju.models.score import UGScore  # noqa: PLC0415
                 rows = UGScore.Schema(many=True).dump(list(score_list))
-                kind = "ug_scores"
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
+                render_fn = render_ug_scores
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
+            self._fail(rid, exc)
             return
-        label = f"共 {len(rows)} 条成绩记录"
-        self.app.call_from_thread(self._on_tabular_data, rows, kind, label)
-
-    # ---- Exp scores ----
-
-    def _fetch_exp_scores(self, semester: str) -> None:
-        self._set_loading(True)
-        self._exp_scores_worker(semester)
+        self._done(rid, f"共 {len(rows)} 条成绩记录", render_fn, rows)
 
     @work(thread=True)
-    def _exp_scores_worker(self, semester: str) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
+    def _exam_worker(self, rid: int, semester: str) -> None:
+        try:
+            from tju.models.exam import Exam  # noqa: PLC0415
+            rows = Exam.Schema(many=True).dump(
+                list(self._client().exam(semester=semester))
+            )
+        except Exception as exc:  # noqa: BLE001
+            self._fail(rid, exc)
+            return
+        self._done(rid, f"共 {len(rows)} 场考试 · 学期 {semester}",
+                   render_exam, rows, param_bar=True)
+
+    @work(thread=True)
+    def _exp_scores_worker(self, rid: int, semester: str) -> None:
         try:
             from tju.models.score import ExpScore  # noqa: PLC0415
-            exp = client.exp_score(semester=semester)
-            rows: list[dict[str, Any]] = ExpScore.Schema(many=True).dump(list(exp))
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
+            rows = ExpScore.Schema(many=True).dump(
+                list(self._client().exp_score(semester=semester))
+            )
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
+            self._fail(rid, exc)
             return
-        label = f"共 {len(rows)} 条实验成绩 — 学期 {semester}"
-        self.app.call_from_thread(self._on_tabular_data, rows, "exp_scores", label)
+        self._done(rid, f"共 {len(rows)} 条实验成绩 · 学期 {semester}",
+                   render_exp_scores, rows, param_bar=True)
 
-    # ---- Classrooms ----
-
-    def _fetch_classrooms(
-        self,
-        date_begin: str,
-        campus_id: str | None,
-        time_begin: str,
-        time_end: str,
-    ) -> None:
-        self._set_loading(True)
-        self._classrooms_worker(date_begin, campus_id, time_begin, time_end)
+    @work(thread=True)
+    def _courses_worker(self, rid: int) -> None:
+        try:
+            from tju.models.course import LibCourse  # noqa: PLC0415
+            result = self._client().query_courses()
+            # query_courses returns a paged dict: {list, page_no, page_size, total}
+            course_list = result.get("list", []) if isinstance(result, dict) else list(result)
+            total = result.get("total", len(course_list)) if isinstance(result, dict) else len(course_list)
+            rows = LibCourse.Schema(many=True).dump(list(course_list))
+        except Exception as exc:  # noqa: BLE001
+            self._fail(rid, exc)
+            return
+        self._done(rid, f"本页 {len(rows)} 门 · 共 {total} 门课程", render_courses, rows)
 
     @work(thread=True)
     def _classrooms_worker(
-        self,
-        date_begin: str,
-        campus_id: str | None,
-        time_begin: str,
-        time_end: str,
+        self, rid: int, date_begin: str, campus_id: str | None,
+        time_begin: str, time_end: str,
     ) -> None:
-        client: Client = self.app.client  # type: ignore[attr-defined]
         try:
             from tju.models.classroom import FreeClassroom  # noqa: PLC0415
-            classrooms = client.free_classrooms(
+            rooms = self._client().free_classrooms(
                 date_begin=date_begin,
                 campus_id=campus_id,
                 time_begin=time_begin,
                 time_end=time_end,
             )
-            rows: list[dict[str, Any]] = FreeClassroom.Schema(many=True).dump(
-                list(classrooms)
-            )
-        except (DataError, HtmlParseError) as exc:
-            self.app.call_from_thread(self._show_error, str(exc))
-            self.app.call_from_thread(self._set_loading, False)
-            return
+            rows = FreeClassroom.Schema(many=True).dump(list(rooms))
         except Exception as exc:  # noqa: BLE001
-            self.app.call_from_thread(self._show_error, f"请求失败: {exc}")
-            self.app.call_from_thread(self._set_loading, False)
+            self._fail(rid, exc)
             return
-        label = f"共 {len(rows)} 间空闲教室 — {date_begin}"
-        self.app.call_from_thread(self._on_tabular_data, rows, "classrooms", label)
-
-    # ------------------------------------------------------------------
-    # Main-thread data callbacks (widget creation happens here)
-    # ------------------------------------------------------------------
-
-    def _on_tabular_data(
-        self, rows: list[dict[str, Any]], kind: str, label: str
-    ) -> None:
-        """Create and mount a result widget from serialised *rows* (main thread)."""
-        render_map = {
-            "schedule":   render_schedule,
-            "courses":    render_courses,
-            "exam":       render_exam,
-            "ug_scores":  render_ug_scores,
-            "gs_scores":  render_gs_scores,
-            "exp_scores": render_exp_scores,
-            "classrooms": render_classrooms,
-        }
-        renderer = render_map.get(kind)
-        if renderer is None:
-            return
-        widget = renderer(rows)
-        self._show_widget(widget, label)
-        self._set_loading(False)
-
-    # ------------------------------------------------------------------
-    # Settings save
-    # ------------------------------------------------------------------
-
-    def _save_settings(self) -> None:
-        semester = self._input_value("input-default_semester")
-        cfg.set_preference("default_semester", semester)
-        self.notify("设置已保存", title="设置")
+        self._done(rid, f"共 {len(rows)} 间空闲教室 · {date_begin}",
+                   render_classrooms, rows)
 
     # ------------------------------------------------------------------
     # Logout
@@ -518,9 +443,8 @@ class MainScreen(Screen):
 
     def _do_logout(self) -> None:
         cfg.clear_credentials()
-        client: Client = self.app.client  # type: ignore[attr-defined]
         try:
-            client._session.logout()
+            self._client()._session.logout()
         except Exception:  # noqa: BLE001
             pass
         self.app.client = None  # type: ignore[attr-defined]
@@ -529,50 +453,14 @@ class MainScreen(Screen):
         self.app.switch_screen(LoginScreen())
 
     # ------------------------------------------------------------------
-    # UI helpers
+    # Helpers
     # ------------------------------------------------------------------
 
-    def _input_value(self, widget_id: str) -> str:
+    def _semester(self) -> str:
+        pref = cfg.get_preferences().get("default_semester", "")
+        if pref:
+            return pref
         try:
-            return self.query_one(f"#{widget_id}", Input).value.strip()
+            return self._client().semester
         except Exception:  # noqa: BLE001
             return ""
-
-    def _set_loading(self, loading: bool) -> None:
-        try:
-            widget = self.query_one("#loading", LoadingIndicator)
-            widget.display = loading
-        except Exception:  # noqa: BLE001
-            pass
-        try:
-            btn = self.query_one("#btn-fetch", Button)
-            btn.disabled = loading
-        except Exception:  # noqa: BLE001
-            pass
-
-    def _show_error(self, message: str) -> None:
-        try:
-            w = self.query_one("#error-msg", Static)
-            w.update(f"⚠ {message}")
-            w.add_class("visible")
-        except Exception:  # noqa: BLE001
-            self.notify(message, title="错误", severity="error")
-
-    def _show_widget(self, widget: Widget, subtitle: str = "") -> None:
-        """Mount *widget* into the result area, replacing previous results."""
-        try:
-            area = self.query_one("#result-area")
-        except Exception:  # noqa: BLE001
-            return
-        for child in list(area.children):
-            child.remove()
-        try:
-            self.query_one("#error-msg", Static).remove_class("visible")
-        except Exception:  # noqa: BLE001
-            pass
-        if subtitle:
-            area.mount(Static(subtitle))
-        area.mount(widget)
-
-    def _default_semester(self) -> str:
-        return cfg.get_preferences().get("default_semester", "")

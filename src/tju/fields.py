@@ -17,8 +17,8 @@ from tju.models.common import StuType
 
 
 class ChineseGender(Field):
-    def _serialize(self, value: Gender, attr: str, obj: object, **kwargs) -> str:
-        return value.value
+    def _serialize(self, value: Gender | None, attr: str, obj: object, **kwargs) -> str:
+        return value.value if value is not None else ""
 
     def _deserialize(
         self, value: str, attr: str, data: dict, **kwargs
@@ -33,8 +33,8 @@ class ChineseGender(Field):
 
 
 class ChineseStuType(Field):
-    def _serialize(self, value: StuType, attr: str, obj: object, **kwargs) -> str:
-        return value.value
+    def _serialize(self, value: StuType | None, attr: str, obj: object, **kwargs) -> str:
+        return value.value if value is not None else ""
 
     def _deserialize(
         self, value: str, attr: str, data: dict, **kwargs
@@ -53,8 +53,8 @@ class DatetimeField(Field):
         super().__init__(**kwargs)
         self.template = template if template is not None else "%Y-%m-%d"
 
-    def _serialize(self, value: date, attr: str, obj: object, **kwargs) -> str:
-        return value.strftime(self.template)
+    def _serialize(self, value: date | None, attr: str, obj: object, **kwargs) -> str:
+        return value.strftime(self.template) if value is not None else ""
 
     def _deserialize(self, value: str, attr: str, data: dict, **kwargs) -> date | None:
         return datetime.strptime(value, self.template).date() if value else None
@@ -73,8 +73,8 @@ class ChineseHasBool(Field):
 class ExamTimeField(Field):
     """09:00~11:00"""
 
-    def _serialize(self, value: list, attr: str, obj: object, **kwargs) -> list:
-        return [_.strftime("%H:%M") for _ in value]
+    def _serialize(self, value: list | None, attr: str, obj: object, **kwargs) -> list:
+        return [_.strftime("%H:%M") for _ in value] if value is not None else []
 
     def _deserialize(self, value: str, attr: str, data: dict, **kwargs) -> list | None:
         if value is None:

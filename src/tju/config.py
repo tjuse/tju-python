@@ -84,21 +84,35 @@ def set_username(username: str, cfg: dict[str, Any] | None = None) -> None:
 def get_password(username: str) -> str | None:
     """Retrieve the password for *username* from the OS keyring.
 
-    Returns ``None`` if no credential is stored.
+    Returns ``None`` if no credential is stored, or if no usable keyring
+    backend is available on the system (so callers degrade gracefully rather
+    than crashing — e.g. auto-login is simply skipped).
     """
-    return keyring.get_password(_SERVICE, username)
+    try:
+        return keyring.get_password(_SERVICE, username)
+    except keyring.errors.KeyringError:
+        return None
 
 
-def set_password(username: str, password: str) -> None:
-    """Store *password* in the OS keyring under *username*."""
-    keyring.set_password(_SERVICE, username, password)
+def set_password(username: str, password: str) -> bool:
+    """Store *password* in the OS keyring under *username*.
+
+    Returns ``True`` on success, ``False`` if no usable keyring backend is
+    available (the caller may then warn the user that the credential could not
+    be remembered for next time).
+    """
+    try:
+        keyring.set_password(_SERVICE, username, password)
+        return True
+    except keyring.errors.KeyringError:
+        return False
 
 
 def delete_password(username: str) -> None:
-    """Remove the keyring entry for *username* (no-op if absent)."""
+    """Remove the keyring entry for *username* (no-op if absent or no backend)."""
     try:
         keyring.delete_password(_SERVICE, username)
-    except keyring.errors.PasswordDeleteError:
+    except keyring.errors.KeyringError:
         pass
 
 

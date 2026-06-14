@@ -50,7 +50,18 @@ def mock_client():
     client = MagicMock()
     client.stu_name = "测试同学"
     client.stu_id = "2024000001"
+    client.semester = "24251"
     return client
+
+
+@pytest.fixture()
+def main_screen(config_dir, mock_client):
+    """A coroutine factory returning (app, pilot) with MainScreen pushed."""
+    from tju.tui.app import TjuApp
+
+    app = TjuApp()
+    app.client = mock_client
+    return app
 
 
 # ---------------------------------------------------------------------------
@@ -169,3 +180,100 @@ async def test_quit_binding(config_dir):
         await _settle(pilot)
         await pilot.press("q")
         # reaching here without exception means clean exit
+
+
+# ---------------------------------------------------------------------------
+# Content-swapping / DuplicateIds regression tests
+# ---------------------------------------------------------------------------
+
+
+async def test_content_swap_no_duplicate_ids(main_screen):
+    """Rapidly swapping panels must not raise DuplicateIds.
+
+    Regression test for the bug where ``child.remove()`` (deferred) ran after
+    new fixed-id widgets were mounted.  ``_swap`` now awaits removal first.
+    """
+    from tju.tui.render import render_profile, render_schedule
+    from tju.tui.screens.main import MainScreen
+
+    app = main_screen
+    async with app.run_test(headless=True) as pilot:
+        await _settle(pilot)
+        await pilot.app.push_screen(MainScreen())
+        await _settle(pilot, n=5)
+        screen = pilot.app.screen
+
+        profile_data = {"stu_id": "2024000001", "stu_name": "测试同学"}
+        sched_rows = [{"name": "高等数学", "credit": "4", "teacher": "张老师"}]
+
+        # Interleave param-bar (semester input id) and non-param renders many
+        # times — this is exactly what used to raise DuplicateIds.
+        for _ in range(4):
+            await screen._show_loading()
+            await _settle(pilot, n=2)
+            await screen._show_table("个人信息", render_profile, profile_data)
+            await _settle(pilot, n=2)
+            await screen._show_table(
+                "课表", render_schedule, sched_rows, param_bar=True
+            )
+            await _settle(pilot, n=2)
+            await screen._show_settings()
+            await _settle(pilot, n=2)
+            await screen._show_classroom_form()
+            await _settle(pilot, n=2)
+            await screen._show_error("测试错误")
+            await _settle(pilot, n=2)
+
+        # Final state is the error box; body should hold exactly its children.
+        from textual.containers import VerticalScroll
+
+        body = screen.query_one("#content-body", VerticalScroll)
+        assert len(body.children) >= 1
+
+
+async def test_tab_toggles_panel_focus(main_screen):
+    """Tab switches focus between the menu and content panels."""
+    from textual.widgets import ListView
+
+    from tju.tui.screens.main import MainScreen
+
+    app = main_screen
+    async with app.run_test(headless=True) as pilot:
+        await _settle(pilot)
+        await pilot.app.push_screen(MainScreen())
+        await _settle(pilot, n=5)
+        screen = pilot.app.screen
+
+        menu = screen.query_one("#menu", ListView)
+        assert menu.has_focus  # starts focused on menu
+
+        await pilot.press("tab")
+        await _settle(pilot, n=2)
+        # focus moved off the menu
+        assert not menu.has_focus
+
+        await pilot.press("tab")
+        await _settle(pilot, n=2)
+        assert menu.has_focus
+
+
+async def test_param_semester_bar_has_input(main_screen):
+    """A param-bar render mounts a queryable semester input."""
+    from textual.widgets import Input
+
+    from tju.tui.render import render_schedule
+    from tju.tui.screens.main import MainScreen
+
+    app = main_screen
+    async with app.run_test(headless=True) as pilot:
+        await _settle(pilot)
+        await pilot.app.push_screen(MainScreen())
+        await _settle(pilot, n=5)
+        screen = pilot.app.screen
+
+        await screen._show_table(
+            "课表", render_schedule, [{"name": "x"}], param_bar=True
+        )
+        await _settle(pilot, n=2)
+        inp = screen.query_one("#param-semester", Input)
+        assert inp is not None
