@@ -37,18 +37,34 @@ Documentation = "https://python.tjuse.com/"
 Changelog = "https://github.com/tjuse/tju-python/blob/main/CHANGELOG.md"
 Issues = "https://github.com/tjuse/tju-python/issues"
 
+[project.scripts]
+tju = "tju.tui:main"
+
+[project.optional-dependencies]
+tui = [
+    "keyring>=24",
+    "platformdirs>=4",
+    "textual>=0.60",
+    "tomli-w>=1",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "anyio[trio]>=4.13.0",
     "pytest>=8.3.3",
+    "pytest-asyncio>=0.23",
 ]
 docs = [
     "mkdocs-material>=9.5",
     "mkdocstrings[python]>=0.25",
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
 
 [tool.hatch.metadata]
 allow-direct-references = true

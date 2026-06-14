@@ -33,6 +33,12 @@
 pip install tju
 ```
 
+安装交互式终端应用（TUI）：
+
+```sh
+pip install 'tju[tui]'
+```
+
 从源码安装（推荐用于开发）：
 
 ```sh
@@ -42,6 +48,16 @@ uv sync       # 将所有依赖安装到 .venv
 ```
 
 ## 快速开始
+
+### 交互式终端（TUI）
+
+```sh
+tju          # 启动全屏终端应用
+```
+
+首次启动输入学号和密码。凭据安全保存：用户名写入 `~/.config/tju/config.toml`，密码存入操作系统钥匙串（macOS Keychain / Windows Credential Manager / Linux Secret Service）。
+
+### Python API
 
 将凭据设置为环境变量（或写入 `.env` 文件）：
 

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Interactive full-screen TUI (`tju` command, `pip install 'tju[tui]'` extra)
+  for browsing profile, schedule, courses, exams, scores and free classrooms
+- Credentials stored securely: username in `~/.config/tju/config.toml`,
+  password in the OS keyring (macOS Keychain / Windows Credential Manager /
+  Linux Secret Service) — password never written to disk in plaintext
+
 ## [0.1.2] - 2026-06-13
 
 ### Changed

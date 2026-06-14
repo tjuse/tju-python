@@ -38,6 +38,7 @@ nav:
       - Models: api/models.md
       - Parsers: api/parsers.md
       - Exceptions: api/exceptions.md
+  - TUI: tui.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 

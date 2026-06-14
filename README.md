@@ -33,6 +33,12 @@ English | [简体中文](https://github.com/tjuse/tju-python/blob/main/README.zh
 pip install tju
 ```
 
+For the interactive terminal app (TUI):
+
+```sh
+pip install 'tju[tui]'
+```
+
 From source (recommended for development):
 
 ```sh
@@ -42,6 +48,17 @@ uv sync       # installs all dependencies into .venv
 ```
 
 ## Quick start
+
+### Interactive TUI
+
+```sh
+tju          # launches the full-screen terminal app
+```
+
+Enter your student ID and password on first launch. Credentials are saved
+securely (username in `~/.config/tju/config.toml`, password in the OS keyring).
+
+### Python API
 
 Set your credentials as environment variables (or put them in a `.env` file):
 

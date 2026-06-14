@@ -1,0 +1,224 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   TJU TUI  —  app-level stylesheet
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Root / Screen ─────────────────────────────────────────────────────── */
+Screen {
+    background: $surface;
+}
+
+/* ── Login screen ───────────────────────────────────────────────────────── */
+LoginScreen {
+    align: center middle;
+}
+
+#login-box {
+    width: 52;
+    height: auto;
+    padding: 2 3;
+    border: round $primary;
+    background: $panel;
+}
+
+#login-title {
+    text-align: center;
+    text-style: bold;
+    color: $primary;
+    margin-bottom: 1;
+}
+
+#login-subtitle {
+    text-align: center;
+    color: $text-muted;
+    margin-bottom: 2;
+}
+
+LoginScreen Label {
+    margin-top: 1;
+    color: $text;
+}
+
+LoginScreen Input {
+    margin-bottom: 1;
+}
+
+#login-error {
+    color: $error;
+    margin-top: 1;
+    display: none;
+}
+
+#login-error.visible {
+    display: block;
+}
+
+#btn-login {
+    width: 100%;
+    margin-top: 1;
+}
+
+/* ── Main screen layout ─────────────────────────────────────────────────── */
+MainScreen {
+    layout: vertical;
+}
+
+#topbar {
+    height: 1;
+    background: $primary;
+    color: $background;
+    padding: 0 2;
+    layout: horizontal;
+}
+
+#topbar-title {
+    width: 1fr;
+    text-style: bold;
+}
+
+#topbar-user {
+    color: $background;
+    text-style: italic;
+}
+
+#body {
+    layout: horizontal;
+    height: 1fr;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+#sidebar {
+    width: 22;
+    border-right: solid $primary-darken-2;
+    background: $panel;
+    padding: 1 0;
+}
+
+#sidebar-list {
+    background: $panel;
+}
+
+#sidebar-list > ListItem {
+    padding: 0 2;
+}
+
+#sidebar-list > ListItem.--highlight {
+    background: $primary;
+    color: $background;
+}
+
+#sidebar-list > ListItem:hover {
+    background: $primary-darken-1;
+    color: $background;
+}
+
+/* ── Content panel ──────────────────────────────────────────────────────── */
+#content {
+    width: 1fr;
+    padding: 1 2;
+    overflow-y: auto;
+}
+
+#content-title {
+    text-style: bold;
+    color: $primary;
+    margin-bottom: 1;
+    border-bottom: solid $primary-darken-3;
+}
+
+/* ── Parameter form (inside content) ───────────────────────────────────── */
+#param-form {
+    height: auto;
+    margin-bottom: 1;
+    background: $panel;
+    border: round $primary-darken-2;
+    padding: 1 2;
+}
+
+#param-form Label {
+    color: $text-muted;
+}
+
+#param-form Input {
+    margin-bottom: 1;
+}
+
+#btn-fetch {
+    margin-top: 1;
+}
+
+/* ── Results area ───────────────────────────────────────────────────────── */
+#result-area {
+    height: 1fr;
+    overflow-y: auto;
+}
+
+#loading {
+    display: none;
+    margin: 2 0;
+}
+
+#loading.visible {
+    display: block;
+}
+
+#error-msg {
+    color: $error;
+    display: none;
+    padding: 1;
+    border: round $error;
+    margin-top: 1;
+}
+
+#error-msg.visible {
+    display: block;
+}
+
+/* ── DataTable ──────────────────────────────────────────────────────────── */
+DataTable {
+    height: auto;
+    max-height: 100%;
+}
+
+/* ── Modal param screens ────────────────────────────────────────────────── */
+ParamModal {
+    align: center middle;
+}
+
+#modal-box {
+    width: 60;
+    height: auto;
+    max-height: 80%;
+    border: round $primary;
+    background: $panel;
+    padding: 2 3;
+}
+
+#modal-title {
+    text-style: bold;
+    color: $primary;
+    margin-bottom: 1;
+}
+
+#modal-box Label {
+    color: $text-muted;
+    margin-top: 1;
+}
+
+#modal-box Input {
+    margin-bottom: 1;
+}
+
+#modal-buttons {
+    layout: horizontal;
+    margin-top: 1;
+    height: auto;
+}
+
+#modal-buttons Button {
+    width: 1fr;
+    margin-right: 1;
+}
+
+#modal-buttons Button:last-child {
+    margin-right: 0;
+}
